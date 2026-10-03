@@ -19,7 +19,6 @@ Site da Bagatela: criação de websites profissionais low cost para pequenos neg
 
 Substituir no `index.html`:
 
-- `[EMAIL]`
 - `[TELEFONE]`
 - `[TELEMOVEL]`
 
