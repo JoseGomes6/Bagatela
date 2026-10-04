@@ -6,6 +6,7 @@
 <title>Bagatela | Websites Profissionais a Preço de Bagatela</title>
 <meta name="description" content="A Bagatela cria websites profissionais, rápidos e otimizados para o Google para pequenos negócios em Portugal. Sites desde 179€, design à medida e online em poucos dias.">
 <meta name="robots" content="index, follow">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="canonical" href="https://www.bagatela.pt/">
 <meta name="theme-color" content="#07090F">
 
@@ -15,7 +16,9 @@
 <meta property="og:title" content="Bagatela | Websites Profissionais a Preço de Bagatela">
 <meta property="og:description" content="Sites feitos à medida para pequenos negócios: rápidos, bonitos e prontos para o Google.">
 <meta property="og:url" content="https://www.bagatela.pt/">
-<meta property="og:image" content="https://www.bagatela.pt/og-image.jpg">
+<meta property="og:image" content="https://www.bagatela.pt/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
 
 <script type="application/ld+json">
@@ -24,11 +27,11 @@
   "@type": "ProfessionalService",
   "name": "Bagatela",
   "url": "https://www.bagatela.pt/",
-  "logo": "https://www.bagatela.pt/logo.png",
+  "logo": "https://www.bagatela.pt/favicon.svg",
   "description": "Criação de websites profissionais e low cost para pequenos negócios em Portugal.",
   "areaServed": "PT",
-  "email": "bagatela.geral@gmail.com",
-  "telephone": "[TELEFONE]",
+  "email": "geral@bagatela.pt",
+  "telephone": "+351917385546",
   "priceRange": "179€ - 599€"
 }
 </script>
@@ -383,6 +386,41 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
 .hero h1 .tipo{background:linear-gradient(90deg,#2563EB,#8AB4FF,#fff,#8AB4FF,#2563EB);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
 .hero .pill b,.plano.top .etq{border:1px solid rgba(255,255,255,.25)}
 .passos li::before{color:#fff}
+
+/* Exemplos, Quem somos, formulário */
+.ver-ex{display:inline-block;margin:.8rem .4rem 0;font-weight:600;color:var(--damasco);text-decoration:none}
+.ver-ex:hover{text-decoration:underline}
+.quem-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center}
+.quem h2{font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:1.2rem}
+.quem p{font-size:1.1rem;max-width:50ch}
+.quem-lista{list-style:none;padding:0;margin:1.6rem 0 0;display:grid;gap:.8rem}
+.quem-lista li{padding-left:1.4rem;position:relative}
+.quem-lista li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:8px;border-radius:50%;background:var(--degrade)}
+.quem-lista b{color:var(--tinta)}
+.quem-foto{margin:0;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:9/10;background:var(--fundo-escuro);position:relative}
+.quem-foto img{width:100%;height:100%;object-fit:cover;display:block}
+.quem-foto .ph{display:none}
+.quem-foto.sem-foto .ph{display:grid;place-items:center;position:absolute;inset:0;font:700 6rem var(--display);color:rgba(255,255,255,.85)}
+.contactos{margin-top:1.4rem;font-size:1.15rem;line-height:1.8}
+.contactos a{text-decoration:none;font-weight:600}
+.contactos a:hover{text-decoration:underline}
+dialog#form-dlg{border:0;border-radius:var(--r-lg);padding:0;width:min(520px,calc(100% - 2rem));max-height:calc(100% - 2rem);background:var(--branco);color:var(--texto);box-shadow:0 40px 90px -20px rgba(0,0,0,.6)}
+dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
+#form-contacto{padding:2rem;display:grid;gap:1rem;position:relative}
+#form-contacto h2{font-size:1.8rem}
+#form-contacto .sub{margin-top:-.6rem}
+#form-contacto label{display:grid;gap:.35rem;font-weight:600;font-size:.95rem;color:var(--tinta)}
+#form-contacto input,#form-contacto select,#form-contacto textarea{font:inherit;font-weight:400;padding:.75rem .9rem;border:1.5px solid var(--salvia-2);border-radius:12px;background:var(--gelo);color:var(--tinta);width:100%}
+#form-contacto input:focus,#form-contacto select:focus,#form-contacto textarea:focus{outline:3px solid rgba(37,99,235,.35);border-color:var(--damasco)}
+#form-contacto .invalido{border-color:#C62828}
+#form-contacto .mel{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+#form-contacto .aviso{font-size:.85rem}
+#form-contacto .aviso a{color:var(--damasco)}
+#form-contacto .estado{min-height:1.4em;font-weight:600}
+#form-contacto .estado.ok{color:#1E7A47}
+#form-contacto .estado.erro{color:#C62828}
+.fechar-dlg{position:absolute;top:1rem;right:1rem;width:40px;height:40px;border:0;border-radius:50%;background:var(--gelo);font-size:1.6rem;line-height:1;cursor:pointer;color:var(--tinta)}
+@media (max-width:980px){.quem-grid{grid-template-columns:1fr;gap:2.4rem}.quem-foto{max-width:420px}}
 </style>
 </head>
 <body>
@@ -397,9 +435,10 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
       <li><a href="#servicos">Serviços</a></li>
       <li><a href="#exemplos">Exemplos</a></li>
       <li><a href="#precos">Preços</a></li>
+      <li><a href="#quem-somos">Quem somos</a></li>
       <li><a href="#faq">Perguntas</a></li>
     </ul>
-    <a class="btn btn-damasco" href="#contacto">Pedir orçamento</a>
+    <a class="btn btn-damasco js-form" href="#contacto">Falar connosco</a>
   </nav>
 </header>
 
@@ -411,7 +450,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
         <h1 id="h1">Websites profissionais <span class="tipo">a preço de bagatela.</span></h1>
         <p class="lead">Criamos o site do seu negócio à medida, rápido, bonito no telemóvel e preparado para ser encontrado no Google. Sem jargão técnico e sem surpresas na fatura.</p>
         <div class="acoes">
-          <a class="btn btn-damasco" href="#contacto">Pedir orçamento grátis</a>
+          <a class="btn btn-damasco js-form" href="#contacto">Começar o meu site</a>
           <a class="btn btn-linha" href="#precos">Ver planos e preços</a>
         </div>
         <ul class="garantias">
@@ -506,20 +545,20 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
     <div class="wrap">
       <div class="sec-cab rv">
         <h2 id="h-exemplos">Um estilo para cada negócio.</h2>
-        <p>Nada de modelos iguais para todos. Cada site é desenhado à volta da identidade do seu negócio.</p>
+        <p>Nada de modelos iguais para todos. Abra os exemplos e veja como cada site é desenhado à volta do negócio.</p>
       </div>
       <div class="galeria">
         <article class="ex rv">
           <div class="mini m1" aria-hidden="true"><span class="t">Restaurante O Farol</span><span class="l"></span><span class="l c"></span><span class="b"></span><div class="blocos"><span></span><span></span><span></span></div></div>
-          <h3>Restauração</h3><p>Menu, reservas e horário à vista.</p>
+          <h3>Restauração</h3><p>Menu, reservas e horário à vista.</p><a class="ver-ex" href="exemplos/restaurante.html">Ver exemplo →</a>
         </article>
         <article class="ex rv">
           <div class="mini m2" aria-hidden="true"><span class="t">Estúdio Rosa Beauty</span><span class="l"></span><span class="l c"></span><span class="b"></span><div class="blocos"><span></span><span></span><span></span></div></div>
-          <h3>Beleza e estética</h3><p>Serviços, preços e marcações online.</p>
+          <h3>Beleza e estética</h3><p>Serviços, preços e marcações online.</p><a class="ver-ex" href="exemplos/beleza.html">Ver exemplo →</a>
         </article>
         <article class="ex rv">
           <div class="mini m3" aria-hidden="true"><span class="t">Canalizações Silva</span><span class="l"></span><span class="l c"></span><span class="b"></span><div class="blocos"><span></span><span></span><span></span></div></div>
-          <h3>Serviços técnicos</h3><p>Zonas de serviço e pedido de orçamento.</p>
+          <h3>Serviços técnicos</h3><p>Zonas de serviço e contacto rápido.</p><a class="ver-ex" href="exemplos/servicos.html">Ver exemplo →</a>
         </article>
       </div>
     </div>
@@ -557,7 +596,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
           <div class="conteudo">
             <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Site de 1 página com até 5 secções</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Design adaptado a telemóvel e tablet</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Botões de chamada, WhatsApp e e-mail</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mapa do Google Maps integrado</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Ligação às redes sociais</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>SEO base: títulos, descrições e velocidade</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Registo no Google Search Console</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Certificado de segurança SSL</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Domínio .pt e alojamento no 1.º ano</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 ronda de alterações</li></ul>
             <p class="prazo">Entrega: <b>até 5 dias úteis</b></p>
-            <a class="btn btn-contorno" href="#contacto">Escolher Essencial</a>
+            <a class="btn btn-contorno js-form" href="#contacto" data-servico="Essencial">Escolher Essencial</a>
           </div>
         </details>
         <details class="rv plano top">
@@ -571,7 +610,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
           <div class="conteudo">
             <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Tudo o que está no plano Essencial</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Até 5 páginas (ex.: Início, Serviços, Galeria, Sobre, Contactos)</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Galeria de fotografias</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Página de serviços com preços</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Formulário de contacto</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>SEO local completo para a sua zona</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Criação do Perfil de Empresa no Google</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Estatísticas de visitas (Google Analytics)</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Política de privacidade e aviso de cookies (RGPD)</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 rondas de alterações</li></ul>
             <p class="prazo">Entrega: <b>até 10 dias úteis</b></p>
-            <a class="btn btn-damasco" href="#contacto">Escolher Negócio</a>
+            <a class="btn btn-damasco js-form" href="#contacto" data-servico="Negócio">Escolher Negócio</a>
           </div>
         </details>
         <details class="rv plano">
@@ -585,7 +624,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
           <div class="conteudo">
             <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Tudo o que está no plano Negócio</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Loja online com até 50 produtos</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Carrinho de compras e checkout</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pagamentos por MB WAY, Multibanco e cartão</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Gestão de stock e portes de envio</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>E-mails automáticos de confirmação de encomenda</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Página de termos e condições e devoluções</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 hora de formação para gerir a loja</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 rondas de alterações</li></ul>
             <p class="prazo">Entrega: <b>até 15 dias úteis</b></p>
-            <a class="btn btn-contorno" href="#contacto">Escolher Loja Online</a>
+            <a class="btn btn-contorno js-form" href="#contacto" data-servico="Loja Online">Escolher Loja Online</a>
           </div>
         </details>
       </div>
@@ -623,11 +662,29 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
     </div>
   </section>
 
+  <section class="sec quem" id="quem-somos" aria-labelledby="h-quem">
+    <div class="wrap quem-grid">
+      <figure class="quem-foto rv">
+        <img src="img/equipa.jpg" alt="Os dois fundadores da Bagatela" width="900" height="1000" loading="lazy" onerror="this.parentNode.classList.add('sem-foto');this.remove()">
+        <span class="ph" aria-hidden="true">B</span>
+      </figure>
+      <div class="rv">
+        <h2 id="h-quem">Somos dois, e tratamos de tudo pessoalmente.</h2>
+        <p>A Bagatela nasceu para mostrar que ter um site profissional não tem de custar uma fortuna. Falamos consigo diretamente, sem intermediários nem jargão técnico.</p>
+        <ul class="quem-lista">
+          <li><b>Preços claros.</b> Sabe o que paga antes de começar.</li>
+          <li><b>Contacto direto.</b> Responde a pessoa que vai fazer o seu site.</li>
+          <li><b>Feito à medida.</b> Cada negócio tem o seu estilo.</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
   <section class="sec" id="faq" aria-labelledby="h-faq">
     <div class="wrap faq-grid rv">
       <div class="lado">
         <h2 id="h-faq">Perguntas frequentes</h2>
-        <p>Não encontra a resposta? <a href="#contacto">Fale connosco</a>, respondemos rapidamente.</p>
+        <p>Não encontra a resposta? <a class="js-form" href="#contacto">Fale connosco</a>, respondemos rapidamente.</p>
       </div>
       <div>
         <details><summary>Quanto tempo demora a ter o site pronto?<span class="mais" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></summary><p>Na maioria dos casos o site fica online poucos dias depois de recebermos os textos e as fotografias.</p></details>
@@ -644,16 +701,51 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
       <div class="cta-caixa rv">
         <div>
           <h2 id="h-contacto">Vamos pôr o seu negócio online?</h2>
-          <p>Peça um orçamento sem compromisso. Respondemos no mesmo dia útil.</p>
+          <p>Conte-nos o que precisa e entramos em contacto consigo. Sem compromisso.</p>
+          <p class="contactos">
+            <a href="tel:+351917385546">917 385 546</a> · <a href="tel:+351932904463">932 904 463</a><br>
+            <a href="mailto:geral@bagatela.pt">geral@bagatela.pt</a>
+          </p>
         </div>
         <div class="acoes">
-          <a class="btn btn-damasco" href="https://wa.me/351[TELEMOVEL]">Falar no WhatsApp</a>
-          <a class="btn btn-linha" href="mailto:bagatela.geral@gmail.com">Enviar e-mail</a>
+          <a class="btn btn-damasco js-form" href="mailto:geral@bagatela.pt">Preencher formulário</a>
+          <a class="btn btn-linha" href="https://wa.me/351917385546" rel="noopener">Falar no WhatsApp</a>
+          <a class="btn btn-linha" href="tel:+351917385546">Ligar agora</a>
         </div>
       </div>
     </div>
   </section>
 </main>
+
+
+<dialog id="form-dlg" aria-labelledby="form-tit">
+  <form id="form-contacto" method="post" action="https://formsubmit.co/geral@bagatela.pt" novalidate>
+    <button type="button" class="fechar-dlg" aria-label="Fechar">&times;</button>
+    <h2 id="form-tit">Conte-nos o que precisa</h2>
+    <p class="sub">Preencha e entramos em contacto consigo.</p>
+    <label>Nome<input name="nome" required autocomplete="name"></label>
+    <label>Empresa<input name="empresa" autocomplete="organization"></label>
+    <label>E-mail ou telefone<input name="contacto" required autocomplete="email"></label>
+    <label>Tipo de serviço
+      <select name="servico" id="f-servico" required>
+        <option value="">Escolha uma opção</option>
+        <option>Essencial (179€)</option>
+        <option>Negócio (299€)</option>
+        <option>Loja Online (599€)</option>
+        <option>Manutenção mensal (50€/mês)</option>
+        <option>Outro / Não sei ainda</option>
+      </select>
+    </label>
+    <label>Mensagem<textarea name="mensagem" rows="4" required placeholder="O que gostava de fazer?"></textarea></label>
+    <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="mel" aria-hidden="true">
+    <input type="hidden" name="_subject" value="Novo contacto pelo site Bagatela">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_template" value="table">
+    <p class="aviso">Ao enviar aceita a nossa <a href="privacidade.html" target="_blank">política de privacidade</a>.</p>
+    <p class="estado" role="status" aria-live="polite"></p>
+    <button class="btn btn-damasco" type="submit">Enviar mensagem</button>
+  </form>
+</dialog>
 
 <footer>
   <div class="wrap">
@@ -664,7 +756,9 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
     <nav aria-label="Rodapé">
       <a href="#servicos">Serviços</a>
       <a href="#precos">Preços</a>
-      <a href="/privacidade">Privacidade</a>
+      <a href="#quem-somos">Quem somos</a>
+      <a href="privacidade.html">Privacidade</a>
+      <a href="https://www.livroreclamacoes.pt" rel="noopener" target="_blank">Livro de Reclamações</a>
     </nav>
     <p>© 2026 Bagatela. Criação de websites em Portugal.</p>
   </div>
@@ -713,6 +807,47 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
   if(sc){ var t0=null; sc.textContent='0';
     setTimeout(function(){ requestAnimationFrame(function f(t){ if(!t0)t0=t; var k=Math.min((t-t0)/1600,1); k=1-Math.pow(1-k,3);
       sc.textContent=Math.round(98*k); if(k<1) requestAnimationFrame(f); }); },600); }
+})();
+</script>
+<script>
+(function(){
+  var dlg=document.getElementById('form-dlg'); if(!dlg) return;
+  var form=document.getElementById('form-contacto');
+  var sel=document.getElementById('f-servico');
+  var estado=form.querySelector('.estado');
+  var mapa={'Essencial':'Essencial (179€)','Negócio':'Negócio (299€)','Loja Online':'Loja Online (599€)'};
+  function abre(serv){
+    if(!dlg.showModal){ location.href='mailto:geral@bagatela.pt'; return; }
+    sel.value=mapa[serv]||'';
+    estado.textContent=''; estado.className='estado';
+    dlg.showModal();
+  }
+  document.querySelectorAll('.js-form').forEach(function(a){
+    a.addEventListener('click',function(e){ e.preventDefault(); abre(a.getAttribute('data-servico')); });
+  });
+  dlg.querySelector('.fechar-dlg').addEventListener('click',function(){dlg.close();});
+  dlg.addEventListener('click',function(e){ if(e.target===dlg) dlg.close(); });
+  form.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;
+    form.querySelectorAll('[required]').forEach(function(c){
+      var v=!!c.value.trim(); c.classList.toggle('invalido',!v); if(!v) ok=false;
+    });
+    if(!ok){ estado.className='estado erro'; estado.textContent='Preencha os campos obrigatórios.'; return; }
+    var btn=form.querySelector('button[type=submit]'); btn.disabled=true; estado.className='estado'; estado.textContent='A enviar...';
+    fetch('https://formsubmit.co/ajax/geral@bagatela.pt',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        if(String(d.success)!=='true') throw new Error();
+        estado.className='estado ok'; estado.textContent='Mensagem enviada. Entramos em contacto consigo em breve!';
+        form.reset(); setTimeout(function(){dlg.close();},2800);
+      })
+      .catch(function(){
+        estado.className='estado erro';
+        estado.innerHTML='Não foi possível enviar. Escreva-nos para <a href="mailto:geral@bagatela.pt">geral@bagatela.pt</a> ou ligue 917 385 546.';
+      })
+      .finally(function(){btn.disabled=false;});
+  });
 })();
 </script>
 </body>

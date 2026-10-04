@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="pt-PT"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Restaurante O Farol | Exemplo Bagatela</title>
+<meta name="robots" content="noindex">
+<style>
+*{box-sizing:border-box}body{margin:0;font:17px/1.6 Georgia,"Times New Roman",serif;color:#2a2118;background:#fbf6ee}
+.bag{position:sticky;top:0;z-index:9;display:flex;justify-content:space-between;gap:1rem;flex-wrap:wrap;padding:.6rem 1.2rem;background:#07090F;color:#fff;font:600 .85rem system-ui,sans-serif}.bag a{color:#8AB4FF;text-decoration:none}
+.w{max-width:1000px;margin:0 auto;padding:0 1.4rem}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 0}nav b{font-size:1.5rem;letter-spacing:-.01em}nav a{margin-left:1.4rem;color:#2a2118;text-decoration:none;font:500 .95rem system-ui,sans-serif}
+.hero{display:grid;grid-template-columns:1.1fr 1fr;gap:2.5rem;align-items:center;padding:3rem 0 4rem}
+.hero h1{font-size:clamp(2.4rem,6vw,4rem);line-height:1;margin:0 0 1rem;color:#7a2e12}.hero p{max-width:40ch}
+.btn{display:inline-block;background:#b4532a;color:#fff;padding:.85rem 1.5rem;border-radius:999px;text-decoration:none;font:600 1rem system-ui,sans-serif;margin-top:1rem}
+.foto{aspect-ratio:4/3;border-radius:22px;background:radial-gradient(circle at 32% 42%,#f1c48b 0 17%,transparent 18%),radial-gradient(circle at 64% 58%,#8a4a26 0 21%,transparent 22%),radial-gradient(circle at 50% 50%,#c9824a,#6b3a1f)}
+h2{font-size:2rem;margin:0 0 1.5rem;color:#7a2e12}section{padding:3rem 0}
+.menu{display:grid;grid-template-columns:1fr 1fr;gap:1rem 3rem}.menu div{display:flex;justify-content:space-between;gap:1rem;border-bottom:1px dotted #c9b79f;padding:.6rem 0}.menu small{display:block;color:#7a6a58}
+.alt{background:#2a1810;color:#f4e9da}.alt h2{color:#f1c48b}
+.info{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem}.info h3{margin:0 0 .4rem;color:#f1c48b}
+footer{padding:2rem 0;text-align:center;font:.9rem system-ui,sans-serif;color:#7a6a58}
+@media(max-width:700px){.hero,.menu,.info{grid-template-columns:1fr}nav a{display:none}}
+</style></head><body>
+<div class="bag"><span>Exemplo de site feito pela <b>Bagatela</b></span><a href="../index.html#exemplos">← Voltar ao site da Bagatela</a></div>
+<div class="w"><nav><b>O Farol</b><div><a href="#menu">Menu</a><a href="#horario">Horário</a><a href="#reservas">Reservas</a></div></nav>
+<header class="hero"><div><h1>Peixe fresco, mesa à beira-mar.</h1><p>Cozinha tradicional portuguesa, feita com produto do dia. Venha almoçar ou jantar connosco.</p><a class="btn" href="#reservas">Reservar mesa</a></div><div class="foto" role="img" aria-label="Prato de peixe"></div></header></div>
+<section id="menu"><div class="w"><h2>Pratos do dia</h2><div class="menu">
+<div><span>Arroz de tamboril<small>Para duas pessoas</small></span><b>24€</b></div>
+<div><span>Polvo à lagareiro<small>Batata a murro e grelos</small></span><b>17€</b></div>
+<div><span>Dourada grelhada<small>Legumes salteados</small></span><b>15€</b></div>
+<div><span>Bacalhau com natas<small>Receita da casa</small></span><b>14€</b></div>
+<div><span>Ameijoas à Bulhão Pato<small>Entrada</small></span><b>12€</b></div>
+<div><span>Pudim do Farol<small>Sobremesa</small></span><b>4€</b></div></div></div></section>
+<section class="alt" id="horario"><div class="w info">
+<div><h3>Horário</h3>Ter a Dom<br>12h–15h · 19h–22h30<br>Segunda: fechado</div>
+<div><h3>Morada</h3>Rua da Praia, 12<br>0000-000 Cidade</div>
+<div><h3 id="reservas">Reservas</h3>Telefone: 000 000 000<br><a style="color:#f1c48b" href="#">WhatsApp</a></div></div></section>
+<footer>© O Farol · Site de exemplo, dados fictícios.</footer></body></html>
