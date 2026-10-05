@@ -459,6 +459,32 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
 .idiomas a{color:rgba(255,255,255,.7);text-decoration:none;font-size:.8rem;font-weight:600;padding:.3rem .55rem;border-radius:999px;letter-spacing:.03em}
 .idiomas a:hover{color:#fff}
 .idiomas a[aria-current]{background:rgba(255,255,255,.16);color:#fff}
+
+/* Assistente */
+.bot{position:fixed;right:1.2rem;bottom:1.2rem;z-index:10000;font-family:var(--corpo)}
+.bot-btn{width:60px;height:60px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:var(--degrade);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 34px -8px rgba(37,99,235,.65);transition:transform .15s ease}
+.bot-btn:hover{transform:scale(1.06)}
+.bot-btn:focus-visible,.bot-x:focus-visible,.bot-opcoes button:focus-visible{outline:3px solid var(--azul-claro);outline-offset:2px}
+.bot-painel{position:absolute;right:0;bottom:76px;width:min(380px,calc(100vw - 2.4rem));max-height:min(560px,calc(100vh - 7rem));display:flex;flex-direction:column;background:var(--branco);border-radius:22px;box-shadow:0 30px 70px -15px rgba(0,0,0,.55);overflow:hidden;border:1px solid var(--salvia)}
+.bot-painel[hidden]{display:none}
+.bot-cab{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.1rem;background:var(--fundo-escuro);color:#fff}
+.bot-cab b{font-family:var(--display);font-size:1.05rem}
+.bot-x{width:34px;height:34px;border:0;border-radius:50%;background:rgba(255,255,255,.14);color:#fff;font-size:1.4rem;line-height:1;cursor:pointer}
+.bot-msgs{padding:1rem;display:flex;flex-direction:column;gap:.6rem;overflow-y:auto;flex:1;min-height:120px}
+.bot-msgs p{margin:0;padding:.6rem .9rem;border-radius:16px;font-size:.95rem;line-height:1.5;max-width:88%}
+.bot-msgs .b{background:var(--gelo);color:var(--tinta);border-bottom-left-radius:4px;align-self:flex-start}
+.bot-msgs .u{background:var(--degrade);color:#fff;border-bottom-right-radius:4px;align-self:flex-end}
+.bot-etq{margin:0;padding:0 1rem .4rem;font-size:.78rem;font-weight:600;color:var(--texto);text-transform:uppercase;letter-spacing:.05em}
+.bot-opcoes{padding:0 1rem .8rem;display:flex;flex-wrap:wrap;gap:.45rem;max-height:130px;overflow-y:auto}
+.bot-acoes{padding:.7rem 1rem 1rem;display:flex;flex-wrap:wrap;gap:.45rem;border-top:1px solid var(--salvia);background:var(--gelo)}
+.bot-acoes button{font:inherit;font-size:.88rem;padding:.45rem .8rem;border-radius:999px;border:0;cursor:pointer}
+.bot-opcoes button{font:inherit;font-size:.88rem;padding:.45rem .8rem;border-radius:999px;border:1.5px solid var(--salvia-2);background:var(--branco);color:var(--tinta);cursor:pointer;text-align:left}
+.bot-opcoes button:hover{border-color:var(--damasco);color:var(--damasco)}
+.bot-acoes .acao{background:var(--degrade);color:#fff}
+.bot-acoes .acao:hover{opacity:.9}
+.bot-acoes .acao:focus-visible{outline:3px solid var(--azul-claro);outline-offset:2px}
+.bot-acoes .sep{flex-basis:100%;font-size:.8rem;color:var(--texto)}
+@media (max-width:520px){.bot{right:.8rem;bottom:.8rem}}
 </style>
 </head>
 <body>
@@ -759,6 +785,33 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
 </main>
 
 
+<aside class="bot" id="bot" aria-label="Assistente">
+  <button type="button" class="bot-btn" aria-expanded="false" aria-controls="bot-painel" aria-label="Abrir assistente">
+    <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12a8 8 0 0 1-11.7 7.1L4 20l1-4.6A8 8 0 1 1 21 12z"/><path d="M8.5 11.5h.01M12 11.5h.01M15.5 11.5h.01"/></svg>
+  </button>
+  <div class="bot-painel" id="bot-painel" role="dialog" aria-labelledby="bot-tit" hidden>
+    <div class="bot-cab"><b id="bot-tit">Assistente Bagatela</b><button type="button" class="bot-x" aria-label="Fechar">&times;</button></div>
+    <div class="bot-msgs" aria-live="polite"></div>
+    <p class="bot-etq">Escolha uma pergunta</p>
+    <div class="bot-opcoes"></div>
+    <div class="bot-acoes"></div>
+    <div class="bot-dados" hidden>
+      <span data-k="ola">Olá! Sou o assistente da Bagatela. Em que posso ajudar?</span>
+      <span data-k="pessoa">Prefere falar com uma pessoa?</span>
+      <span data-k="form">Preencher formulário</span>
+      <span data-k="wa">Falar no WhatsApp</span>
+      <div data-q><span class="q">Quanto custa?</span><p>Temos 3 planos de pagamento único: Essencial 179€, Negócio 299€ e Loja Online 599€. A manutenção mensal é opcional, 50€/mês.</p></div>
+      <div data-q><span class="q">O que inclui cada plano?</span><p>Essencial: site de 1 página com até 5 secções. Negócio: até 5 páginas com SEO local completo. Loja Online: loja com até 50 produtos e pagamentos por MB WAY, Multibanco e cartão. Na secção de preços pode ver tudo em detalhe.</p></div>
+      <div data-q><span class="q">Quanto tempo demora?</span><p>Essencial até 5 dias úteis, Negócio até 10 e Loja Online até 15, a contar da receção dos textos e fotografias.</p></div>
+      <div data-q><span class="q">O domínio está incluído?</span><p>Sim, o domínio .pt e o alojamento estão incluídos no 1.º ano. A partir do 2.º ano são 89€/ano.</p></div>
+      <div data-q><span class="q">Posso pedir alterações depois?</span><p>Sim. Alterações avulsas custam 25€/hora, ou pode aderir à manutenção mensal de 50€/mês, que inclui até 1 hora de alterações por mês.</p></div>
+      <div data-q><span class="q">Não tenho textos nem fotografias. E agora?</span><p>Sem problema: ajudamos a escrever os textos (25€/página) e indicamos como tirar boas fotografias com o telemóvel.</p></div>
+      <div data-q><span class="q">Como começo?</span><p>Preencha o formulário ou fale connosco por WhatsApp. Conte-nos o que precisa e entramos em contacto consigo.</p></div>
+      <div data-q><span class="q">Como vos contacto?</span><p>Pode ligar para 917 385 546 ou 932 904 463, escrever para geral@bagatela.pt ou usar o formulário.</p></div>
+    </div>
+  </div>
+</aside>
+
 <dialog id="form-dlg" aria-labelledby="form-tit">
   <form id="form-contacto" method="post" action="https://formsubmit.co/geral@bagatela.pt" novalidate>
     <button type="button" class="fechar-dlg" aria-label="Fechar">&times;</button>
@@ -864,6 +917,7 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
     estado.textContent=''; estado.className='estado';
     dlg.showModal();
   }
+  window.abreFormulario=abre;
   document.querySelectorAll('.js-form').forEach(function(a){
     a.addEventListener('click',function(e){ e.preventDefault(); abre(a.getAttribute('data-servico')); });
   });
@@ -890,6 +944,41 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
       })
       .finally(function(){btn.disabled=false;});
   });
+})();
+</script>
+<script>
+(function(){
+  var raiz=document.getElementById('bot'); if(!raiz) return;
+  var btn=raiz.querySelector('.bot-btn'), painel=raiz.querySelector('.bot-painel');
+  var msgs=raiz.querySelector('.bot-msgs'), ops=raiz.querySelector('.bot-opcoes'), acs=raiz.querySelector('.bot-acoes');
+  var dados=raiz.querySelector('.bot-dados');
+  var txt=function(k){var e=dados.querySelector('[data-k="'+k+'"]');return e?e.textContent:'';};
+  var itens=[].map.call(dados.querySelectorAll('[data-q]'),function(e){return{q:e.querySelector('.q').textContent,a:e.querySelector('p').textContent};});
+  var iniciado=false, atual=-1;
+  function msg(t,cls){var p=document.createElement('p');p.className=cls;p.textContent=t;msgs.appendChild(p);msgs.scrollTop=msgs.scrollHeight;}
+  function chip(t,fn,cls,alvo){var b=document.createElement('button');b.type='button';b.textContent=t;if(cls)b.className=cls;b.addEventListener('click',fn);(alvo||ops).appendChild(b);}
+  function opcoes(){
+    ops.textContent='';
+    itens.forEach(function(it,i){ if(i!==atual) chip(it.q,function(){pergunta(i);}); });
+  }
+  function acoes(){
+    var s=document.createElement('span');s.className='sep';s.textContent=txt('pessoa');acs.appendChild(s);
+    chip(txt('form'),function(){ if(window.abreFormulario){fecha();window.abreFormulario();} },'acao',acs);
+    chip(txt('wa'),function(){window.open('https://wa.me/351917385546','_blank','noopener');},'acao',acs);
+  }
+  function pergunta(i){
+    atual=i; msg(itens[i].q,'u'); opcoes();
+    setTimeout(function(){msg(itens[i].a,'b');},350);
+  }
+  function abre(){
+    painel.hidden=false; btn.setAttribute('aria-expanded','true');
+    if(!iniciado){iniciado=true;msg(txt('ola'),'b');opcoes();acoes();}
+    raiz.querySelector('.bot-x').focus();
+  }
+  function fecha(){painel.hidden=true;btn.setAttribute('aria-expanded','false');}
+  btn.addEventListener('click',function(){ painel.hidden?abre():fecha(); });
+  raiz.querySelector('.bot-x').addEventListener('click',function(){fecha();btn.focus();});
+  document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!painel.hidden){fecha();btn.focus();} });
 })();
 </script>
 </body>
