@@ -432,8 +432,7 @@ body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;b
 .quem-lista b{color:var(--tinta)}
 .quem-foto{margin:0;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:9/10;background:var(--fundo-escuro);position:relative}
 .quem-foto img{width:100%;height:100%;object-fit:cover;display:block}
-.quem-foto .ph{display:none}
-.quem-foto.sem-foto .ph{display:grid;place-items:center;position:absolute;inset:0;font:700 6rem var(--display);color:rgba(255,255,255,.85)}
+.quem-foto .ph{display:grid;place-items:center;position:absolute;inset:0;font:700 6rem var(--display);color:rgba(255,255,255,.85)}
 .contactos{margin-top:1.4rem;font-size:1.15rem;line-height:1.8}
 .contactos a{text-decoration:none;font-weight:600}
 .contactos a:hover{text-decoration:underline}
@@ -709,12 +708,9 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
 
   <section class="sec quem" id="quem-somos" aria-labelledby="h-quem">
     <div class="wrap quem-grid">
-      <figure class="quem-foto rv">
-        <img src="../img/equipa.jpg" alt="Los dos fundadores de Bagatela" width="900" height="1000" loading="lazy" onerror="this.parentNode.classList.add('sem-foto');this.remove()">
-        <span class="ph" aria-hidden="true">B</span>
-      </figure>
+      <div class="quem-foto rv" aria-hidden="true"><span class="ph">B</span></div>
       <div class="rv">
-        <h2 id="h-quem">Somos dos y nos ocupamos de todo personalmente.</h2>
+        <h2 id="h-quem">Un equipo pequeño, con atención personal a cada proyecto.</h2>
         <p>Bagatela nació para demostrar que tener un sitio web profesional no tiene por qué costar una fortuna. Hablamos contigo directamente, sin intermediarios ni jerga técnica.</p>
         <ul class="quem-lista">
           <li><b>Precios claros.</b> Sabes lo que pagas antes de empezar.</li>

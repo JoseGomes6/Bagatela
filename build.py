@@ -224,8 +224,7 @@ T = [
 ("Alterações avulsas (sem manutenção)","One-off changes (without maintenance)","Modifications ponctuelles (hors maintenance)","Cambios puntuales (sin mantenimiento)"),
 ("25€/hora","25€/hour","25€/heure","25€/hora"),
 # --- quem somos
-("Os dois fundadores da Bagatela","The two founders of Bagatela","Les deux fondateurs de Bagatela","Los dos fundadores de Bagatela"),
-("Somos dois, e tratamos de tudo pessoalmente.","There are two of us, and we handle everything personally.","Nous sommes deux, et nous nous occupons de tout personnellement.","Somos dos y nos ocupamos de todo personalmente."),
+("Uma equipa pequena, com atenção pessoal a cada projeto.","A small team, with personal attention to every project.","Une petite équipe, avec une attention personnelle pour chaque projet.","Un equipo pequeño, con atención personal a cada proyecto."),
 ("A Bagatela nasceu para mostrar que ter um site profissional não tem de custar uma fortuna. Falamos consigo diretamente, sem intermediários nem jargão técnico.",
  "Bagatela was born to show that a professional website doesn't have to cost a fortune. We talk to you directly, with no middlemen and no technical jargon.",
  "Bagatela est née pour montrer qu'un site professionnel ne doit pas coûter une fortune. Nous vous parlons directement, sans intermédiaires ni jargon technique.",
