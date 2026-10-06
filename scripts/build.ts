@@ -55,7 +55,7 @@ async function main() {
 <head>
 <meta charset="utf-8">
 ${THEME_INIT}
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 ${homeHead(lang, prefix)}
 ${FONTS}
 ${css}
@@ -74,7 +74,7 @@ ${css}
   for (const lang of LANGS) {
     const prefix = baseFor(lang);
     write(`${langDir(lang)}privacidade.html`, `<!doctype html>
-<html lang="${HTML_LANG[lang]}"><head><meta charset="utf-8">${THEME_INIT}<meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="${HTML_LANG[lang]}"><head><meta charset="utf-8">${THEME_INIT}<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 ${privacyHead(lang, prefix)}
 <style>
 ${privacyCss}</style></head><body>
@@ -91,7 +91,7 @@ ${server.renderPrivacy(lang)}
 <head>
 <meta charset="utf-8">
 ${THEME_INIT}
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>404 | Esta página saiu de bagatela | Bagatela</title>
 <meta name="robots" content="noindex">
 <meta name="theme-color" content="#14101F">
