@@ -15,6 +15,7 @@
 <link rel="alternate" hreflang="es" href="https://www.bagatela.pt/es/">
 <link rel="alternate" hreflang="x-default" href="https://www.bagatela.pt/">
 <meta name="theme-color" content="#14101F">
+<meta name="bagatela-api" content="off"><!-- gerador de conceitos: off = escondido; "" = API no mesmo domínio; URL = API noutro domínio (ver README) -->
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="fr_FR">
@@ -424,6 +425,7 @@ header a:focus-visible,.hero a:focus-visible,.cta-caixa a:focus-visible,footer a
 .btn-escuro{background:var(--preto);color:#fff}
 .btn-escuro:hover{background:var(--preto-2)}
 .btn-contorno:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--preto)}
+button.btn{font-family:inherit;font-size:1rem;border:0;cursor:pointer}
 .btn.seta::after{content:"→";display:inline-block;transition:transform .2s ease}
 .btn.seta:hover::after{transform:translateX(5px)}
 .ver-ex::after{content:"→";display:inline-block;margin-left:.4em;transition:transform .2s ease}
@@ -570,21 +572,21 @@ footer .assinatura::before{content:"";display:block;width:2.4rem;height:6px;bord
 .contactos{margin-top:1.4rem;font-size:1.15rem;line-height:1.8}
 .contactos a{text-decoration:none;font-weight:600}
 .contactos a:hover{text-decoration:underline}
-dialog#form-dlg{border:0;border-radius:var(--r-lg);padding:0;width:min(520px,calc(100% - 2rem));max-height:calc(100% - 2rem);background:var(--branco);color:var(--texto);box-shadow:0 40px 90px -20px rgba(0,0,0,.6)}
-dialog#form-dlg::backdrop{background:rgba(20,16,31,.7);backdrop-filter:blur(4px)}
-#form-contacto{padding:2rem;display:grid;gap:1rem;position:relative}
-#form-contacto h2{font-size:1.8rem}
-#form-contacto .sub{margin-top:-.6rem}
-#form-contacto label{display:grid;gap:.35rem;font-weight:600;font-size:.95rem;color:var(--tinta)}
-#form-contacto input,#form-contacto select,#form-contacto textarea{font:inherit;font-weight:400;padding:.75rem .9rem;border:1.5px solid var(--salvia-2);border-radius:12px;background:var(--gelo);color:var(--tinta);width:100%}
-#form-contacto input:focus,#form-contacto select:focus,#form-contacto textarea:focus{outline:3px solid rgba(107,70,229,.35);border-color:var(--damasco)}
-#form-contacto .invalido{border-color:#C62828}
-#form-contacto .mel{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
-#form-contacto .aviso{font-size:.85rem}
-#form-contacto .aviso a{color:var(--damasco)}
-#form-contacto .estado{min-height:1.4em;font-weight:600}
-#form-contacto .estado.ok{color:#1E7A47}
-#form-contacto .estado.erro{color:#C62828}
+dialog.dlg{border:0;border-radius:var(--r-lg);padding:0;width:min(520px,calc(100% - 2rem));max-height:calc(100% - 2rem);background:var(--branco);color:var(--texto);box-shadow:0 40px 90px -20px rgba(0,0,0,.6)}
+dialog.dlg::backdrop{background:rgba(20,16,31,.7);backdrop-filter:blur(4px)}
+.dlg-form{padding:2rem;display:grid;gap:1rem;position:relative}
+.dlg-form h2{font-size:1.8rem}
+.dlg-form .sub{margin-top:-.6rem}
+.dlg-form label{display:grid;gap:.35rem;font-weight:600;font-size:.95rem;color:var(--tinta)}
+.dlg-form input,.dlg-form select,.dlg-form textarea{font:inherit;font-weight:400;padding:.75rem .9rem;border:1.5px solid var(--salvia-2);border-radius:12px;background:var(--gelo);color:var(--tinta);width:100%}
+.dlg-form input:focus,.dlg-form select:focus,.dlg-form textarea:focus{outline:3px solid rgba(107,70,229,.35);border-color:var(--damasco)}
+.dlg-form .invalido{border-color:#C62828}
+.dlg-form .mel{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.dlg-form .aviso{font-size:.85rem}
+.dlg-form .aviso a{color:var(--damasco)}
+.dlg-form .estado{min-height:1.4em;font-weight:600}
+.dlg-form .estado.ok{color:#1E7A47}
+.dlg-form .estado.erro{color:#C62828}
 .fechar-dlg{position:absolute;top:1rem;right:1rem;width:40px;height:40px;border:0;border-radius:50%;background:var(--gelo);font-size:1.6rem;line-height:1;cursor:pointer;color:var(--tinta)}
 
 /* Seletor de idioma */
@@ -618,6 +620,135 @@ dialog#form-dlg::backdrop{background:rgba(20,16,31,.7);backdrop-filter:blur(4px)
 .bot-acoes .acao:focus-visible{outline:3px solid var(--azul-claro);outline-offset:2px}
 .bot-acoes .sep{flex-basis:100%;font-size:.8rem;color:var(--texto)}
 @media (max-width:520px){.bot{right:.8rem;bottom:.8rem}}
+
+/* Gerador de conceitos */
+.conceito{background:var(--creme-2);overflow:hidden}
+.conceito[hidden]{display:none}
+.cg{position:relative}
+.cg-intro{display:grid;grid-template-columns:.95fr 1.05fr;gap:3.5rem;align-items:center}
+.cg-intro[hidden]{display:none}
+.cg-texto-intro{position:relative}
+.cg-texto-intro .tag{margin-bottom:1.2rem}
+.cg-texto-intro h2{font-size:clamp(2.3rem,4.8vw,3.8rem);font-weight:700}
+.cg-texto-intro p{margin-top:1.1rem;font-size:1.15rem;max-width:40ch}
+.cg-texto-intro .cg-nota{margin-top:.6rem;color:var(--lilas-forte);font-weight:600}
+.cg-ex{display:flex;flex-wrap:wrap;gap:.5rem;align-items:center;margin-top:1.8rem}
+.cg-ex small{flex-basis:100%;font:700 .74rem var(--display);letter-spacing:.1em;text-transform:uppercase;color:var(--texto)}
+.cg-ex button{font:inherit;font-size:.92rem;font-weight:500;padding:.5rem .95rem;border-radius:999px;border:1.5px solid var(--preto);background:#fff;color:var(--preto);cursor:pointer;transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
+.cg-ex button:hover{transform:translate(-2px,-2px);box-shadow:3px 3px 0 var(--accent);background:var(--accent)}
+.cg-ex button:focus-visible{outline:3px solid var(--lilas-forte);outline-offset:3px}
+.cg-estrela{position:absolute;color:var(--lilas);pointer-events:none;animation:cgBrilha 3.4s ease-in-out infinite}
+.cg-estrela.e1{right:6%;top:-1.2rem;font-size:2rem}
+.cg-estrela.e2{right:2%;top:42%;font-size:1.2rem;color:var(--accent);animation-delay:1.2s}
+@keyframes cgBrilha{0%,100%{opacity:.35;scale:.8;rotate:0deg}50%{opacity:1;scale:1.15;rotate:20deg}}
+
+/* talão: textarea acima da linha de corte, botão abaixo */
+.cg-form{position:relative;background:#fff;border:2px solid var(--preto);border-radius:28px;box-shadow:8px 8px 0 var(--preto);transition:box-shadow .2s ease,transform .2s ease}
+.cg-form:focus-within{box-shadow:8px 8px 0 var(--lilas-forte);transform:translate(-2px,-2px)}
+.cg-form-topo{padding:1.5rem 1.7rem .6rem}
+.cg-label{display:block;font:700 .74rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--lilas-forte);margin-bottom:.6rem}
+.cg-form textarea{display:block;width:100%;min-height:11rem;padding:.2rem 0;border:0;border-radius:8px;resize:vertical;background:transparent;font:inherit;font-size:1.1rem;line-height:1.55;color:var(--preto)}
+.cg-form textarea::placeholder{color:#6E687A}
+.cg-form textarea:focus-visible{outline:3px solid var(--lilas-forte);outline-offset:6px}
+.cg-form .mel{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.cg-furo{position:relative;border-top:2px dashed var(--salvia-2);margin:.4rem 0 0}
+.cg-furo::before,.cg-furo::after{content:"";position:absolute;top:-15px;width:28px;height:28px;border-radius:50%;background:var(--creme-2);border:2px solid var(--preto)}
+.cg-furo::before{left:-16px;clip-path:inset(0 0 0 50%)}
+.cg-furo::after{right:-16px;clip-path:inset(0 50% 0 0)}
+.cg-form-base{padding:1rem 1.7rem 1.6rem;display:grid;gap:.9rem}
+.cg-meta{display:flex;justify-content:space-between;gap:1rem;font-size:.88rem}
+.cg-ajuda{color:var(--texto)}
+.cg-ajuda.ok{color:#1E7A47;font-weight:600}
+.cg-contador{color:var(--texto);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cg-contador.cheio{color:#B3261E;font-weight:600}
+.cg-erro{margin:0;padding:.7rem .9rem;border-radius:12px;background:#FFF1E0;border:1.5px solid #E0A44B;color:#5C3A00;font-size:.95rem;animation:cgIn .35s ease both}
+.cg-form .btn{width:100%}
+.cg-form .btn:disabled{opacity:.45;cursor:not-allowed;transform:none;box-shadow:none}
+
+/* transições entre estados */
+.cg-entra{animation:cgEntra .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes cgEntra{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes cgIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
+/* loading: etiqueta a baloiçar */
+.cg-loading{display:grid;justify-items:center;text-align:center;padding:2.5rem 1rem;min-height:26rem;align-content:center}
+.cg-loading[hidden]{display:none}
+.cg-anim{position:relative;width:200px;height:190px;display:grid;justify-items:center}
+.cg-etiq{transform-origin:50% 0;animation:cgBaloica 2s ease-in-out infinite;filter:drop-shadow(5px 6px 0 rgba(20,16,31,.18))}
+@keyframes cgBaloica{0%,100%{rotate:-13deg}50%{rotate:13deg}}
+.cg-anim .cg-estrela.l1{left:6px;top:36px;font-size:1.6rem;animation-delay:0s}
+.cg-anim .cg-estrela.l2{right:4px;top:8px;font-size:1.1rem;color:var(--accent);animation-delay:.7s}
+.cg-anim .cg-estrela.l3{right:22px;bottom:14px;font-size:1.8rem;animation-delay:1.4s}
+.cg-titulo-loading{margin-top:1.2rem;font:700 clamp(1.5rem,3.4vw,2.1rem)/1.1 var(--display);letter-spacing:-.02em;color:var(--preto)}
+.cg-frase{margin-top:.6rem;min-height:1.6em;color:var(--texto)}
+.cg-fade{animation:cgEntra .5s ease both}
+
+/* resultado: ficha do conceito */
+.cg-resultado:focus{outline:none}
+.cg-resultado[hidden]{display:none}
+.cg-ficha{background:#fff;border:2px solid var(--preto);border-radius:28px;box-shadow:8px 8px 0 var(--lilas);overflow:hidden}
+.cg-cab{padding:2.2rem 2.2rem 1.6rem;border-bottom:2px dashed var(--salvia-2);position:relative}
+.cg-cab .tag{margin-bottom:1.1rem}
+.cg-nome{font-size:clamp(2.1rem,5vw,3.6rem);font-weight:700;letter-spacing:-.03em;line-height:1;overflow-wrap:anywhere}
+.cg-tipo{display:inline-block;margin-top:.9rem;padding:.2rem .8rem;border:1.5px solid var(--preto);border-radius:999px;font-weight:600;font-size:.9rem;color:var(--preto)}
+.cg-resumo{margin-top:1rem;font-size:1.1rem;max-width:60ch}
+.cg-grelha{display:grid;grid-template-columns:1fr 1fr}
+.cg-bloco{padding:1.6rem 2.2rem;border-bottom:1px solid var(--salvia);animation:cgIn .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*80ms + 150ms);transition:background .2s ease}
+.cg-bloco:nth-child(odd){border-right:1px solid var(--salvia)}
+.cg-bloco:hover{background:#FBF8F2}
+.cg-bloco h4{margin:0 0 .7rem;font:700 .74rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--lilas-forte)}
+.cg-bloco p{margin:0;font-size:1.02rem;overflow-wrap:anywhere}
+.cg-estrutura,.cg-headline{grid-column:1/-1;border-right:0!important}
+.cg-lista-sec{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:.9rem 2rem}
+.cg-lista-sec li{display:flex;gap:.8rem;align-items:flex-start;transition:transform .2s ease}
+.cg-lista-sec li:hover{transform:translateX(4px)}
+.cg-lista-sec b{flex:none;width:2.1rem;height:2.1rem;border-radius:50%;background:var(--preto);color:var(--accent);display:grid;place-items:center;font:700 .8rem var(--display)}
+.cg-lista-sec strong{display:block;color:var(--preto);font-family:var(--display);font-size:1.05rem;line-height:1.2;overflow-wrap:anywhere}
+.cg-lista-sec small{display:block;margin-top:.15rem;font-size:.9rem;color:var(--texto);overflow-wrap:anywhere}
+.cg-lista-fn{list-style:none;margin:0;padding:0;display:grid;gap:.5rem}
+.cg-lista-fn li{position:relative;padding-left:1.4rem;overflow-wrap:anywhere}
+.cg-lista-fn li::before{content:"✦";position:absolute;left:0;top:0;color:var(--lilas-forte);font-size:.85rem;line-height:1.7}
+.cg-headline{background:var(--preto);color:var(--creme);padding:2rem 2.2rem}
+.cg-headline:hover{background:var(--preto)}
+.cg-headline h4{color:var(--lilas-claro)}
+.cg-headline blockquote{margin:0;font:700 clamp(1.5rem,3.6vw,2.4rem)/1.1 var(--display);letter-spacing:-.02em;max-width:26ch;overflow-wrap:anywhere}
+.cg-cta-mock{display:inline-block;margin-top:1.2rem;padding:.55rem 1.2rem;border-radius:999px;background:var(--accent);color:var(--accent-tinta);font-weight:600;rotate:-2deg;transition:rotate .2s ease}
+.cg-headline:hover .cg-cta-mock{rotate:1deg}
+.cg-plano{display:grid;grid-template-columns:auto 1fr;gap:1rem 3rem;align-items:center;padding:2rem 2.2rem;background:var(--lilas-forte);color:#fff;animation:cgIn .5s cubic-bezier(.2,.8,.2,1) both;animation-delay:calc(var(--i,0)*80ms + 150ms)}
+.cg-plano-esq .tag{margin-bottom:.9rem}
+.cg-plano-esq h4{margin:0;font:700 clamp(1.5rem,3vw,2rem)/1.1 var(--display);color:#fff}
+.cg-preco{margin:.3rem 0 0;font:700 clamp(2.8rem,6vw,4rem)/1 var(--display);letter-spacing:-.03em;color:#fff}
+.cg-motivo{margin:0;font-size:1.1rem;color:#F1EBFF;max-width:46ch}
+.cg-gostaste{margin:1.2rem 0 .7rem;font:700 1.1rem var(--display);color:#fff}
+.cg-plano .btn-damasco{background:var(--accent);color:var(--accent-tinta)}
+.cg-plano .btn-damasco:hover{background:#FFE37A;box-shadow:4px 4px 0 var(--preto)}
+.cg-rodape{padding:1.6rem 2.2rem;display:flex;flex-wrap:wrap;gap:1.2rem 2rem;align-items:center;justify-content:space-between;background:var(--creme)}
+.cg-rodape>p{margin:0;max-width:46ch;font-size:1rem;color:var(--preto)}
+.cg-rodape-acoes{display:flex;flex-wrap:wrap;gap:.8rem 1.4rem;align-items:center}
+.cg-link{font:inherit;font-weight:600;background:none;border:0;padding:.5rem 0;color:var(--lilas-forte);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.cg-link:hover{color:var(--lilas-escuro)}
+.cg-link:focus-visible,.cg-resultado a:focus-visible,.cg-resultado button:focus-visible{outline:3px solid var(--lilas-forte);outline-offset:3px;border-radius:6px}
+.cg-plano .btn:focus-visible{outline-color:var(--accent)}
+
+@media (max-width:980px){
+  .cg-intro{grid-template-columns:1fr;gap:2.4rem}
+  .cg-grelha{grid-template-columns:1fr}
+  .cg-bloco:nth-child(odd){border-right:0}
+  .cg-lista-sec{grid-template-columns:1fr}
+  .cg-plano{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  .cg-form-topo{padding:1.2rem 1.2rem .5rem}
+  .cg-form-base{padding:.9rem 1.2rem 1.3rem}
+  .cg-form textarea{min-height:10rem;font-size:1.05rem}
+  .cg-form .btn{min-height:56px}
+  .cg-cab,.cg-bloco,.cg-headline,.cg-plano,.cg-rodape{padding-left:1.3rem;padding-right:1.3rem}
+  .cg-ficha,.cg-form{border-radius:22px;box-shadow:5px 5px 0 var(--preto)}
+  .cg-ficha{box-shadow:5px 5px 0 var(--lilas)}
+  .cg-rodape-acoes{width:100%}
+  .cg-rodape-acoes .btn{width:100%}
+}
+@media (prefers-reduced-motion:reduce){.cg-etiq,.cg-estrela{animation:none}.cg-entra,.cg-bloco,.cg-plano,.cg-fade{animation:none}.cg-form:focus-within{transform:none}}
 </style>
 </head>
 <body>
@@ -795,6 +926,87 @@ dialog#form-dlg::backdrop{background:rgba(20,16,31,.7);backdrop-filter:blur(4px)
     </div>
   </section>
 
+  <section class="sec conceito" id="conceito" aria-labelledby="h-conceito" hidden>
+    <div class="wrap">
+      <div class="cg rv" aria-busy="false">
+        <div class="cg-intro" id="cg-intro">
+          <div class="cg-texto-intro">
+            <span class="tag lilas">Vous ne savez pas par où commencer ?</span>
+            <h2 id="h-conceito">Racontez-nous votre idée.</h2>
+            <p>Décrivez votre activité et laissez Bagatela imaginer le site idéal pour vous.</p>
+            <p class="cg-nota">Bagatela la transforme en concept de site web.</p>
+            <div class="cg-ex">
+              <small>Besoin d'inspiration ?</small>
+              <button type="button" data-ex-btn="alojamento">Locations touristiques</button>
+              <button type="button" data-ex-btn="restaurante">Restaurant</button>
+              <button type="button" data-ex-btn="loja">Boutique de vêtements</button>
+            </div>
+            <span class="cg-estrela e1" aria-hidden="true">✦</span><span class="cg-estrela e2" aria-hidden="true">✦</span>
+          </div>
+          <form class="cg-form" id="cg-form" novalidate>
+            <div class="cg-form-topo">
+              <label class="cg-label" for="cg-texto">Votre activité</label>
+              <textarea id="cg-texto" name="descricao" maxlength="1000" rows="7" placeholder="Ex. : J'ai un restaurant au centre de Coimbra…" aria-describedby="cg-ajuda cg-contador"></textarea>
+              <input type="text" id="cg-hp" name="website" tabindex="-1" autocomplete="off" class="mel" aria-hidden="true">
+            </div>
+            <div class="cg-furo" aria-hidden="true"></div>
+            <div class="cg-form-base">
+              <p class="cg-erro" id="cg-erro" role="alert" hidden></p>
+              <div class="cg-meta"><span class="cg-ajuda" id="cg-ajuda"></span><span class="cg-contador" id="cg-contador">0 / 1000</span></div>
+              <button class="btn btn-damasco" id="cg-enviar" type="submit" disabled>Créer mon concept ✦</button>
+            </div>
+          </form>
+        </div>
+
+        <div class="cg-loading" id="cg-loading" role="status" aria-live="polite" hidden>
+          <div class="cg-anim" aria-hidden="true">
+            <span class="cg-estrela l1">✦</span><span class="cg-estrela l2">✦</span><span class="cg-estrela l3">✦</span>
+            <svg class="cg-etiq" viewBox="0 0 80 110" width="120" height="165"><path d="M40 0v22" stroke="#14101F" stroke-width="2.5" fill="none"/><path fill-rule="evenodd" d="M22 22h22l22 20v52a8 8 0 0 1-8 8H22a8 8 0 0 1-8-8V30a8 8 0 0 1 8-8zM44 26a3.5 3.5 0 1 0 0 7 3.5 3.5 0 0 0 0-7z" fill="#6B46E5"/><rect x="26" y="50" width="6" height="30" rx="3" fill="#F7F2E9"/><circle cx="42" cy="72" r="8" fill="none" stroke="#FFD84D" stroke-width="6"/></svg>
+          </div>
+          <p class="cg-titulo-loading">Bagatela réfléchit…</p>
+          <p class="cg-frase" id="cg-frase"></p>
+        </div>
+
+        <div class="cg-resultado" id="cg-resultado" tabindex="-1" hidden></div>
+
+        <div class="cg-dados" hidden>
+      <span data-k="min">Écrivez au moins 50 caractères pour que Bagatela comprenne votre activité.</span>
+      <span data-k="faltam">Encore {n} caractères</span>
+      <span data-k="ok">C'est suffisant pour travailler !</span>
+      <span data-k="erroCurto">Écrivez au moins 50 caractères pour que Bagatela comprenne votre activité.</span>
+      <span data-k="erroPausa">On dirait que Bagatela fait une pause café ☕. Réessayez dans un instant.</span>
+      <span data-k="erroNegocio">Nous n'avons pas pu comprendre votre activité à partir de ce texte. Dites-nous-en un peu plus sur ce que vous faites.</span>
+      <span data-k="erroRate">Doucement, vous allez trop vite ! Patientez un peu et réessayez.</span>
+      <span data-fr>Lecture de votre idée…</span><span data-fr>Dessin de la structure du site…</span><span data-fr>Choix de l'offre qui convient…</span><span data-fr>Ajout d'une touche de bagatela…</span>
+      <span data-k="conceito">Concept Bagatela</span>
+      <span data-k="semNome">Nom de l'entreprise</span>
+      <span data-k="objetivo">L'objectif</span>
+      <span data-k="publico">Pour qui</span>
+      <span data-k="estrutura">Structure suggérée</span>
+      <span data-k="funcionalidades">Fonctionnalités</span>
+      <span data-k="direcao">Direction visuelle</span>
+      <span data-k="headline">Titre suggéré</span>
+      <span data-k="recomenda">Bagatela recommande</span>
+      <span data-k="plano">Offre</span>
+      <span data-k="motivoPadrao">Cette offre est la plus adaptée à ce que vous avez décrit.</span>
+      <span data-k="gostaste">Le concept vous plaît ?</span>
+      <span data-k="avancar">Je veux avancer</span>
+      <span data-k="pontoPartida">Ce n'est qu'un point de départ. L'équipe Bagatela transforme ce concept en véritable site web.</span>
+      <span data-k="transformar">Je veux en faire un vrai site</span>
+      <span data-k="refazer">Créer un autre concept</span>
+      <span data-k="aEnviar">Envoi en cours...</span>
+      <span data-k="leadInvalido">Renseignez votre nom et un e-mail valide.</span>
+      <span data-k="leadOk">Demande envoyée ! Nous vous contacterons très bientôt.</span>
+      <span data-k="leadErro">Envoi impossible pour le moment. Écrivez-nous à geral@bagatela.pt ou appelez le +351 917 385 546.</span>
+      <span data-plano="Essencial">Essentiel</span><span data-plano="Negócio">Business</span><span data-plano="Loja Online">Boutique en ligne</span>
+      <span data-ex="alojamento">J'ai une petite ferme d'hébergement touristique dans le Douro. Nous avons quatre chambres et une piscine, et nous voulons présenter la ferme, les photos et permettre aux clients de nous contacter pour réserver.</span>
+      <span data-ex="restaurante">J'ai un restaurant au centre de Coimbra. Nous voulons présenter la carte, les horaires et l'adresse, et permettre de réserver une table par téléphone ou via le site.</span>
+      <span data-ex="loja">J'ai une boutique de vêtements pour femmes et je veux commencer à vendre en ligne. Je dois présenter le catalogue, avoir un panier et accepter les paiements MB WAY et par carte.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="sec precos" id="precos" aria-labelledby="h-precos">
     <div class="wrap">
       <div class="sec-cab rv">
@@ -965,8 +1177,8 @@ dialog#form-dlg::backdrop{background:rgba(20,16,31,.7);backdrop-filter:blur(4px)
   </div>
 </aside>
 
-<dialog id="form-dlg" aria-labelledby="form-tit">
-  <form id="form-contacto" method="post" action="https://formsubmit.co/geral@bagatela.pt" novalidate>
+<dialog class="dlg" id="form-dlg" aria-labelledby="form-tit">
+  <form class="dlg-form" id="form-contacto" method="post" action="https://formsubmit.co/geral@bagatela.pt" novalidate>
     <button type="button" class="fechar-dlg" aria-label="Fermer">&times;</button>
     <h2 id="form-tit">Dites-nous ce dont vous avez besoin</h2>
     <p class="sub">Remplissez le formulaire et nous vous contactons.</p>
@@ -992,6 +1204,22 @@ dialog#form-dlg::backdrop{background:rgba(20,16,31,.7);backdrop-filter:blur(4px)
     <p class="aviso">En envoyant, vous acceptez notre <a href="privacidade.html" target="_blank">politique de confidentialité</a>.</p>
     <p class="estado" role="status" aria-live="polite"></p>
     <button class="btn btn-damasco" type="submit">Envoyer le message</button>
+  </form>
+</dialog>
+
+<dialog class="dlg" id="lead-dlg" aria-labelledby="lead-tit">
+  <form class="dlg-form" method="dialog" novalidate>
+    <button type="button" class="fechar-dlg" aria-label="Fermer">&times;</button>
+    <h2 id="lead-tit">Le concept vous plaît ?</h2>
+    <p class="sub">Laissez-nous vos coordonnées et l'équipe Bagatela vous contactera. Le concept est inclus dans votre demande.</p>
+    <label>Nom<input name="nome" required autocomplete="name"></label>
+    <label>E-mail<input name="email" type="email" required autocomplete="email"></label>
+    <label>Téléphone (facultatif)<input name="telefone" type="tel" autocomplete="tel"></label>
+    <label>Entreprise / activité (facultatif)<input name="empresa" autocomplete="organization"></label>
+    <input type="text" name="_honey" tabindex="-1" autocomplete="off" class="mel" aria-hidden="true">
+    <p class="aviso">En envoyant, vous acceptez notre <a href="privacidade.html" target="_blank">politique de confidentialité</a>.</p>
+    <p class="estado" role="status" aria-live="polite"></p>
+    <button class="btn btn-damasco seta" type="submit">Envoyer la demande</button>
   </form>
 </dialog>
 
@@ -1156,5 +1384,6 @@ dialog#form-dlg::backdrop{background:rgba(20,16,31,.7);backdrop-filter:blur(4px)
   },{passive:true});
 })();
 </script>
+<script src="../conceito.js" defer></script>
 </body>
 </html>

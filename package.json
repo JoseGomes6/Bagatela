@@ -1,0 +1,14 @@
+{
+  "name": "bagatela-website",
+  "private": true,
+  "version": "1.0.0",
+  "description": "Site da Bagatela (estático) + funções serverless para o gerador de conceitos com IA.",
+  "type": "module",
+  "engines": { "node": ">=20" },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.131.0"
+  }
+}
