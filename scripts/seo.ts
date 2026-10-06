@@ -33,7 +33,7 @@ function jsonLd(lang: Lang): string {
       "@type": "OfferCatalog", name: "Websites",
       itemListElement: [
         ...PLANS_DATA.map((p) => ({ "@type": "Offer", priceCurrency: "EUR", price: String(p.price), itemOffered: { "@type": "Service", name: t(p.name), description: t(p.summary) } })),
-        { "@type": "Offer", priceCurrency: "EUR", price: "50", itemOffered: { "@type": "Service", name: t("Manutenção mensal"), description: t("Até 1 hora de alterações por mês (textos, fotos, preços)") } },
+        { "@type": "Offer", priceCurrency: "EUR", price: "50", itemOffered: { "@type": "Service", name: t("Manutenção mensal"), description: t("2 horas de alterações por mês (textos, fotos, preços)") } },
       ],
     },
   };

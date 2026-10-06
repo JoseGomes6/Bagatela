@@ -47,7 +47,7 @@ export const PLANS_DATA: Plan[] = [
 ];
 
 export const MAINTENANCE_FEATURES = [
-  "Até 1 hora de alterações por mês (textos, fotos, preços)", "Atualizações de segurança", "Cópias de segurança semanais",
+  "2 horas de alterações por mês (textos, fotos, preços)", "Atualizações de segurança", "Cópias de segurança semanais",
   "Monitorização do site 24 horas", "Relatório mensal de visitas e posição no Google", "Suporte prioritário" /* TELEFONE/WHATSAPP (desativado): "Suporte prioritário por WhatsApp" */,
 ];
 
@@ -62,7 +62,7 @@ export interface Faq { q: string; a: string }
 export const FAQS: Faq[] = [
   { q: "Quanto tempo demora a ter o site pronto?", a: "Na maioria dos casos o site fica online poucos dias depois de recebermos os textos e as fotografias." },
   { q: "O domínio e o alojamento estão incluídos?", a: "Tratamos do registo do domínio .pt e do alojamento. Os custos anuais aparecem de forma clara na proposta." },
-  { q: "Posso pedir alterações depois?", a: "Sim. Podes pedir alterações avulsas a 25€/hora ou aderir à manutenção mensal opcional de 50€/mês, que inclui até 1 hora de alterações por mês." },
+  { q: "Posso pedir alterações depois?", a: "Sim. Podes pedir alterações avulsas a 25€/hora ou aderir à manutenção mensal opcional de 50€/mês, que inclui 2 horas de alterações por mês, além de atualizações de segurança, cópias de segurança, monitorização do site e relatório mensal." },
   { q: "O meu site vai aparecer no Google?", a: "Todos os sites seguem boas práticas de SEO: carregamento rápido, versão para telemóvel, títulos e descrições otimizados e registo no Google Search Console." },
   { q: "Não tenho textos nem fotografias. E agora?", a: "Ajudamos a escrever os textos e indicamos como tirar boas fotografias com o telemóvel. Também podemos usar imagens de bancos gratuitos." },
 ];
@@ -73,7 +73,7 @@ export const BOT_QA: Faq[] = [
   { q: "O que inclui cada plano?", a: "Essencial: site de 1 página com até 5 secções. Negócio: até 5 páginas com SEO local completo. Loja Online: loja com até 50 produtos e pagamentos por MB WAY, Multibanco e cartão. Na secção de preços podes ver tudo em detalhe." },
   { q: "Quanto tempo demora?", a: "Essencial até 5 dias úteis, Negócio até 10 e Loja Online até 15, a contar da receção dos textos e fotografias." },
   { q: "O domínio está incluído?", a: "Sim, o domínio .pt e o alojamento estão incluídos no 1.º ano. A partir do 2.º ano são 89€/ano." },
-  { q: "Posso pedir alterações depois?", a: "Sim. Alterações avulsas custam 25€/hora, ou podes aderir à manutenção mensal de 50€/mês, que inclui até 1 hora de alterações por mês." },
+  { q: "Posso pedir alterações depois?", a: "Sim. Alterações avulsas custam 25€/hora, ou podes aderir à manutenção mensal de 50€/mês, que inclui 2 horas de alterações por mês, além de atualizações de segurança, cópias de segurança, monitorização do site e relatório mensal." },
   { q: "Não tenho textos nem fotografias. E agora?", a: "Sem problema: ajudamos a escrever os textos (25€/página) e indicamos como tirar boas fotografias com o telemóvel." },
   { q: "Como começo?", a: "Preenche o formulário e conta-nos o que precisas. Entramos em contacto contigo." },
   { q: "Como vos contacto?", a: "Usa o formulário ou escreve para bagatela.geral@gmail.com." },

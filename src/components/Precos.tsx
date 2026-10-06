@@ -12,7 +12,7 @@ function PlanCard({ plan }: { plan: Plan }) {
         {plan.tag && <span className="tag creme">{t(plan.tag)}</span>}
         <h3>{t(plan.name)}</h3>
         <p className="desc">{t(plan.description)}</p>
-        <p className="valor">{plan.price}€<small>{t("pagamento único")}</small></p>
+        <p className="valor">{`${plan.price}€`}<small>{t("pagamento único")}</small></p>
         <p className="resumo">{t(plan.summary)}</p>
         <span className="ver">
           <span><span className="abrir">{t("Ver o que está incluído")}</span><span className="fechar">{t("Esconder detalhes")}</span></span>
@@ -44,7 +44,7 @@ export function Precos() {
           <div>
             <span className="opc">{t("Opcional")}</span>
             <h3>{t("Manutenção mensal")}</h3>
-            <p className="valor">50€<small>{t("/mês")}</small></p>
+            <p className="valor">{"50€"}<small>{t("/mês")}</small></p>
             <p>{t("Para quem quer o site sempre atualizado sem se preocupar com nada. Sem fidelização, cancelas quando quiseres.")}</p>
           </div>
           <ul>{MAINTENANCE_FEATURES.map((f) => <li key={f}><CheckIcon />{t(f)}</li>)}</ul>
