@@ -4,7 +4,8 @@
  * - O resultado é sempre escrito com textContent (nunca innerHTML), por isso conteúdo
  *   inesperado não consegue injetar HTML.
  * - Os textos da interface vêm do bloco .cg-dados do HTML (já traduzido por idioma).
- * Ativação: <meta name="bagatela-api" content="off|URL|"> (ver README). "off" mantém a secção escondida. */
+ * Modos (meta bagatela-api): "local" = conceito gerado no browser por regras (conceito-local.js), sem servidor nem custos;
+ * "" ou URL = IA no servidor (api/generate-concept.js), com as regras locais como plano B; "off" = secção escondida. */
 (function () {
   "use strict";
   var raiz = document.getElementById("conceito");
@@ -14,7 +15,8 @@
   var cfg = typeof window.BAGATELA_API === "string" ? window.BAGATELA_API : meta ? meta.getAttribute("content") : "off";
   if (cfg === null || cfg === "off") return;
   raiz.hidden = false;
-  var BASE = cfg.replace(/\/+$/, ""); // "" = mesmo domínio
+  var LOCAL = cfg === "local";
+  var BASE = LOCAL ? "" : cfg.replace(/\/+$/, ""); // "" = mesmo domínio
 
   var MIN = 50, MAX = 1000;
   var PLANOS = { "Essencial": 179, "Negócio": 299, "Loja Online": 599 };
@@ -45,6 +47,7 @@
     $(".cg").setAttribute("aria-busy", nome === "loading" ? "true" : "false");
     var p = nome === "intro" ? painelIntro : nome === "loading" ? painelLoad : painelRes;
     p.classList.remove("cg-entra"); void p.offsetWidth; p.classList.add("cg-entra");
+    if (nome === "intro" && typeof atualizaContador === "function") atualizaContador(); // volta a ativar o botão
   }
 
   /* ---------- Estado 1: introdução ---------- */
@@ -132,12 +135,26 @@
     btn.disabled = true;
     estado("loading"); iniciaFrases();
     var inicio = Date.now();
-    pedido(descricao).then(function (r) {
-      var c = r.status === 200 ? valida(r.json) : null;
-      if (c) return c;
-      var cod = r.json && r.json.error;
-      throw { codigo: r.status === 429 ? "rate" : (cod === "not_business" || cod === "too_short") ? "negocio" : "pausa" };
-    }).then(function (c) {
+    var gera = LOCAL
+      ? Promise.resolve().then(function () {
+          var c = valida({ concept: window.BagatelaLocal ? window.BagatelaLocal.gerar(descricao, LANG) : null });
+          if (!c) throw { codigo: "negocio" };
+          return c;
+        })
+      : pedido(descricao).then(function (r) {
+          var c = r.status === 200 ? valida(r.json) : null;
+          if (c) return c;
+          var cod = r.json && r.json.error;
+          throw { codigo: r.status === 429 ? "rate" : (cod === "not_business" || cod === "too_short") ? "negocio" : "pausa" };
+        }).catch(function (err) {
+          // plano B: se a IA falhar, usa as regras locais em vez de mostrar um erro
+          if (err && err.codigo === "pausa" || !(err && err.codigo)) {
+            var c = valida({ concept: window.BagatelaLocal ? window.BagatelaLocal.gerar(descricao, LANG) : null });
+            if (c) return c;
+          }
+          throw err;
+        });
+    gera.then(function (c) {
       // mantém o loading o tempo mínimo para a animação não "piscar"
       var resta = Math.max(0, 1600 - (Date.now() - inicio));
       return new Promise(function (ok) { setTimeout(function () { ok(c); }, resta); });

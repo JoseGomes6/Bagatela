@@ -300,7 +300,7 @@ PRIV = {
  ("Com quem partilhamos","O formulário é processado pelo serviço FormSubmit, que apenas encaminha a mensagem para o nosso e-mail. Não vendemos nem cedemos os teus dados a terceiros."),
  ("Quanto tempo guardamos","Pelo tempo necessário para responder ao teu pedido e, se for cliente, durante o período exigido por lei. Podes pedir a eliminação a qualquer momento."),
  ("Os teus direitos","Podes pedir acesso, retificação, eliminação ou limitação dos teus dados, e opor-se ao tratamento, escrevendo para <a href=\"mailto:geral@bagatela.pt\">geral@bagatela.pt</a>. Tens também o direito de apresentar reclamação à Comissão Nacional de Proteção de Dados (<a href=\"https://www.cnpd.pt\">cnpd.pt</a>)."),
- ("Gerador de conceitos com IA", "O texto que escreves no gerador de conceitos é enviado ao nosso servidor e a um fornecedor de inteligência artificial (Anthropic) apenas para criar o conceito. Não o guardamos: só chega à equipa se carregares em \"Quero avançar\" e enviares o pedido. Não incluas dados pessoais sensíveis na descrição."),
+ ("Gerador de conceitos", "O texto que escreves no gerador de conceitos é processado no teu próprio browser e não é enviado a nenhum servidor. Só chega à equipa se carregares em \"Quero avançar\" e enviares o pedido. Não incluas dados pessoais sensíveis na descrição."),
  ("Cookies","Este site não usa cookies de publicidade nem de seguimento. Os tipos de letra são carregados a partir do Google Fonts."),
  ("Livro de Reclamações","Podes apresentar uma reclamação em <a href=\"https://www.livroreclamacoes.pt\">livroreclamacoes.pt</a>."),
 ]),
@@ -312,7 +312,7 @@ PRIV = {
  ("Who we share it with","The form is processed by the FormSubmit service, which only forwards the message to our email. We don't sell or hand your data to third parties."),
  ("How long we keep it","For as long as needed to answer your request and, if you become a customer, for the period required by law. You can ask for deletion at any time."),
  ("Your rights","You can request access, rectification, erasure or restriction of your data, and object to processing, by writing to <a href=\"mailto:geral@bagatela.pt\">geral@bagatela.pt</a>. You also have the right to lodge a complaint with the Portuguese data protection authority (CNPD, <a href=\"https://www.cnpd.pt\">cnpd.pt</a>)."),
- ("AI concept generator", "The text you write in the concept generator is sent to our server and to an artificial intelligence provider (Anthropic) solely to create the concept. We do not store it: it only reaches the team if you press \"I want to go ahead\" and send the request. Please do not include sensitive personal data in the description."),
+ ("Concept generator", "The text you write in the concept generator is processed in your own browser and is not sent to any server. It only reaches the team if you press \"I want to go ahead\" and send the request. Please do not include sensitive personal data in the description."),
  ("Cookies","This site does not use advertising or tracking cookies. Fonts are loaded from Google Fonts."),
  ("Complaints Book","You can file a complaint at <a href=\"https://www.livroreclamacoes.pt\">livroreclamacoes.pt</a> (Portugal)."),
 ]),
@@ -324,7 +324,7 @@ PRIV = {
  ("Avec qui les partageons-nous","Le formulaire est traité par le service FormSubmit, qui se contente de transmettre le message à notre e-mail. Nous ne vendons ni ne cédons vos données à des tiers."),
  ("Combien de temps les conservons-nous","Le temps nécessaire pour répondre à votre demande et, si vous devenez client, pendant la durée exigée par la loi. Vous pouvez demander la suppression à tout moment."),
  ("Vos droits","Vous pouvez demander l'accès, la rectification, l'effacement ou la limitation de vos données, et vous opposer au traitement, en écrivant à <a href=\"mailto:geral@bagatela.pt\">geral@bagatela.pt</a>. Vous pouvez aussi déposer une réclamation auprès de l'autorité portugaise de protection des données (CNPD, <a href=\"https://www.cnpd.pt\">cnpd.pt</a>)."),
- ("Générateur de concepts avec IA", "Le texte que vous saisissez dans le générateur de concepts est envoyé à notre serveur et à un fournisseur d'intelligence artificielle (Anthropic) uniquement pour créer le concept. Nous ne le conservons pas : il ne parvient à l'équipe que si vous cliquez sur « Je veux avancer » et envoyez la demande. N'indiquez pas de données personnelles sensibles dans la description."),
+ ("Générateur de concepts", "Le texte que vous saisissez dans le générateur de concepts est traité dans votre propre navigateur et n'est envoyé à aucun serveur. Il ne parvient à l'équipe que si vous cliquez sur « Je veux avancer » et envoyez la demande. N'indiquez pas de données personnelles sensibles dans la description."),
  ("Cookies","Ce site n'utilise pas de cookies publicitaires ni de suivi. Les polices sont chargées depuis Google Fonts."),
  ("Livre de réclamations","Vous pouvez déposer une réclamation sur <a href=\"https://www.livroreclamacoes.pt\">livroreclamacoes.pt</a> (Portugal)."),
 ]),
@@ -336,7 +336,7 @@ PRIV = {
  ("Con quién los compartimos","El formulario lo procesa el servicio FormSubmit, que solo reenvía el mensaje a nuestro correo. No vendemos ni cedemos tus datos a terceros."),
  ("Cuánto tiempo los conservamos","El tiempo necesario para responder a tu solicitud y, si eres cliente, durante el plazo que exija la ley. Puedes pedir su eliminación en cualquier momento."),
  ("Tus derechos","Puedes solicitar el acceso, la rectificación, la supresión o la limitación de tus datos, y oponerte al tratamiento, escribiendo a <a href=\"mailto:geral@bagatela.pt\">geral@bagatela.pt</a>. También puedes presentar una reclamación ante la autoridad portuguesa de protección de datos (CNPD, <a href=\"https://www.cnpd.pt\">cnpd.pt</a>)."),
- ("Generador de conceptos con IA", "El texto que escribes en el generador de conceptos se envía a nuestro servidor y a un proveedor de inteligencia artificial (Anthropic) únicamente para crear el concepto. No lo guardamos: solo llega al equipo si pulsas «Quiero avanzar» y envías la solicitud. No incluyas datos personales sensibles en la descripción."),
+ ("Generador de conceptos", "El texto que escribes en el generador de conceptos se procesa en tu propio navegador y no se envía a ningún servidor. Solo llega al equipo si pulsas «Quiero avanzar» y envías la solicitud. No incluyas datos personales sensibles en la descripción."),
  ("Cookies","Este sitio no usa cookies publicitarias ni de seguimiento. Las fuentes se cargan desde Google Fonts."),
  ("Libro de Reclamaciones","Puedes presentar una reclamación en <a href=\"https://www.livroreclamacoes.pt\">livroreclamacoes.pt</a> (Portugal)."),
 ]),
@@ -405,7 +405,7 @@ def translate_index(src, lang):
     body = body.replace('src="img/', 'src="../img/').replace('href="exemplos/', 'href="../exemplos/').replace('href="/"', 'href="./"')
 
     # --- JS
-    tail = tail.replace('src="conceito.js"', 'src="../conceito.js"')
+    tail = tail.replace('src="conceito.js"', 'src="../conceito.js"').replace('src="conceito-local.js"', 'src="../conceito-local.js"')
     for row in JS:
         tail = tail.replace(row[0], row[i].replace("'", "\\'"))
     return head + body + tail
