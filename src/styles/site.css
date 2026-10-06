@@ -518,11 +518,11 @@ dialog.dlg::backdrop{background:rgba(20,16,31,.7);backdrop-filter:blur(4px)}
 :root[data-theme="dark"] .tema-btn .lua{display:none}
 
 /* Assistente */
-.bot{position:fixed;right:1.2rem;bottom:1.2rem;z-index:10000;font-family:var(--corpo)}
+.bot{position:fixed;right:max(1.2rem,env(safe-area-inset-right));bottom:max(1.2rem,env(safe-area-inset-bottom));z-index:10000;font-family:var(--corpo);transform:translateZ(0);will-change:transform}
 .bot-btn{width:60px;height:60px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:var(--degrade);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 34px -8px rgba(107,70,229,.65);transition:transform .15s ease}
 .bot-btn:hover{transform:scale(1.06)}
 .bot-btn:focus-visible,.bot-x:focus-visible,.bot-opcoes button:focus-visible{outline:3px solid var(--azul-claro);outline-offset:2px}
-.bot-painel{position:absolute;right:0;bottom:76px;width:min(380px,calc(100vw - 2.4rem));max-height:min(560px,calc(100vh - 7rem));display:flex;flex-direction:column;background:var(--card);border-radius:22px;box-shadow:0 30px 70px -15px rgba(0,0,0,.55);overflow:hidden;border:1px solid var(--salvia)}
+.bot-painel{position:absolute;right:0;bottom:76px;width:min(380px,calc(100vw - 2.4rem));max-height:min(560px,calc(100vh - 7rem));max-height:min(560px,calc(100dvh - 7rem));display:flex;flex-direction:column;background:var(--card);border-radius:22px;box-shadow:0 30px 70px -15px rgba(0,0,0,.55);overflow:hidden;border:1px solid var(--salvia)}
 .bot-painel[hidden]{display:none}
 .bot-cab{display:flex;justify-content:space-between;align-items:center;padding:.9rem 1.1rem;background:var(--fundo-escuro);color:#fff}
 .bot-cab b{font-family:var(--display);font-size:1.05rem}
