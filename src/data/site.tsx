@@ -64,7 +64,7 @@ export const FAQS: Faq[] = [
   { q: "O domínio e o alojamento estão incluídos?", a: "Tratamos do registo do domínio .pt e do alojamento. Os custos anuais aparecem de forma clara na proposta." },
   { q: "Posso pedir alterações depois?", a: "Sim. Podes pedir alterações avulsas a 25€/hora ou aderir à manutenção mensal opcional de 50€/mês, que inclui 2 horas de alterações por mês, além de atualizações de segurança, cópias de segurança, monitorização do site e relatório mensal." },
   { q: "O meu site vai aparecer no Google?", a: "Todos os sites seguem boas práticas de SEO: carregamento rápido, versão para telemóvel, títulos e descrições otimizados e registo no Google Search Console." },
-  { q: "Não tenho textos nem fotografias. E agora?", a: "Ajudamos a escrever os textos e indicamos como tirar boas fotografias com o telemóvel. Também podemos usar imagens de bancos gratuitos." },
+  { q: "Não tenho textos nem fotografias. E agora?", a: "Ajudamos a escrever os textos e indicamos como tirar boas fotografias com o telemóvel. Também podemos usar imagens de bancos gratuitos ou, se preferires, arranjar um fotógrafo por um custo adicional." },
 ];
 
 /** Perguntas do assistente (chat no canto inferior direito). */
@@ -74,7 +74,7 @@ export const BOT_QA: Faq[] = [
   { q: "Quanto tempo demora?", a: "Essencial até 5 dias úteis, Negócio até 10 e Loja Online até 15, a contar da receção dos textos e fotografias." },
   { q: "O domínio está incluído?", a: "Sim, o domínio .pt e o alojamento estão incluídos no 1.º ano. A partir do 2.º ano são 89€/ano." },
   { q: "Posso pedir alterações depois?", a: "Sim. Alterações avulsas custam 25€/hora, ou podes aderir à manutenção mensal de 50€/mês, que inclui 2 horas de alterações por mês, além de atualizações de segurança, cópias de segurança, monitorização do site e relatório mensal." },
-  { q: "Não tenho textos nem fotografias. E agora?", a: "Sem problema: ajudamos a escrever os textos (25€/página) e indicamos como tirar boas fotografias com o telemóvel." },
+  { q: "Não tenho textos nem fotografias. E agora?", a: "Sem problema: ajudamos a escrever os textos (25€/página) e indicamos como tirar boas fotografias com o telemóvel. Se preferires, arranjamos um fotógrafo por um custo adicional." },
   { q: "Como começo?", a: "Preenche o formulário e conta-nos o que precisas. Entramos em contacto contigo." },
   { q: "Como vos contacto?", a: "Usa o formulário ou escreve para bagatela.geral@gmail.com." },
   // TELEFONE/WHATSAPP (desativado):
