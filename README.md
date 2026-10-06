@@ -30,5 +30,5 @@ Site da Bagatela (websites low-cost para pequenos negócios em Portugal), em **R
 
 ## Antes do lançamento
 
-- `FORM_EMAIL` em `src/config.ts` está num email de **teste**; muda para `geral@bagatela.pt` e faz `npm run build:site`. O FormSubmit pede confirmação no primeiro envio.
+- `FORM_EMAIL` em `src/config.ts` é `geral@bagatela.pt`. O FormSubmit pede confirmação por email no primeiro envio.
 - Não pôr nomes nem fotos de pessoas no site (anonimato).

@@ -9,8 +9,8 @@ export const CONTACT = {
   whatsapp: "https://wa.me/351917385546",
 } as const;
 
-/** Destino dos formulários (FormSubmit). TESTE: trocar por CONTACT.email antes de lançar. */
-export const FORM_EMAIL = "josepedrogomes106@gmail.com";
+/** Destino dos formulários (FormSubmit). Formulários enviados para o email geral. */
+export const FORM_EMAIL = "geral@bagatela.pt";
 export const FORM_ENDPOINT = `https://formsubmit.co/ajax/${FORM_EMAIL}`;
 
 /**
