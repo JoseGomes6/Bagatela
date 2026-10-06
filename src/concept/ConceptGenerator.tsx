@@ -11,8 +11,8 @@ const MAX = 1000;
 const MIN_LOADING_MS = 1600;
 
 const EXAMPLES = {
-  alojamento: { label: "Alojamento local", text: "Tenho uma pequena quinta de alojamento local no Douro. Temos quatro quartos, piscina e queremos mostrar a quinta, as fotografias e permitir que os clientes entrem em contacto para reservar." },
-  restaurante: { label: "Restaurante", text: "Tenho um restaurante no centro de Coimbra. Queremos mostrar o menu, o horário e a localização, e deixar as pessoas reservar mesa por telefone ou pelo site." },
+  alojamento: { label: "Alojamento local", text: "Tenho um pequeno alojamento local com quatro quartos e piscina. Queremos mostrar o espaço, as fotografias e permitir que os clientes entrem em contacto para reservar." },
+  restaurante: { label: "Restaurante", text: "Tenho um restaurante. Queremos mostrar o menu, o horário e a localização, e deixar as pessoas reservar mesa pelo site." },
   loja: { label: "Loja de roupa", text: "Tenho uma loja de roupa feminina e quero começar a vender online. Preciso de mostrar o catálogo, ter carrinho de compras e aceitar pagamentos por MB WAY e cartão." },
 } as const;
 type ExampleKey = keyof typeof EXAMPLES;
@@ -121,7 +121,7 @@ export function ConceptGenerator() {
                 <div className="cg-form-topo">
                   <label className="cg-label" htmlFor="cg-texto">{t("O teu negócio")}</label>
                   <textarea id="cg-texto" name="descricao" maxLength={MAX} rows={7} ref={textRef} value={text}
-                    placeholder={t("Ex: Tenho um restaurante no centro de Coimbra…")} aria-describedby="cg-ajuda cg-contador"
+                    placeholder={t("Ex: Tenho um restaurante e quero mostrar o menu e receber reservas…")} aria-describedby="cg-ajuda cg-contador"
                     onChange={(e) => { setText(e.target.value); setError(""); }} />
                   <input type="text" id="cg-hp" name="website" tabIndex={-1} autoComplete="off" className="mel" aria-hidden="true" value={hp} onChange={(e) => setHp(e.target.value)} />
                 </div>
