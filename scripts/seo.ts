@@ -56,7 +56,10 @@ export function homeHead(lang: Lang, prefix: string): string {
     `<meta name="description" content="${esc(t(DESCRIPTION))}">`,
     `<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">`,
     `<meta name="author" content="Bagatela">`,
+    `<link rel="icon" href="${prefix}favicon.ico" sizes="48x48">`,
     `<link rel="icon" type="image/svg+xml" href="${prefix}favicon.svg">`,
+    `<link rel="icon" type="image/png" sizes="192x192" href="${prefix}icon-192.png">`,
+    `<link rel="apple-touch-icon" href="${prefix}apple-touch-icon.png">`,
     `<link rel="canonical" href="${absoluteUrl(lang)}">`,
     hreflangs(""),
     `<meta name="theme-color" content="#14101F">`,
@@ -86,7 +89,10 @@ export function privacyHead(lang: Lang, prefix: string): string {
     `<meta name="robots" content="index, follow">`,
     `<link rel="canonical" href="${absoluteUrl(lang, "privacidade.html")}">`,
     hreflangs("privacidade.html"),
+    `<link rel="icon" href="${prefix}favicon.ico" sizes="48x48">`,
     `<link rel="icon" type="image/svg+xml" href="${prefix}favicon.svg">`,
+    `<link rel="icon" type="image/png" sizes="192x192" href="${prefix}icon-192.png">`,
+    `<link rel="apple-touch-icon" href="${prefix}apple-touch-icon.png">`,
   ].join("\n");
 }
 

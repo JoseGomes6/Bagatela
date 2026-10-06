@@ -108,7 +108,7 @@ ${server.renderNotFound()}
 
   // 6) opcional: copiar para a raiz do repositório (publicação no GitHub Pages)
   if (publish) {
-    for (const old of ["assets", "en", "fr", "es", "exemplos", "index.html", "privacidade.html", "404.html", "sitemap.xml", "robots.txt", "favicon.svg", "og-image.png"]) {
+    for (const old of ["assets", "en", "fr", "es", "exemplos", "index.html", "privacidade.html", "404.html", "sitemap.xml", "robots.txt", "favicon.svg", "favicon.ico", "favicon-48x48.png", "icon-192.png", "icon-512.png", "apple-touch-icon.png", "og-image.png"]) {
       fs.rmSync(path.join(root, old), { recursive: true, force: true });
     }
     fs.cpSync(dist, root, { recursive: true });
