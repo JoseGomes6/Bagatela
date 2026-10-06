@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { CONTACT } from "../config";
+// import { CONTACT } from "../config"; // TELEFONE/WHATSAPP (desativado)
 import { BOT_QA } from "../data/site";
 import { useEscape } from "../hooks/useEscape";
 import { useT } from "../i18n/context";
@@ -63,7 +63,7 @@ export function Bot() {
             <>
               <span className="sep">{t("Preferes falar com uma pessoa?")}</span>
               <button type="button" className="acao" onClick={() => { setOpen(false); openContact(); }}>{t("Preencher formulário")}</button>
-              <button type="button" className="acao" onClick={() => window.open(CONTACT.whatsapp, "_blank", "noopener")}>{t("Falar no WhatsApp")}</button>
+              {/* TELEFONE/WHATSAPP (desativado): <button type="button" className="acao" onClick={() => window.open(CONTACT.whatsapp, "_blank", "noopener")}>{t("Falar no WhatsApp")}</button> */}
             </>
           )}
         </div>

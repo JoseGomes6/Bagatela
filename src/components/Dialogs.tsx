@@ -88,7 +88,7 @@ function ContactDialog({ open, onClose, service, setService }: { open: boolean; 
           {status.kind === "sending" && t("A enviar...")}
           {status.kind === "ok" && t("Mensagem enviada. Entramos em contacto contigo em breve!")}
           {status.kind === "invalid" && t("Preenche os campos obrigatórios.")}
-          {status.kind === "error" && (<>{t("Não foi possível enviar. Escreve-nos para")} <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a> {t("ou liga 917 385 546.")}</>)}
+          {status.kind === "error" && (<>{t("Não foi possível enviar. Escreve-nos para")} <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>{/* TELEFONE/WHATSAPP (desativado): aqui ia a frase "ou liga <telefone>." (ver comentários em translations.ts) */}</>)}
         </p>
         <button className="btn btn-damasco" type="submit" disabled={status.kind === "sending"}>{t("Enviar mensagem")}</button>
       </form>

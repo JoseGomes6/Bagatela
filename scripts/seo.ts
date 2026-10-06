@@ -25,9 +25,10 @@ function jsonLd(lang: Lang): string {
   const org = {
     "@context": "https://schema.org", "@type": "ProfessionalService", name: "Bagatela", url: `${SITE}/`,
     logo: `${SITE}/favicon.svg`, image: `${SITE}/og-image.png`, description: t(ORG_DESC), areaServed: "PT",
-    email: CONTACT.email, telephone: CONTACT.phone1Intl, priceRange: "179€ - 599€",
+    email: CONTACT.email, /* TELEFONE/WHATSAPP (desativado): telephone: CONTACT.phone1Intl, */ priceRange: "179€ - 599€",
     address: { "@type": "PostalAddress", addressCountry: "PT" }, availableLanguage: langs,
-    contactPoint: [CONTACT.phone1Intl, CONTACT.phone2Intl].map((telephone) => ({ "@type": "ContactPoint", telephone, contactType: "customer service", availableLanguage: langs })),
+    contactPoint: [{ "@type": "ContactPoint", email: CONTACT.email, contactType: "customer service", availableLanguage: langs }],
+    // TELEFONE/WHATSAPP (desativado): contactPoint com telephone: [CONTACT.phone1Intl, CONTACT.phone2Intl].map(...)
     hasOfferCatalog: {
       "@type": "OfferCatalog", name: "Websites",
       itemListElement: [

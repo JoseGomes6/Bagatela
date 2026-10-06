@@ -1,4 +1,5 @@
 import { useState, type FormEvent } from "react";
+import { CONTACT } from "../config";
 import { PLANS, type Concept } from "../../shared/types";
 import { useLang, useT } from "../i18n/context";
 import { submitToFormSubmit } from "../lib/forms";
@@ -66,7 +67,8 @@ export function LeadDialog({ open, onClose, concept, description }: { open: bool
           {status === "sending" && t("A enviar...")}
           {status === "ok" && t("Pedido enviado! Entramos em contacto contigo em breve.")}
           {status === "invalid" && t("Preenche o nome e um e-mail válido.")}
-          {status === "error" && t("Não foi possível enviar agora. Escreve-nos para geral@bagatela.pt ou liga 917 385 546.")}
+          {status === "error" && `${t("Não foi possível enviar. Escreve-nos para")} ${CONTACT.email}`}
+          {/* TELEFONE/WHATSAPP (desativado): a mensagem de erro incluía também "ou liga <telefone>" (ver comentários em translations.ts) */}
         </p>
         <button className="btn btn-damasco seta" type="submit" disabled={status === "sending"}>{t("Enviar pedido")}</button>
       </form>

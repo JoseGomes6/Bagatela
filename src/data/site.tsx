@@ -48,7 +48,7 @@ export const PLANS_DATA: Plan[] = [
 
 export const MAINTENANCE_FEATURES = [
   "Até 1 hora de alterações por mês (textos, fotos, preços)", "Atualizações de segurança", "Cópias de segurança semanais",
-  "Monitorização do site 24 horas", "Relatório mensal de visitas e posição no Google", "Suporte prioritário por WhatsApp",
+  "Monitorização do site 24 horas", "Relatório mensal de visitas e posição no Google", "Suporte prioritário" /* TELEFONE/WHATSAPP (desativado): "Suporte prioritário por WhatsApp" */,
 ];
 
 export const EXTRAS: Array<[string, string]> = [
@@ -75,6 +75,9 @@ export const BOT_QA: Faq[] = [
   { q: "O domínio está incluído?", a: "Sim, o domínio .pt e o alojamento estão incluídos no 1.º ano. A partir do 2.º ano são 89€/ano." },
   { q: "Posso pedir alterações depois?", a: "Sim. Alterações avulsas custam 25€/hora, ou podes aderir à manutenção mensal de 50€/mês, que inclui até 1 hora de alterações por mês." },
   { q: "Não tenho textos nem fotografias. E agora?", a: "Sem problema: ajudamos a escrever os textos (25€/página) e indicamos como tirar boas fotografias com o telemóvel." },
-  { q: "Como começo?", a: "Preenche o formulário ou fala connosco por WhatsApp. Conta-nos o que precisas e entramos em contacto contigo." },
-  { q: "Como vos contacto?", a: "Podes ligar para 917 385 546 ou 932 904 463, escrever para geral@bagatela.pt ou usar o formulário." },
+  { q: "Como começo?", a: "Preenche o formulário e conta-nos o que precisas. Entramos em contacto contigo." },
+  { q: "Como vos contacto?", a: "Usa o formulário ou escreve para bagatela.geral@gmail.com." },
+  // TELEFONE/WHATSAPP (desativado):
+  // { q: "Como começo?", a: "Preenche o formulário ou fala connosco por WhatsApp. Conta-nos o que precisas e entramos em contacto contigo." },
+  // { q: "Como vos contacto?", a: "Podes ligar para 917 385 546 ou 932 904 463, escrever para geral@bagatela.pt ou usar o formulário." },
 ];

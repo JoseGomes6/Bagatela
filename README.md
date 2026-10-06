@@ -30,5 +30,8 @@ Site da Bagatela (websites low-cost para pequenos negócios em Portugal), em **R
 
 ## Antes do lançamento
 
-- `FORM_EMAIL` em `src/config.ts` é `geral@bagatela.pt`. O FormSubmit pede confirmação por email no primeiro envio.
+- `FORM_EMAIL` em `src/config.ts` é `bagatela.geral@gmail.com`. O FormSubmit pede confirmação por email no primeiro envio.
 - Não pôr nomes nem fotos de pessoas no site (anonimato).
+
+## Telefone e WhatsApp
+Desativados por agora (ainda sem cartão). O código foi deixado em comentário e marcado com `TELEFONE/WHATSAPP` (`src/config.ts`, `Contacto.tsx`, `Bot.tsx`, `Dialogs.tsx`, `LeadDialog.tsx`, `data/site.tsx`, `scripts/seo.ts`). Para reativar: descomentar e voltar a correr `npm run build:site`.
