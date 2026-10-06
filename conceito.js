@@ -106,7 +106,7 @@
     if (!res || typeof res !== "object" || !res.concept || typeof res.concept !== "object") return null;
     var c = res.concept;
     var secoes = Array.isArray(c.sections) ? c.sections.map(function (s) {
-      return s && typeof s === "object" ? { title: texto(s.title, 80), description: texto(s.description, 260) } : null;
+      return s && typeof s === "object" ? { title: texto(s.title, 80), description: texto(s.description, 260), kind: tipoSecao(s.kind, s.title) } : null;
     }).filter(function (s) { return s && s.title; }).slice(0, 10) : [];
     var plano = Object.prototype.hasOwnProperty.call(PLANOS, c.recommendedPlan) ? c.recommendedPlan : null;
     var out = {
@@ -122,6 +122,7 @@
       cta: texto(c.cta, 50),
       recommendedPlan: plano,
       planReason: texto(c.planReason, 360),
+      theme: Object.prototype.hasOwnProperty.call(TEMAS, c.theme) ? c.theme : "generico",
     };
     if (!plano || secoes.length < 2 || !out.objective || !out.headline) return null;
     return out;
@@ -172,6 +173,40 @@
     });
   });
 
+
+  /* ---------- layout de exemplo (mockup do site, desenhado com os dados do conceito) ---------- */
+  var TEMAS = {
+    alojamento: { bg: "#F7F3EA", ink: "#2D2A24", acc: "#7C8F5A", soft: "#E9E1CF" },
+    restauracao: { bg: "#FFF7EE", ink: "#3A2418", acc: "#C2512B", soft: "#F3DFC8" },
+    loja: { bg: "#FAFAF7", ink: "#1B1B1B", acc: "#D1495B", soft: "#EFEDE6" },
+    beleza_saude: { bg: "#FFF6F4", ink: "#4A2B33", acc: "#C97B84", soft: "#F6E1DE" },
+    servicos: { bg: "#F2F6FA", ink: "#0F2A44", acc: "#E27D00", soft: "#DCE7F2" },
+    ginasio: { bg: "#141414", ink: "#FFFFFF", acc: "#C6FF3D", soft: "#262626" },
+    profissional: { bg: "#F6F7F9", ink: "#1C2430", acc: "#2F5D8C", soft: "#E5E9EF" },
+    criativo: { bg: "#FFFFFF", ink: "#111111", acc: "#FF5C39", soft: "#F0F0F0" },
+    generico: { bg: "#F7F2E9", ink: "#14101F", acc: "#6B46E5", soft: "#ECE6FF" },
+  };
+  // tipo de bloco desenhado para cada secção
+  var BLOCOS = {
+    hero: "hero", sobre: "split", quartos: "cards", galeria: "grid", experiencias: "cards", localizacao: "mapa", contactos: "contacto",
+    menu: "lista", reservas: "reserva", servicos: "cards", precos: "lista", equipa: "pessoas", avaliacoes: "citacoes", catalogo: "produtos",
+    destaques: "produtos", faq: "faq", portfolio: "grid", processo: "passos", marcacoes: "reserva", horarios: "lista", planos: "lista", zonas: "etiquetas",
+  };
+  var INFERE = [
+    [/^(hero|inicio|home|accueil|portada)/, "hero"], [/galer|gallery|foto/, "galeria"], [/portf/, "portfolio"], [/quarto|aloj|accommod|hebergement|room/, "quartos"],
+    [/experi/, "experiencias"], [/localiz|location|ubicac|mapa|onde/, "localizacao"], [/contact/, "contactos"], [/menu|carta|ementa/, "menu"],
+    [/reserv|booking|marcac|agend|cita|appoint|rendez/, "reservas"], [/horari|hours|horaires/, "horarios"], [/preco|pric|tarif|precio/, "precos"],
+    [/plano|plan|abonn|member/, "planos"], [/equipa|team|equipe|equipo/, "equipa"], [/opini|review|avis|testemun/, "avaliacoes"],
+    [/catalog|produt|product|shop|loja/, "catalogo"], [/destaq|highlight|nouveau|novedad/, "destaques"], [/faq|pergunt|question|preguntas/, "faq"],
+    [/process|como trabalh|how we|etapa|step|travaillons|trabajamos/, "processo"], [/zona|area|zone/, "zonas"], [/servi/, "servicos"], [/sobre|about|propos|nosotros|histor|quem/, "sobre"],
+  ];
+  function tipoSecao(kind, titulo) {
+    if (typeof kind === "string" && Object.prototype.hasOwnProperty.call(BLOCOS, kind)) return kind;
+    var t = String(titulo || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
+    for (var i = 0; i < INFERE.length; i++) if (INFERE[i][0].test(t)) return INFERE[i][1];
+    return "sobre";
+  }
+
   /* ---------- Estado 3: resultado ---------- */
   var seq = 0;
   function proximoNumero() {
@@ -183,6 +218,82 @@
   function bloco(titulo, cls, i) {
     var b = el("section", "cg-bloco" + (cls ? " " + cls : "")); b.style.setProperty("--i", i);
     b.appendChild(el("h4", null, titulo)); return b;
+  }
+
+
+  function linhas(n, cls) { var f = document.createDocumentFragment(); for (var i = 0; i < n; i++) f.appendChild(el("span", "pv-l" + (cls ? " " + cls : ""))); return f; }
+  function img(cls) { return el("div", "pv-img" + (cls ? " " + cls : "")); }
+  function cartoes(n, titulo, descr, cls) {
+    var g = el("div", "pv-cartoes" + (cls ? " " + cls : ""));
+    for (var i = 0; i < n; i++) { var c = el("div", "pv-cartao"); c.appendChild(img()); c.appendChild(el("b", null, titulo)); c.appendChild(linhas(2, i % 2 ? "curta" : "")); g.appendChild(c); }
+    return g;
+  }
+  function pvBloco(sec, c) {
+    var tipo = BLOCOS[sec.kind] || "split";
+    var b = el("section", "pv-sec pv-" + tipo);
+    if (tipo === "hero") {
+      var t = el("div", "pv-hero-texto");
+      t.appendChild(el("small", null, c.businessType));
+      t.appendChild(el("h5", null, c.headline));
+      t.appendChild(linhas(2, "pv-claro"));
+      if (c.cta) t.appendChild(el("span", "pv-botao", c.cta));
+      b.appendChild(t); b.appendChild(img("pv-img-grande")); return b;
+    }
+    b.appendChild(el("h6", null, sec.title));
+    if (tipo === "split") { var d = el("div", "pv-duas"); var tx = el("div"); tx.appendChild(linhas(4)); d.appendChild(tx); d.appendChild(img()); b.appendChild(d); }
+    else if (tipo === "cards") b.appendChild(cartoes(3, sec.title));
+    else if (tipo === "produtos") { var p = cartoes(4, sec.title, null, "pv-4"); [].forEach.call(p.children, function (x) { x.appendChild(el("em", null, "€")); }); b.appendChild(p); }
+    else if (tipo === "pessoas") { var pe = el("div", "pv-pessoas"); for (var i = 0; i < 3; i++) { var q = el("div"); q.appendChild(el("i")); q.appendChild(linhas(1, "curta")); pe.appendChild(q); } b.appendChild(pe); }
+    else if (tipo === "grid") { var g = el("div", "pv-grelha"); for (var j = 0; j < 6; j++) g.appendChild(img(j === 0 ? "pv-largo" : "")); b.appendChild(g); }
+    else if (tipo === "lista") { var l = el("div", "pv-lista"); for (var k = 0; k < 4; k++) { var r = el("div"); r.appendChild(el("span", "pv-l")); r.appendChild(el("i")); r.appendChild(el("b", null, "€")); l.appendChild(r); } b.appendChild(l); }
+    else if (tipo === "mapa") { var m = el("div", "pv-duas"); m.appendChild(el("div", "pv-mapa")); var tt = el("div"); tt.appendChild(linhas(3)); m.appendChild(tt); b.appendChild(m); }
+    else if (tipo === "citacoes") { var ci = el("div", "pv-citacoes"); for (var n = 0; n < 2; n++) { var cc = el("div"); cc.appendChild(el("b", null, "★★★★★")); cc.appendChild(linhas(2)); ci.appendChild(cc); } b.appendChild(ci); }
+    else if (tipo === "faq") { var f = el("div", "pv-faq"); for (var z = 0; z < 3; z++) { var fi = el("div"); fi.appendChild(el("span", "pv-l")); fi.appendChild(el("b", null, "+")); f.appendChild(fi); } b.appendChild(f); }
+    else if (tipo === "passos") { var ps = el("div", "pv-passos"); for (var y = 1; y <= 3; y++) { var st = el("div"); st.appendChild(el("b", null, String(y))); st.appendChild(linhas(2, "curta")); ps.appendChild(st); } b.appendChild(ps); }
+    else if (tipo === "etiquetas") { var tg = el("div", "pv-etiquetas"); for (var w = 0; w < 5; w++) tg.appendChild(el("span", null, "")); b.appendChild(tg); }
+    else if (tipo === "reserva" || tipo === "contacto") {
+      var fo = el("div", "pv-form"); for (var u = 0; u < 3; u++) fo.appendChild(el("span", "pv-campo")); fo.appendChild(el("span", "pv-botao", c.cta || "→")); b.appendChild(fo);
+    }
+    return b;
+  }
+
+  function desenhaLayout(c, nome) {
+    var T = TEMAS[c.theme] || TEMAS.generico;
+    var raizL = el("div", "pv-bloco");
+    var barra = el("div", "pv-controlos");
+    var bPc = el("button", "pv-modo ativo", S("modoPc")), bTel = el("button", "pv-modo", S("modoTel"));
+    bPc.type = bTel.type = "button"; bPc.setAttribute("aria-pressed", "true"); bTel.setAttribute("aria-pressed", "false");
+    barra.appendChild(bPc); barra.appendChild(bTel); raizL.appendChild(barra);
+
+    var janela = el("div", "pv-janela");
+    ["bg", "ink", "acc", "soft"].forEach(function (k) { janela.style.setProperty("--pv-" + k, T[k]); });
+    var topo = el("div", "pv-barra");
+    topo.appendChild(el("i")); topo.appendChild(el("i")); topo.appendChild(el("i")); topo.appendChild(el("span", "pv-url", "exemplo.pt"));
+    janela.appendChild(topo);
+
+    var pag = el("div", "pv-pagina"); pag.setAttribute("role", "img"); pag.setAttribute("aria-label", S("layoutNota")); pag.tabIndex = 0;
+    var cont = el("div", "pv");
+    var cab = el("div", "pv-nav");
+    cab.appendChild(el("b", null, nome));
+    var ul = el("div", "pv-links");
+    c.sections.slice(1, 5).forEach(function (s) { ul.appendChild(el("span", null, s.title)); });
+    cab.appendChild(ul); if (c.cta) cab.appendChild(el("span", "pv-botao pv-mini", c.cta));
+    cont.appendChild(cab);
+    var temHero = c.sections.length && c.sections[0].kind === "hero";
+    if (!temHero) cont.appendChild(pvBloco({ kind: "hero", title: "Hero" }, c));
+    c.sections.forEach(function (s) { cont.appendChild(pvBloco(s, c)); });
+    var rod = el("div", "pv-rodape"); rod.appendChild(el("b", null, nome)); rod.appendChild(linhas(1, "curta pv-claro")); cont.appendChild(rod);
+    pag.appendChild(cont); janela.appendChild(pag); raizL.appendChild(janela);
+    raizL.appendChild(el("p", "pv-nota", S("layoutNota")));
+
+    function modo(movel) {
+      janela.classList.toggle("movel", movel);
+      bPc.classList.toggle("ativo", !movel); bTel.classList.toggle("ativo", movel);
+      bPc.setAttribute("aria-pressed", String(!movel)); bTel.setAttribute("aria-pressed", String(movel));
+    }
+    bPc.addEventListener("click", function () { modo(false); });
+    bTel.addEventListener("click", function () { modo(true); });
+    return raizL;
   }
 
   function desenhaResultado(c, descricao) {
@@ -223,6 +334,11 @@
     if (c.cta) b6.appendChild(el("span", "cg-cta-mock", c.cta));
     g.appendChild(b6);
     ficha.appendChild(g);
+
+    var lay = el("section", "cg-layout"); lay.style.setProperty("--i", i++);
+    lay.appendChild(el("h4", null, S("layoutTit")));
+    lay.appendChild(desenhaLayout(c, nome));
+    ficha.appendChild(lay);
 
     var pl = el("div", "cg-plano"); pl.style.setProperty("--i", i++);
     var esq = el("div", "cg-plano-esq");

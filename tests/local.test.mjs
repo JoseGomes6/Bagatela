@@ -107,3 +107,11 @@ test("todas as categorias e idiomas geram conceitos completos", () => {
     forma(c);
   }
 });
+
+test("secções trazem 'kind' e o conceito um 'theme' para o layout de exemplo", () => {
+  const c = gerar(DOURO, "pt");
+  assert.equal(c.theme, "alojamento");
+  assert.deepEqual(c.sections.map((s) => s.kind), ["hero", "sobre", "quartos", "galeria", "experiencias", "localizacao", "contactos"]);
+  const g = gerar("Sou advogado e quero um site para apresentar a minha experiência e os meus serviços aos clientes.", "en");
+  assert.equal(g.theme, "profissional");
+});

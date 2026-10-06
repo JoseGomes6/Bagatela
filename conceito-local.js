@@ -297,7 +297,7 @@
     if (sinais.reservas && cat.nome !== "alojamento" && cat.nome !== "restauracao" && cat.nome !== "beleza_saude" && cat.nome !== "ginasio") insere("marcacoes");
     if (chaves.indexOf("contactos") < 0) chaves.push("contactos");
     chaves = dedup(chaves).slice(0, 8);
-    var seccoes = chaves.map(function (k) { return { title: pick(SEC[k][0], lang), description: pick(SEC[k][1], lang) }; });
+    var seccoes = chaves.map(function (k) { return { title: pick(SEC[k][0], lang), description: pick(SEC[k][1], lang), kind: k }; });
 
     // funcionalidades
     var fns = (online && c.featuresOnline ? c.featuresOnline : c.features).slice();
@@ -335,7 +335,8 @@
       headline: headline,
       cta: pick(c.cta, lang),
       recommendedPlan: plano,
-      planReason: motivo
+      planReason: motivo,
+      theme: cat.nome // só para o layout de exemplo
     };
   }
 

@@ -280,6 +280,10 @@ T = [
 ("Empresa / negócio (opcional)", "Company / business (optional)", "Entreprise / activité (facultatif)", "Empresa / negocio (opcional)"),
 ("Enviar pedido", "Send request", "Envoyer la demande", "Enviar solicitud"),
 ("Ex: Tenho um restaurante no centro de Coimbra…", "e.g. I have a restaurant in the centre of Coimbra…", "Ex. : J'ai un restaurant au centre de Coimbra…", "Ej.: Tengo un restaurante en el centro de Coímbra…"),
+("Layout de exemplo", "Example layout", "Exemple de mise en page", "Diseño de ejemplo"),
+("Computador", "Desktop", "Ordinateur", "Ordenador"),
+("Telemóvel", "Mobile", "Mobile", "Móvil"),
+("Ilustração do conceito. O design final é criado à medida para o teu negócio.", "An illustration of the concept. The final design is made to measure for your business.", "Illustration du concept. Le design final est créé sur mesure pour votre activité.", "Ilustración del concepto. El diseño final se crea a medida para tu negocio."),
 ]
 
 # mensagens do JavaScript do formulário (pt -> en, fr, es)
