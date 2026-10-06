@@ -16,7 +16,7 @@ export function Footer() {
           <a href="#precos">{t("Preços")}</a>
           <a href="#quem-somos">{t("Quem somos")}</a>
           <a href="privacidade.html">{t("Privacidade")}</a>
-          <a href="https://www.livroreclamacoes.pt" rel="noopener" target="_blank">{t("Livro de Reclamações")}</a>
+          {/* LIVRO DE RECLAMAÇÕES (desativado: ainda sem empresa registada): <a href="https://www.livroreclamacoes.pt" rel="noopener" target="_blank">{t("Livro de Reclamações")}</a> */}
         </nav>
         <p>{t("© 2026 Bagatela. Criação de websites em Portugal.")}</p>
       </div>

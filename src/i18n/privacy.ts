@@ -15,7 +15,7 @@ export const PRIVACY: Record<"pt" | "en" | "fr" | "es", PrivacyContent> = {
       ["Os teus direitos", "Podes pedir acesso, retificação, eliminação ou limitação dos teus dados, e opor-se ao tratamento, escrevendo para <a href=\"mailto:bagatela.geral@gmail.com\">bagatela.geral@gmail.com</a>. Tens também o direito de apresentar reclamação à Comissão Nacional de Proteção de Dados (<a href=\"https://www.cnpd.pt\">cnpd.pt</a>)."],
       ["Gerador de conceitos", "O texto que escreves no gerador de conceitos é processado no teu próprio browser e não é enviado a nenhum servidor. Só chega à equipa se carregares em \"Quero avançar\" e enviares o pedido. Não incluas dados pessoais sensíveis na descrição."],
       ["Cookies", "Este site não usa cookies de publicidade nem de seguimento. Os tipos de letra são carregados a partir do Google Fonts."],
-      ["Livro de Reclamações", "Podes apresentar uma reclamação em <a href=\"https://www.livroreclamacoes.pt\">livroreclamacoes.pt</a>."],
+      // LIVRO DE RECLAMAÇÕES (desativado: ainda sem empresa registada): ["Livro de Reclamações", "Podes apresentar uma reclamação em <a href=\"https://www.livroreclamacoes.pt\">livroreclamacoes.pt</a>."],
     ],
   },
   en: {
@@ -32,7 +32,7 @@ export const PRIVACY: Record<"pt" | "en" | "fr" | "es", PrivacyContent> = {
       ["Your rights", "You can request access, rectification, erasure or restriction of your data, and object to processing, by writing to <a href=\"mailto:bagatela.geral@gmail.com\">bagatela.geral@gmail.com</a>. You also have the right to lodge a complaint with the Portuguese data protection authority (CNPD, <a href=\"https://www.cnpd.pt\">cnpd.pt</a>)."],
       ["Concept generator", "The text you write in the concept generator is processed in your own browser and is not sent to any server. It only reaches the team if you press \"I want to go ahead\" and send the request. Please do not include sensitive personal data in the description."],
       ["Cookies", "This site does not use advertising or tracking cookies. Fonts are loaded from Google Fonts."],
-      ["Complaints Book", "You can file a complaint at <a href=\"https://www.livroreclamacoes.pt\">livroreclamacoes.pt</a> (Portugal)."],
+      // LIVRO DE RECLAMAÇÕES (desativado: ainda sem empresa registada): ["Complaints Book", "You can file a complaint at <a href=\"https://www.livroreclamacoes.pt\">livroreclamacoes.pt</a> (Portugal)."],
     ],
   },
   fr: {
@@ -49,7 +49,7 @@ export const PRIVACY: Record<"pt" | "en" | "fr" | "es", PrivacyContent> = {
       ["Vos droits", "Vous pouvez demander l'accès, la rectification, l'effacement ou la limitation de vos données, et vous opposer au traitement, en écrivant à <a href=\"mailto:bagatela.geral@gmail.com\">bagatela.geral@gmail.com</a>. Vous pouvez aussi déposer une réclamation auprès de l'autorité portugaise de protection des données (CNPD, <a href=\"https://www.cnpd.pt\">cnpd.pt</a>)."],
       ["Générateur de concepts", "Le texte que vous saisissez dans le générateur de concepts est traité dans votre propre navigateur et n'est envoyé à aucun serveur. Il ne parvient à l'équipe que si vous cliquez sur « Je veux avancer » et envoyez la demande. N'indiquez pas de données personnelles sensibles dans la description."],
       ["Cookies", "Ce site n'utilise pas de cookies publicitaires ni de suivi. Les polices sont chargées depuis Google Fonts."],
-      ["Livre de réclamations", "Vous pouvez déposer une réclamation sur <a href=\"https://www.livroreclamacoes.pt\">livroreclamacoes.pt</a> (Portugal)."],
+      // LIVRO DE RECLAMAÇÕES (desativado: ainda sem empresa registada): ["Livre de réclamations", "Vous pouvez déposer une réclamation sur <a href=\"https://www.livroreclamacoes.pt\">livroreclamacoes.pt</a> (Portugal)."],
     ],
   },
   es: {
@@ -66,7 +66,7 @@ export const PRIVACY: Record<"pt" | "en" | "fr" | "es", PrivacyContent> = {
       ["Tus derechos", "Puedes solicitar el acceso, la rectificación, la supresión o la limitación de tus datos, y oponerte al tratamiento, escribiendo a <a href=\"mailto:bagatela.geral@gmail.com\">bagatela.geral@gmail.com</a>. También puedes presentar una reclamación ante la autoridad portuguesa de protección de datos (CNPD, <a href=\"https://www.cnpd.pt\">cnpd.pt</a>)."],
       ["Generador de conceptos", "El texto que escribes en el generador de conceptos se procesa en tu propio navegador y no se envía a ningún servidor. Solo llega al equipo si pulsas «Quiero avanzar» y envías la solicitud. No incluyas datos personales sensibles en la descripción."],
       ["Cookies", "Este sitio no usa cookies publicitarias ni de seguimiento. Las fuentes se cargan desde Google Fonts."],
-      ["Libro de Reclamaciones", "Puedes presentar una reclamación en <a href=\"https://www.livroreclamacoes.pt\">livroreclamacoes.pt</a> (Portugal)."],
+      // LIVRO DE RECLAMAÇÕES (desativado: ainda sem empresa registada): ["Libro de Reclamaciones", "Puedes presentar una reclamación en <a href=\"https://www.livroreclamacoes.pt\">livroreclamacoes.pt</a> (Portugal)."],
     ],
   },
 };
