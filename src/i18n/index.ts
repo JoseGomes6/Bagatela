@@ -5,7 +5,7 @@ export const LANGS: readonly Lang[] = ["pt", "en", "fr", "es"] as const;
 export const LANG_INDEX: Record<Exclude<Lang, "pt">, 0 | 1 | 2> = { en: 0, fr: 1, es: 2 };
 export const HTML_LANG: Record<Lang, string> = { pt: "pt-PT", en: "en", fr: "fr", es: "es" };
 export const OG_LOCALE: Record<Lang, string> = { pt: "pt_PT", en: "en_GB", fr: "fr_FR", es: "es_ES" };
-export const SITE = "https://www.bagatela.pt";
+export const SITE = "https://bagatela.pt";
 
 export function isLang(v: unknown): v is Lang {
   return typeof v === "string" && (LANGS as readonly string[]).includes(v);

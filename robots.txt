@@ -2,4 +2,4 @@ User-agent: *
 Allow: /
 Disallow: /exemplos/
 
-Sitemap: https://www.bagatela.pt/sitemap.xml
+Sitemap: https://bagatela.pt/sitemap.xml
