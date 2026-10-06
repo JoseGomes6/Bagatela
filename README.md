@@ -48,7 +48,7 @@ O visitante descreve o negócio e o site apresenta um conceito (estrutura, funci
 
 ## Formulário de contacto
 
-Envia para `geral@bagatela.pt` através do [FormSubmit](https://formsubmit.co). No primeiro envio chega um e-mail de ativação a esse endereço: é preciso confirmá-lo uma vez.
+Envia para `o e-mail definido no `index.html` e no `conceito.js` (atualmente um e-mail de teste; antes de lançar trocar por `geral@bagatela.pt`) através do [FormSubmit](https://formsubmit.co). No primeiro envio chega um e-mail de ativação a esse endereço: é preciso confirmá-lo uma vez.
 
 ## Publicar com GitHub Pages
 

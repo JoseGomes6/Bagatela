@@ -289,7 +289,7 @@
       fd.append("telefone", d.telefone || "-"); fd.append("empresa", d.empresa || "-");
       fd.append("plano_recomendado", ultimo.concept.recommendedPlan + " — " + PLANOS[ultimo.concept.recommendedPlan] + "€");
       fd.append("briefing", briefing(lf, d));
-      fetch("https://formsubmit.co/ajax/geral@bagatela.pt", { method: "POST", headers: { Accept: "application/json" }, body: fd })
+      fetch("https://formsubmit.co/ajax/josepedrogomes106@gmail.com", { method: "POST", headers: { Accept: "application/json" }, body: fd })
         .then(function (r) { return r.json(); })
         .then(function (j) {
           if (String(j.success) !== "true") throw new Error();

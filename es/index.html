@@ -1178,7 +1178,7 @@ dialog.dlg::backdrop{background:rgba(20,16,31,.7);backdrop-filter:blur(4px)}
 </aside>
 
 <dialog class="dlg" id="form-dlg" aria-labelledby="form-tit">
-  <form class="dlg-form" id="form-contacto" method="post" action="https://formsubmit.co/geral@bagatela.pt" novalidate>
+  <form class="dlg-form" id="form-contacto" method="post" action="https://formsubmit.co/josepedrogomes106@gmail.com" novalidate>
     <button type="button" class="fechar-dlg" aria-label="Cerrar">&times;</button>
     <h2 id="form-tit">Cuéntanos lo que necesitas</h2>
     <p class="sub">Rellénalo y nos ponemos en contacto contigo.</p>
@@ -1313,7 +1313,7 @@ dialog.dlg::backdrop{background:rgba(20,16,31,.7);backdrop-filter:blur(4px)}
     });
     if(!ok){ estado.className='estado erro'; estado.textContent='Rellena los campos obligatorios.'; return; }
     var btn=form.querySelector('button[type=submit]'); btn.disabled=true; estado.className='estado'; estado.textContent='Enviando...';
-    fetch('https://formsubmit.co/ajax/geral@bagatela.pt',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)})
+    fetch('https://formsubmit.co/ajax/josepedrogomes106@gmail.com',{method:'POST',headers:{'Accept':'application/json'},body:new FormData(form)})
       .then(function(r){return r.json();})
       .then(function(d){
         if(String(d.success)!=='true') throw new Error();
