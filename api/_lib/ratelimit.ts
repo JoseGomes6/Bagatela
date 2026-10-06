@@ -3,13 +3,15 @@
 // abusos básicos mas não é um limite global rigoroso. Para um limite forte,
 // trocar este módulo por Vercel KV / Upstash Redis (a interface mantém-se).
 
-const hits = new Map(); // chave -> [timestamps]
+const hits = new Map<string, number[]>(); // chave -> [timestamps]
 let day = { key: "", count: 0 };
 
-export function createLimiter({ perWindow = 5, windowMs = 60 * 60 * 1000, perDay = 400, now = () => Date.now() } = {}) {
+export interface LimiterOptions { perWindow?: number; windowMs?: number; perDay?: number; now?: () => number }
+export interface Limiter { check(key: string): { ok: boolean; retryAfter?: number }; reset(): void }
+
+export function createLimiter({ perWindow = 5, windowMs = 60 * 60 * 1000, perDay = 400, now = () => Date.now() }: LimiterOptions = {}): Limiter {
   return {
-    /** @returns {{ok:boolean, retryAfter?:number}} */
-    check(key) {
+    check(key: string) {
       const t = now();
       const today = new Date(t).toISOString().slice(0, 10);
       if (day.key !== today) day = { key: today, count: 0 };

@@ -2,25 +2,30 @@
 // Recebe a descrição de um negócio e devolve um conceito de website em JSON.
 // A chave da IA (AI_API_KEY) existe só aqui, no servidor.
 
+import type { IncomingMessage, ServerResponse } from "node:http";
 import Anthropic from "@anthropic-ai/sdk";
-import { CONCEPT_SCHEMA, SYSTEM_PROMPT, buildUserMessage, sanitizeConcept, validateInput } from "./_lib/concept.js";
-import { createLimiter } from "./_lib/ratelimit.js";
+import { CONCEPT_SCHEMA, SYSTEM_PROMPT, buildUserMessage, sanitizeConcept, validateInput } from "./_lib/concept";
+import { createLimiter } from "./_lib/ratelimit";
 
 const MAX_BODY_BYTES = 8 * 1024;
 const DEFAULT_MODEL = "claude-opus-5-5";
 const DEFAULT_ORIGINS = ["https://www.bagatela.pt", "https://bagatela.pt"];
+
+/** Pedido/resposta Node (o Vercel acrescenta `body`). */
+export type ApiRequest = IncomingMessage & { body?: unknown };
+export type ApiResponse = ServerResponse;
 
 const limiter = createLimiter({
   perWindow: Number(process.env.RATE_LIMIT_PER_HOUR) || 5,
   perDay: Number(process.env.RATE_LIMIT_PER_DAY) || 400,
 });
 
-function allowedOrigins() {
+function allowedOrigins(): string[] {
   const fromEnv = (process.env.ALLOWED_ORIGINS || "").split(",").map((s) => s.trim()).filter(Boolean);
   return fromEnv.length ? fromEnv : DEFAULT_ORIGINS;
 }
 
-function originAllowed(req) {
+function originAllowed(req: ApiRequest): boolean {
   const origin = req.headers.origin;
   if (!origin) return true; // pedido do mesmo site / ferramentas de servidor
   try {
@@ -33,7 +38,7 @@ function originAllowed(req) {
   return allowedOrigins().includes(origin);
 }
 
-function send(res, status, payload, extraHeaders = {}) {
+function send(res: ApiResponse, status: number, payload: unknown, extraHeaders: Record<string, string> = {}): void {
   res.statusCode = status;
   res.setHeader("Content-Type", "application/json; charset=utf-8");
   res.setHeader("Cache-Control", "no-store");
@@ -41,7 +46,7 @@ function send(res, status, payload, extraHeaders = {}) {
   res.end(JSON.stringify(payload));
 }
 
-async function readJson(req) {
+async function readJson(req: ApiRequest): Promise<unknown> {
   if (typeof req.body === "string") {
     if (Buffer.byteLength(req.body) > MAX_BODY_BYTES) throw Object.assign(new Error("too_large"), { code: "too_large" });
     return JSON.parse(req.body);
@@ -50,17 +55,19 @@ async function readJson(req) {
   const chunks = [];
   let size = 0;
   for await (const chunk of req) {
-    size += chunk.length;
+    size += (chunk as Buffer).length;
     if (size > MAX_BODY_BYTES) throw Object.assign(new Error("too_large"), { code: "too_large" });
-    chunks.push(chunk);
+    chunks.push(chunk as Buffer);
   }
   const text = Buffer.concat(chunks).toString("utf8");
   return JSON.parse(text);
 }
 
 /** Fabrica o handler; o cliente da IA é injetável para testes. */
-export function createHandler({ getClient } = {}) {
-  const makeClient =
+export interface AiClient { messages: { create: (args: Anthropic.MessageCreateParamsNonStreaming) => Promise<Anthropic.Message> } }
+
+export function createHandler({ getClient }: { getClient?: () => AiClient } = {}) {
+  const makeClient: () => AiClient =
     getClient ||
     (() =>
       new Anthropic({
@@ -69,7 +76,7 @@ export function createHandler({ getClient } = {}) {
         maxRetries: 1,
       }));
 
-  return async function handler(req, res) {
+  return async function handler(req: ApiRequest, res: ApiResponse): Promise<void> {
     // CORS: só os domínios da Bagatela
     const origin = req.headers.origin;
     if (origin && originAllowed(req)) {
@@ -81,7 +88,8 @@ export function createHandler({ getClient } = {}) {
     }
     if (req.method === "OPTIONS") {
       res.statusCode = originAllowed(req) ? 204 : 403;
-      return res.end();
+      res.end();
+      return;
     }
     if (req.method !== "POST") return send(res, 405, { error: "method_not_allowed" }, { Allow: "POST, OPTIONS" });
     if (!originAllowed(req)) return send(res, 403, { error: "forbidden" });
@@ -91,11 +99,11 @@ export function createHandler({ getClient } = {}) {
       return send(res, 503, { error: "unavailable" });
     }
 
-    let body;
+    let body: unknown;
     try {
       body = await readJson(req);
     } catch (e) {
-      return send(res, e && e.code === "too_large" ? 413 : 400, { error: "invalid_input" });
+      return send(res, (e as { code?: string } | null)?.code === "too_large" ? 413 : 400, { error: "invalid_input" });
     }
 
     const input = validateInput(body);
@@ -134,7 +142,8 @@ export function createHandler({ getClient } = {}) {
       return send(res, lastReason === "not_business" ? 422 : 502, { error: lastReason });
     } catch (err) {
       // Nunca devolvemos detalhes técnicos ao browser.
-      console.error("[generate-concept] erro da IA:", err && err.status ? `status ${err.status}` : err && err.name);
+      const e = err as { status?: number; name?: string } | null;
+      console.error("[generate-concept] erro da IA:", e?.status ? `status ${e.status}` : e?.name);
       return send(res, 503, { error: "unavailable" });
     }
   };

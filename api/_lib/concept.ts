@@ -2,15 +2,13 @@
 // validação do pedido e validação/limpeza da resposta da IA.
 // Sem dependências: pode ser testada sem rede nem chave de API.
 
-export const PLANS = {
-  "Essencial": 179,
-  "Negócio": 299,
-  "Loja Online": 599,
-};
-export const PLAN_NAMES = Object.keys(PLANS);
+import { PLANS, PLAN_NAMES, type Concept, type PlanName } from "../../shared/types";
 
-export const LANGS = ["pt", "en", "fr", "es"];
-const LANG_NAMES = {
+export { PLANS, PLAN_NAMES };
+
+export type ApiLang = "pt" | "en" | "fr" | "es";
+export const LANGS: readonly ApiLang[] = ["pt", "en", "fr", "es"];
+const LANG_NAMES: Record<ApiLang, string> = {
   pt: "português de Portugal (PT-PT)",
   en: "English (UK)",
   fr: "français",
@@ -119,7 +117,7 @@ Regras: NÃO recomendes "Loja Online" só porque o negócio vende alguma coisa (
 - Tom: profissional, simples, criativo, acessível e ligeiramente descontraído. Evita linguagem corporativa e superlativos vazios.
 - Texto simples: sem HTML, sem markdown, sem emojis, sem listas dentro dos campos de texto.`;
 
-export function buildUserMessage(descricao, lang) {
+export function buildUserMessage(descricao: string, lang: ApiLang): string {
   // Impede que o texto do cliente "feche" a tag de delimitação.
   const safe = descricao.replace(/<\/?\s*descricao_do_cliente\s*>/gi, " ");
   return `Idioma de saída: ${LANG_NAMES[lang] || LANG_NAMES.pt}.\n\n<descricao_do_cliente>\n${safe}\n</descricao_do_cliente>`;
@@ -127,7 +125,7 @@ export function buildUserMessage(descricao, lang) {
 
 // ---------- validação do pedido ----------
 
-function cleanText(value) {
+function cleanText(value: unknown): string {
   return String(value)
     // eslint-disable-next-line no-control-regex
     .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F​-‏‪-‮⁠﻿]/g, "")
@@ -136,20 +134,23 @@ function cleanText(value) {
     .trim();
 }
 
-export function validateInput(body) {
+export type InputResult = { ok: true; descricao: string; lang: ApiLang } | { ok: false; code: "invalid_input" | "too_short" | "too_long" };
+
+export function validateInput(body: unknown): InputResult {
   if (!body || typeof body !== "object" || Array.isArray(body)) return { ok: false, code: "invalid_input" };
-  if (body.hp) return { ok: false, code: "invalid_input" }; // honeypot
-  if (typeof body.descricao !== "string") return { ok: false, code: "invalid_input" };
-  const descricao = cleanText(body.descricao).replace(/\n{3,}/g, "\n\n");
+  const b = body as Record<string, unknown>;
+  if (b.hp) return { ok: false, code: "invalid_input" }; // honeypot
+  if (typeof b.descricao !== "string") return { ok: false, code: "invalid_input" };
+  const descricao = cleanText(b.descricao).replace(/\n{3,}/g, "\n\n");
   if (descricao.length < LIMITS.minInput) return { ok: false, code: "too_short" };
   if (descricao.length > LIMITS.maxInput) return { ok: false, code: "too_long" };
-  const lang = LANGS.includes(body.lang) ? body.lang : "pt";
+  const lang = (LANGS as readonly unknown[]).includes(b.lang) ? (b.lang as ApiLang) : "pt";
   return { ok: true, descricao, lang };
 }
 
 // ---------- validação/limpeza da resposta da IA ----------
 
-function str(value, max) {
+function str(value: unknown, max: number): string {
   if (typeof value !== "string") return "";
   const t = cleanText(value.replace(/<[^>]*>/g, " ")) // sem HTML
     .replace(/[`*_#>]{2,}/g, "") // sobras de markdown
@@ -164,38 +165,47 @@ function str(value, max) {
 /**
  * Valida e limpa o objeto devolvido pelo modelo. Nunca confia no conteúdo:
  * limita tamanhos, remove HTML e garante que o plano é um dos três permitidos.
- * @returns {{ok:true, concept:object, plan:{name:string, price:number, currency:string}}|{ok:false, reason:string}}
  */
-export function sanitizeConcept(raw) {
+export type SanitizeResult =
+  | { ok: true; concept: Concept; plan: { name: PlanName; price: number; currency: "EUR" } }
+  | { ok: false; reason: "bad_output" | "not_business" };
+
+export function sanitizeConcept(raw: unknown): SanitizeResult {
   if (!raw || typeof raw !== "object" || Array.isArray(raw)) return { ok: false, reason: "bad_output" };
-  if (raw.isBusinessDescription === false) return { ok: false, reason: "not_business" };
+  const r = raw as Record<string, unknown>;
+  if (r.isBusinessDescription === false) return { ok: false, reason: "not_business" };
 
-  const sections = Array.isArray(raw.sections)
-    ? raw.sections
-        .map((s) => (s && typeof s === "object" ? { title: str(s.title, LIMITS.sectionTitle), description: str(s.description, LIMITS.sectionDescription) } : null))
-        .filter((s) => s && s.title)
-        .slice(0, LIMITS.maxSections)
-    : [];
-  const features = Array.isArray(raw.features)
-    ? raw.features.map((f) => str(f, LIMITS.feature)).filter(Boolean).slice(0, LIMITS.maxFeatures)
-    : [];
+  const sections = (Array.isArray(r.sections) ? (r.sections as unknown[]) : [])
+    .map((x) => {
+      if (!x || typeof x !== "object") return null;
+      const o = x as Record<string, unknown>;
+      return { title: str(o.title, LIMITS.sectionTitle), description: str(o.description, LIMITS.sectionDescription) };
+    })
+    .filter((x): x is { title: string; description: string } => !!x && !!x.title)
+    .slice(0, LIMITS.maxSections);
+  const features = (Array.isArray(r.features) ? (r.features as unknown[]) : [])
+    .map((f) => str(f, LIMITS.feature))
+    .filter(Boolean)
+    .slice(0, LIMITS.maxFeatures);
 
-  const concept = {
-    businessName: str(raw.businessName, LIMITS.businessName) || "Nome do negócio",
-    businessType: str(raw.businessType, LIMITS.businessType),
-    summary: str(raw.summary, LIMITS.summary),
-    objective: str(raw.objective, LIMITS.objective),
-    targetAudience: str(raw.targetAudience, LIMITS.targetAudience),
+  const plan = r.recommendedPlan;
+  if (typeof plan !== "string" || !(PLAN_NAMES as string[]).includes(plan)) return { ok: false, reason: "bad_output" };
+
+  const concept: Concept = {
+    businessName: str(r.businessName, LIMITS.businessName) || "Nome do negócio",
+    businessType: str(r.businessType, LIMITS.businessType),
+    summary: str(r.summary, LIMITS.summary),
+    objective: str(r.objective, LIMITS.objective),
+    targetAudience: str(r.targetAudience, LIMITS.targetAudience),
     sections,
     features,
-    visualDirection: str(raw.visualDirection, LIMITS.visualDirection),
-    headline: str(raw.headline, LIMITS.headline),
-    cta: str(raw.cta, LIMITS.cta),
-    recommendedPlan: raw.recommendedPlan,
-    planReason: str(raw.planReason, LIMITS.planReason),
+    visualDirection: str(r.visualDirection, LIMITS.visualDirection),
+    headline: str(r.headline, LIMITS.headline),
+    cta: str(r.cta, LIMITS.cta),
+    recommendedPlan: plan as PlanName,
+    planReason: str(r.planReason, LIMITS.planReason),
   };
 
-  if (!PLAN_NAMES.includes(concept.recommendedPlan)) return { ok: false, reason: "bad_output" };
   if (sections.length < LIMITS.minSections) return { ok: false, reason: "bad_output" };
   if (!concept.objective || !concept.headline || !concept.visualDirection) return { ok: false, reason: "bad_output" };
 
