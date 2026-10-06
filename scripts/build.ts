@@ -14,6 +14,8 @@ const dist = path.join(root, "dist");
 const ssrDir = path.join(root, "dist-ssr");
 const publish = process.argv.includes("--publish");
 
+/** Aplica o tema guardado (ou o do sistema) antes de desenhar a página, para não piscar. */
+const THEME_INIT = `<script>try{var t=localStorage.getItem("bagatela-theme");if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}catch(e){}</script>`;
 const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">`;
@@ -52,6 +54,7 @@ async function main() {
 <html lang="${HTML_LANG[lang]}">
 <head>
 <meta charset="utf-8">
+${THEME_INIT}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ${homeHead(lang, prefix)}
 ${FONTS}
@@ -71,11 +74,12 @@ ${css}
   for (const lang of LANGS) {
     const prefix = baseFor(lang);
     write(`${langDir(lang)}privacidade.html`, `<!doctype html>
-<html lang="${HTML_LANG[lang]}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<html lang="${HTML_LANG[lang]}"><head><meta charset="utf-8">${THEME_INIT}<meta name="viewport" content="width=device-width,initial-scale=1">
 ${privacyHead(lang, prefix)}
 <style>
 ${privacyCss}</style></head><body>
 ${server.renderPrivacy(lang)}
+<script>document.getElementById("tema").onclick=function(){var r=document.documentElement,n=r.dataset.theme==="dark"?"light":"dark";r.dataset.theme=n;try{localStorage.setItem("bagatela-theme",n)}catch(e){}}</script>
 </body></html>
 `);
   }
@@ -86,6 +90,7 @@ ${server.renderPrivacy(lang)}
 <html lang="pt-PT">
 <head>
 <meta charset="utf-8">
+${THEME_INIT}
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>404 | Esta página saiu de bagatela | Bagatela</title>
 <meta name="robots" content="noindex">

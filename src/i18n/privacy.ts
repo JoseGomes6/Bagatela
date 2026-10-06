@@ -1,10 +1,12 @@
 // Política de privacidade por idioma.
-export interface PrivacyContent { title: string; updated: string; back: string; sections: ReadonlyArray<readonly [string, string]>; }
+export interface PrivacyContent { title: string; updated: string; back: string; langLabel: string; themeLabel: string; sections: ReadonlyArray<readonly [string, string]>; }
 export const PRIVACY: Record<"pt" | "en" | "fr" | "es", PrivacyContent> = {
   pt: {
     title: "Política de Privacidade",
     updated: "Última atualização: outubro de 2026",
     back: "← Bagatela",
+    langLabel: "Idioma",
+    themeLabel: "Alterar entre modo claro e escuro",
     sections: [
       ["Quem somos", "A Bagatela cria websites para pequenos negócios em Portugal. Para qualquer questão sobre dados pessoais, contacta-nos em <a href=\"mailto:bagatela.geral@gmail.com\">bagatela.geral@gmail.com</a>."],
       ["Que dados recolhemos", "Apenas os dados que nos envias através do formulário de contacto: nome, empresa, e-mail ou telefone, tipo de serviço pretendido e a mensagem. Se nos contactares por e-mail, ficamos também com os dados dessa conversa."],
@@ -22,6 +24,8 @@ export const PRIVACY: Record<"pt" | "en" | "fr" | "es", PrivacyContent> = {
     title: "Privacy Policy",
     updated: "Last updated: October 2026",
     back: "← Bagatela",
+    langLabel: "Language",
+    themeLabel: "Switch between light and dark mode",
     sections: [
       ["Who we are", "Bagatela builds websites for small businesses in Portugal. For any question about personal data, contact us at <a href=\"mailto:bagatela.geral@gmail.com\">bagatela.geral@gmail.com</a>."],
       ["What data we collect", "Only the data you send us through the contact form: name, company, email or phone, the type of service you want and your message. If you contact us by email, we also keep the details of that conversation."],
@@ -39,6 +43,8 @@ export const PRIVACY: Record<"pt" | "en" | "fr" | "es", PrivacyContent> = {
     title: "Politique de confidentialité",
     updated: "Dernière mise à jour : octobre 2026",
     back: "← Bagatela",
+    langLabel: "Langue",
+    themeLabel: "Basculer entre mode clair et sombre",
     sections: [
       ["Qui sommes-nous", "Bagatela crée des sites web pour les petites entreprises au Portugal. Pour toute question sur les données personnelles, contactez-nous à <a href=\"mailto:bagatela.geral@gmail.com\">bagatela.geral@gmail.com</a>."],
       ["Quelles données collectons-nous", "Uniquement les données que vous nous envoyez via le formulaire de contact : nom, entreprise, e-mail ou téléphone, type de service souhaité et message. Si vous nous contactez par e-mail, nous conservons aussi les données de cet échange."],
@@ -56,6 +62,8 @@ export const PRIVACY: Record<"pt" | "en" | "fr" | "es", PrivacyContent> = {
     title: "Política de privacidad",
     updated: "Última actualización: octubre de 2026",
     back: "← Bagatela",
+    langLabel: "Idioma",
+    themeLabel: "Cambiar entre modo claro y oscuro",
     sections: [
       ["Quiénes somos", "Bagatela crea sitios web para pequeños negocios en Portugal. Para cualquier duda sobre datos personales, escríbenos a <a href=\"mailto:bagatela.geral@gmail.com\">bagatela.geral@gmail.com</a>."],
       ["Qué datos recogemos", "Solo los datos que nos envías a través del formulario de contacto: nombre, empresa, correo o teléfono, tipo de servicio y mensaje. Si nos contactas por correo, también conservamos los datos de esa conversación."],

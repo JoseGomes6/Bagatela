@@ -25,3 +25,6 @@ export const makeT = (lang: Lang): TFunction => (pt) => translate(lang, pt);
 export const langDir = (lang: Lang): string => (lang === "pt" ? "" : `${lang}/`);
 export const baseFor = (lang: Lang): string => (lang === "pt" ? "" : "../");
 export const absoluteUrl = (lang: Lang, page = ""): string => `${SITE}/${langDir(lang)}${page}`;
+
+/** Nome de cada idioma na própria língua (para o seletor). */
+export const LANG_NAME: Record<Lang, string> = { pt: "Português", en: "English", fr: "Français", es: "Español" };

@@ -10,6 +10,7 @@ export const TRANSLATIONS: Record<string, readonly [string, string, string]> = {
   "Navegação principal": ["Main navigation", "Navigation principale", "Navegación principal"],
   "Bagatela, página inicial": ["Bagatela, home page", "Bagatela, page d'accueil", "Bagatela, página de inicio"],
   "Idioma": ["Language", "Langue", "Idioma"],
+  "Alterar entre modo claro e escuro": ["Switch between light and dark mode", "Basculer entre mode clair et sombre", "Cambiar entre modo claro y oscuro"],
   "Serviços": ["Services", "Services", "Servicios"],
   "Exemplos": ["Examples", "Exemples", "Ejemplos"],
   "Preços": ["Pricing", "Tarifs", "Precios"],
