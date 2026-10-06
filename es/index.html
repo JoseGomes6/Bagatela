@@ -14,7 +14,7 @@
 <link rel="alternate" hreflang="fr" href="https://www.bagatela.pt/fr/">
 <link rel="alternate" hreflang="es" href="https://www.bagatela.pt/es/">
 <link rel="alternate" hreflang="x-default" href="https://www.bagatela.pt/">
-<meta name="theme-color" content="#07090F">
+<meta name="theme-color" content="#14101F">
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="es_ES">
@@ -88,17 +88,30 @@
 
 <style>
 :root{
-  --floresta:#07090F;
-  --floresta-2:#141A2B;
-  --salvia:#E4E9F2;
-  --salvia-2:#C9D2E3;
-  --damasco:#2563EB;
-  --azul-claro:#8AB4FF;
-  --damasco-escuro:#1D4ED8;
-  --tinta:#0A0F1C;
-  --texto:#3F4A5E;
+  /* ===== Marca Bagatela: edita só aqui para mudar as cores do site ===== */
+  --lilas:#9B7BFF;          /* lilás da marca (destaques sobre fundo escuro) */
+  --lilas-claro:#C9B8FF;    /* lilás claro (texto/ícones sobre fundo escuro) */
+  --lilas-pastel:#ECE6FF;   /* lilás muito claro (fundos de ícones e secções) */
+  --lilas-forte:#6B46E5;    /* lilás de ação: botões e links (contraste AA com branco) */
+  --lilas-escuro:#5634C7;   /* hover do lilás de ação */
+  --creme:#F7F2E9;          /* fundo da página */
+  --creme-2:#EFE8DA;        /* fundo secundário */
+  --preto:#14101F;          /* preto da marca (com um toque de roxo) */
+  --preto-2:#221B35;
+  --accent:#FFD84D;         /* amarelo etiqueta: usar pontualmente */
+  --accent-tinta:#2B2200;
+  --texto:#4A4358;
   --branco:#FFFFFF;
-  --gelo:#F4F6FB;
+  /* nomes antigos, apontam para a marca */
+  --floresta:var(--preto);
+  --floresta-2:var(--preto-2);
+  --salvia:#E6DECD;
+  --salvia-2:#D3C9B2;
+  --damasco:var(--lilas-forte);
+  --azul-claro:var(--lilas-claro);
+  --damasco-escuro:var(--lilas-escuro);
+  --tinta:var(--preto);
+  --gelo:var(--creme-2);
   --display:"Familjen Grotesk","Helvetica Neue",system-ui,sans-serif;
   --corpo:"Geist",system-ui,-apple-system,"Segoe UI",sans-serif;
   --r-lg:28px;
@@ -107,7 +120,7 @@
 *{box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:84px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
-body{margin:0;font-family:var(--corpo);font-size:1.0625rem;line-height:1.65;color:var(--texto);background:var(--branco);-webkit-font-smoothing:antialiased}
+body{margin:0;font-family:var(--corpo);font-size:1.0625rem;line-height:1.65;color:var(--texto);background:var(--creme);-webkit-font-smoothing:antialiased}
 h1,h2,h3{font-family:var(--display);color:var(--tinta);line-height:1.05;margin:0;letter-spacing:-.02em}
 p{margin:0}
 a{color:inherit}
@@ -131,7 +144,7 @@ a:focus-visible,summary:focus-visible{outline:3px solid var(--damasco);outline-o
 .btn-contorno:hover{border-color:var(--tinta)}
 
 /* Cabeçalho */
-header{position:sticky;top:0;z-index:50;background:rgba(7,9,15,.96);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
+header{position:sticky;top:0;z-index:50;background:rgba(20,16,31,.96);backdrop-filter:saturate(1.4) blur(12px);-webkit-backdrop-filter:saturate(1.4) blur(12px);border-bottom:1px solid rgba(255,255,255,.08)}
 .nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;height:76px}
 .logo{display:flex;align-items:center;gap:.65rem;text-decoration:none;color:var(--branco);font-family:var(--display);font-weight:700;font-size:1.45rem;letter-spacing:-.02em}
 .nav-links{display:flex;gap:2rem;list-style:none;margin:0;padding:0}
@@ -228,7 +241,7 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,9,15,.96);backdrop-fil
 .precos{background:var(--gelo)}
 .planos{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;align-items:start}
 .plano{background:var(--branco);border:1px solid var(--salvia);border-radius:var(--r-lg);transition:box-shadow .2s ease,border-color .2s ease}
-.plano:hover{border-color:var(--salvia-2);box-shadow:0 20px 40px -24px rgba(10,18,40,.35)}
+.plano:hover{border-color:var(--salvia-2);box-shadow:0 20px 40px -24px rgba(20,16,31,.35)}
 .plano summary{list-style:none;cursor:pointer;display:block;padding:2.4rem 2.2rem 1.8rem;border-radius:var(--r-lg)}
 .plano summary:focus-visible{outline:3px solid var(--damasco);outline-offset:-3px}
 .plano h3{font-size:1.35rem;font-weight:600}
@@ -249,17 +262,16 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,9,15,.96);backdrop-fil
 .plano .prazo{font-size:.92rem;padding:.8rem 1rem;border-radius:12px;background:var(--gelo);margin-bottom:1.4rem}
 .plano .prazo b{color:var(--tinta)}
 .plano .btn{width:100%}
-.plano.top{background:var(--floresta);border-color:var(--damasco);box-shadow:0 30px 60px -25px rgba(37,99,235,.55);color:rgba(255,255,255,.78);position:relative}
+.plano.top{background:var(--floresta);border-color:var(--damasco);box-shadow:0 30px 60px -25px rgba(107,70,229,.55);color:rgba(255,255,255,.78);position:relative}
 .plano.top h3,.plano.top .valor,.plano.top .prazo b{color:var(--branco)}
 .plano.top .valor small{color:rgba(255,255,255,.7)}
 .plano.top .ver{border-color:rgba(255,255,255,.14);color:var(--azul-claro)}
 .plano.top li svg{color:var(--azul-claro)}
 .plano.top .prazo{background:rgba(255,255,255,.07)}
-.plano.top .etq{position:absolute;top:1.6rem;right:1.6rem;background:var(--damasco);color:#fff;font-size:.8rem;font-weight:600;padding:.25rem .75rem;border-radius:999px}
 .dica{margin-top:1.4rem;font-size:.95rem;text-align:center}
 
 .manutencao{margin-top:2.4rem;background:var(--branco);border:2px solid var(--damasco);border-radius:var(--r-lg);padding:2.6rem;display:grid;grid-template-columns:1fr 1.3fr;gap:2.4rem;align-items:center}
-.manutencao .opc{display:inline-block;background:#E5EDFF;color:#1D4ED8;font-weight:600;font-size:.82rem;padding:.25rem .75rem;border-radius:999px;margin-bottom:1rem}
+.manutencao .opc{display:inline-block;background:var(--lilas-pastel);color:var(--lilas-escuro);font-weight:600;font-size:.82rem;padding:.25rem .75rem;border-radius:999px;margin-bottom:1rem}
 .manutencao h3{font-size:1.6rem;font-weight:600}
 .manutencao .valor{font-family:var(--display);font-size:3rem;font-weight:700;color:var(--tinta);letter-spacing:-.03em;line-height:1;margin:1rem 0 .4rem}
 .manutencao .valor small{font-family:var(--corpo);font-size:1rem;font-weight:500;color:var(--texto);letter-spacing:0;margin-left:.2rem}
@@ -295,11 +307,6 @@ header{position:sticky;top:0;z-index:50;background:rgba(7,9,15,.96);backdrop-fil
 /* CTA final */
 .cta-final{padding:0 0 7rem}
 .cta-caixa{background:var(--floresta);border-radius:36px;padding:5rem 4rem;display:grid;grid-template-columns:1.3fr 1fr;gap:3rem;align-items:center;position:relative;overflow:hidden}
-.cta-caixa::after{content:"";position:absolute;right:-60px;bottom:-60px;width:320px;height:320px;background:
-  linear-gradient(var(--damasco),var(--damasco)) 0 0/33% 33% no-repeat,
-  linear-gradient(var(--floresta-2),var(--floresta-2)) 50% 50%/33% 33% no-repeat,
-  linear-gradient(#1E3A8A,#1E3A8A) 100% 100%/33% 33% no-repeat,
-  linear-gradient(var(--floresta-2),var(--floresta-2)) 100% 0/33% 33% no-repeat;opacity:.9;border-radius:24px;pointer-events:none}
 .cta-caixa h2{color:var(--branco);font-size:clamp(2.2rem,4.4vw,3.4rem);font-weight:700;max-width:14ch}
 .cta-caixa p{color:rgba(255,255,255,.75);margin-top:1rem;max-width:42ch;font-size:1.1rem}
 .cta-caixa .acoes{display:flex;flex-direction:column;gap:.8rem;position:relative;z-index:1;max-width:320px;justify-self:end;width:100%}
@@ -333,7 +340,6 @@ footer a:hover{color:var(--tinta)}
   .faq-grid{grid-template-columns:1fr;gap:2rem}
   .cta-caixa{grid-template-columns:1fr;padding:3rem 1.8rem}
   .cta-caixa .acoes{justify-self:start}
-  .cta-caixa::after{width:200px;height:200px;right:-50px;bottom:-50px;opacity:.5}
   .faq-grid details p{padding-right:0}
 }
 @media (max-width:520px){
@@ -345,8 +351,6 @@ footer a:hover{color:var(--tinta)}
 
 /* ===== Animações ===== */
 @property --p{syntax:"<number>";inherits:false;initial-value:98}
-.hero::before{animation:grelha 30s linear infinite}
-@keyframes grelha{to{background-position:56px 56px,56px 56px}}
 .hero-texto > *{animation:entra .8s cubic-bezier(.2,.8,.2,1) both}
 .hero-texto > :nth-child(1){animation-delay:.05s}
 .hero-texto > :nth-child(2){animation-delay:.15s}
@@ -354,8 +358,6 @@ footer a:hover{color:var(--tinta)}
 .hero-texto > :nth-child(4){animation-delay:.42s}
 .hero-texto > :nth-child(5){animation-delay:.54s}
 @keyframes entra{from{opacity:0;transform:translateY(24px);filter:blur(6px)}to{opacity:1;transform:none;filter:none}}
-.hero h1 .tipo{background:linear-gradient(90deg,#8AB4FF,#C7DBFF,#8AB4FF);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:brilho 6s ease-in-out infinite}
-@keyframes brilho{50%{background-position:100% 0}}
 .telemovel{animation:sobe 1s .2s cubic-bezier(.2,.8,.2,1) both,flutua 6s 1.4s ease-in-out infinite}
 @keyframes flutua{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 .selo-pagespeed{animation:sobe 1s .35s cubic-bezier(.2,.8,.2,1) both,flutua 7s 2s ease-in-out infinite}
@@ -388,62 +390,194 @@ footer a:hover{color:var(--tinta)}
 .servico:hover .ico{transform:translateY(-4px) rotate(-6deg);background:var(--damasco);color:#fff}
 .ex .mini{transition:transform .5s cubic-bezier(.2,.8,.2,1)}
 .ex:hover .mini{transform:scale(1.03)}
-.btn-damasco{position:relative;overflow:hidden}
-.btn-damasco::after{content:"";position:absolute;top:0;left:-60%;width:40%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:skewX(-20deg);transition:left .6s ease}
-.btn-damasco:hover::after{left:120%}
 .plano .conteudo{animation:abre .45s cubic-bezier(.2,.8,.2,1)}
 @keyframes abre{from{opacity:0;transform:translateY(-10px)}to{opacity:1;transform:none}}
 .logo-svg{transition:transform .4s cubic-bezier(.3,1.6,.5,1)}
 .logo:hover .logo-svg{transform:rotate(-10deg) scale(1.08)}
 @media (max-width:980px){.faixa-in{gap:1rem}.faixa p{display:none}}
-@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}.js .passos li::before,.passos::before{transform:none}.hero h1 .tipo{color:#8AB4FF}}
+@media (prefers-reduced-motion:reduce){.js .rv{opacity:1;transform:none}.js .passos li::before,.passos::before{transform:none}}
 
-/* Degradê azul · preto · branco com ruído */
+/* ===== Identidade Bagatela ===== */
 :root{
   --ruido:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .5 0 0 0 0 .5 0 0 0 0 .5 0 0 0 .9 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  --degrade:linear-gradient(135deg,#2563EB 0%,#0A0F1C 100%);
-  --degrade-hover:linear-gradient(135deg,#0A0F1C 0%,#2563EB 100%);
-  --fundo-escuro:
-    radial-gradient(900px 620px at 88% 0%,rgba(37,99,235,.85),transparent 62%),
-    radial-gradient(760px 520px at 0% 100%,rgba(255,255,255,.2),transparent 62%),
-    radial-gradient(600px 420px at 55% 55%,rgba(37,99,235,.25),transparent 70%),
-    linear-gradient(160deg,#0A0F1C 0%,#000 100%);
+  --degrade:var(--lilas-forte);
+  --degrade-hover:var(--lilas-escuro);
+  --fundo-escuro:radial-gradient(760px 520px at 92% 0%,rgba(155,123,255,.5),transparent 64%),var(--preto);
+  --sombra-sticker:4px 4px 0 var(--accent);
 }
-body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;background-image:var(--ruido);opacity:.09}
-.hero,.plano.top,.cta-caixa{background:var(--fundo-escuro)}
-.plano.top{background-color:#07090F}
-.btn-damasco,.btn-escuro,.hero .pill b,.plano.top .etq,.passos li::before{background:var(--degrade);color:#fff}
-.btn-damasco:hover,.btn-escuro:hover{background:var(--degrade-hover)}
-.faq-grid details[open] summary .mais{background:var(--degrade);border-color:transparent}
-.servico:hover .ico{background:var(--degrade);color:#fff}
-.hero h1 .tipo{background:linear-gradient(90deg,#2563EB,#8AB4FF,#fff,#8AB4FF,#2563EB);background-size:200% 100%;-webkit-background-clip:text;background-clip:text;color:transparent}
-.hero .pill b,.plano.top .etq{border:1px solid rgba(255,255,255,.25)}
-.passos li::before{color:#fff}
+::selection{background:var(--accent);color:var(--accent-tinta)}
+body::after{content:"";position:fixed;inset:0;z-index:9999;pointer-events:none;background-image:var(--ruido);opacity:.07}
+h1,h2{text-wrap:balance}
+header a:focus-visible,.hero a:focus-visible,.cta-caixa a:focus-visible,footer a:focus-visible,.exemplos a:focus-visible,.hero button:focus-visible,.nav-toggle:focus-visible{outline-color:var(--accent)}
+.hero{background:var(--fundo-escuro)}
+.hero .pill{border-color:rgba(247,242,233,.22)}
+.hero h1{font-size:clamp(2.5rem,5.6vw,4.7rem);max-width:15ch}
+.hero h1 .tipo{color:var(--lilas-claro)}
+.plano .valor{letter-spacing:-.02em}
+.faixa{background:var(--creme-2)}
+
+/* botões */
+.btn{transition:transform .18s ease,box-shadow .18s ease,background .18s ease,border-color .18s ease}
+.btn-damasco{background:var(--lilas-forte);color:#fff}
+.btn-damasco:hover{background:var(--lilas-escuro);transform:translate(-2px,-2px);box-shadow:var(--sombra-sticker)}
+.btn-damasco:active{transform:none;box-shadow:none}
+.btn-escuro{background:var(--preto);color:#fff}
+.btn-escuro:hover{background:var(--preto-2)}
+.btn-contorno:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--preto)}
+.btn.seta::after{content:"→";display:inline-block;transition:transform .2s ease}
+.btn.seta:hover::after{transform:translateX(5px)}
+.ver-ex::after{content:"→";display:inline-block;margin-left:.4em;transition:transform .2s ease}
+.ver-ex:hover::after{transform:translateX(4px)}
+
+/* A Etiqueta: elemento gráfico da marca */
+.tag{--tag-bg:var(--accent);white-space:nowrap;display:inline-flex;align-items:center;padding:.34rem .9rem .34rem 1.65rem;font:700 .72rem/1 var(--display);letter-spacing:.09em;text-transform:uppercase;color:var(--accent-tinta);background:radial-gradient(circle at .85rem 50%,transparent 0 .17rem,var(--tag-bg) calc(.17rem + .5px));clip-path:polygon(.7rem 0,100% 0,100% 100%,.7rem 100%,0 50%)}
+.tag.lilas{--tag-bg:var(--lilas-forte);color:#fff}
+.tag.creme{--tag-bg:var(--creme-2);color:var(--preto)}
+.sec-cab h2 .tag,.quem h2 .tag,.faq-grid h2 .tag{display:flex;width:fit-content;margin-bottom:1.1rem}
+.exemplos .sec-cab h2 .tag{--tag-bg:var(--accent);color:var(--accent-tinta)}
+.hero .pill b.tag{padding-right:.8rem;margin-right:.1rem}
+
+/* carimbo (hero e quem somos) */
+.carimbo{position:absolute;left:-12px;top:6px;z-index:3;width:104px;height:104px;border-radius:50%;background:var(--accent);color:var(--accent-tinta);display:grid;place-items:center;text-align:center;rotate:-12deg;box-shadow:0 0 0 3px var(--preto),0 0 0 5px var(--accent);font-family:var(--display);translate:0 var(--py,0px);animation:carimbo .7s .9s cubic-bezier(.3,1.6,.5,1) both}
+.carimbo b{display:block;font-size:2.2rem;line-height:.9}
+.carimbo span{display:block;font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;line-height:1.15;max-width:70px;margin-top:.15rem}
+@keyframes carimbo{from{opacity:0;scale:1.7;rotate:-35deg}to{opacity:1;scale:1;rotate:-12deg}}
+.palco .telemovel{translate:0 var(--py,0px)}
+.palco .selo-pagespeed{translate:0 calc(var(--py,0px)*-.6)}
+
+/* serviços */
+.servico .ico{background:var(--lilas-pastel);color:var(--lilas-escuro)}
+.servico:hover .ico{background:var(--lilas-forte);color:#fff}
+
+/* projetos: coleção BAGATELA #00X */
+.exemplos{background:var(--preto)}
+.exemplos .sec-cab h2{color:var(--creme)}
+.exemplos .sec-cab p{color:rgba(247,242,233,.74)}
+.ex{background:var(--creme);border-color:transparent;transition:transform .3s cubic-bezier(.2,.8,.2,1),box-shadow .3s ease}
+.ex:hover{transform:translateY(-6px) rotate(-.5deg);box-shadow:6px 6px 0 var(--accent)}
+.ex-id{display:flex;justify-content:space-between;align-items:center;gap:.5rem;margin:1.2rem .4rem 0;font:700 .74rem var(--display);letter-spacing:.12em;text-transform:uppercase;color:var(--lilas-forte)}
+.ex-id i{font-style:normal;font-weight:600;letter-spacing:.06em;border:1px solid currentColor;border-radius:999px;padding:.12rem .6rem;color:var(--texto)}
+.ex h3{margin-top:.45rem}
+.ex .ex-meta{font-size:.85rem;margin:.1rem .4rem .55rem}
+.ex-meta span{font-weight:600;color:var(--preto)}
+
+/* processo */
+.passos li::before{background:var(--preto);color:var(--accent);box-shadow:0 0 0 8px var(--creme)}
+
+/* preços: 179 entrada, 299 recomendado, 599 e-commerce */
+.precos{background:var(--lilas-pastel)}
+.plano{transition:box-shadow .25s ease,border-color .25s ease,transform .25s cubic-bezier(.2,.8,.2,1)}
+.plano:hover{transform:translateY(-4px)}
+.plano summary .tag{margin-bottom:1.1rem}
+.plano.top{background:var(--preto);border:2px solid var(--lilas);box-shadow:8px 8px 0 var(--lilas)}
+.plano.top:hover{box-shadow:10px 10px 0 var(--lilas)}
+.plano.top .etq{position:absolute;top:-15px;right:1.4rem;rotate:3deg;background:radial-gradient(circle at .85rem 50%,transparent 0 .17rem,var(--accent) calc(.17rem + .5px));color:var(--accent-tinta);padding:.4rem .9rem .4rem 1.65rem;border-radius:0;font-size:.74rem}
+.plano.top .prazo{background:rgba(255,255,255,.08)}
+@media (min-width:981px){.plano.top{transform:translateY(-14px)}.plano.top:hover{transform:translateY(-18px)}}
+.faq-grid details[open] summary .mais{background:var(--lilas-forte);border-color:var(--lilas-forte)}
+
+/* quem está por trás */
+.quem-grid{grid-template-columns:.85fr 1.15fr}
+.quem-grid>*{min-width:0}
+.quem-marca{margin:0;border-radius:var(--r-lg);background:var(--lilas);aspect-ratio:1;position:relative;display:grid;place-items:center;overflow:hidden}
+.quem-marca svg{width:62%;height:auto;rotate:-8deg;filter:drop-shadow(8px 8px 0 rgba(20,16,31,.28));transition:rotate .5s cubic-bezier(.3,1.6,.5,1)}
+.quem-marca:hover svg{rotate:-2deg}
+.quem-marca .carimbo{left:auto;right:7%;top:auto;bottom:8%;rotate:10deg;animation:none;translate:none;box-shadow:0 0 0 3px var(--lilas),0 0 0 5px var(--preto)}
+.cadeia{list-style:none;padding:0;margin:1.8rem 0 0;display:flex;flex-wrap:wrap;gap:.7rem .5rem;align-items:center}
+.cadeia li{display:flex;align-items:center;gap:.5rem;font:600 .98rem var(--display);color:var(--preto)}
+.cadeia li span{background:#fff;border:1.5px solid var(--preto);border-radius:999px;padding:.4rem .9rem}
+.cadeia li:last-child span{background:var(--accent)}
+.cadeia li:not(:last-child)::after{content:"→";color:var(--lilas-forte);font-weight:700}
+
+/* contacto final */
+.cta-caixa{background:var(--lilas-forte)}
+.cta-caixa::after{content:"";position:absolute;right:-110px;bottom:-130px;width:340px;height:340px;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Cpath d='M18 6h42l32 32v48a8 8 0 0 1-8 8H18a8 8 0 0 1-8-8V14a8 8 0 0 1 8-8z' fill='none' stroke='white' stroke-width='3'/%3E%3Ccircle cx='66' cy='22' r='6' fill='none' stroke='white' stroke-width='3'/%3E%3C/svg%3E") no-repeat center/contain;opacity:.2;rotate:-14deg;pointer-events:none}
+.cta-caixa p{color:#F1EBFF}
+.cta-caixa .contactos a{color:#fff}
+.cta-caixa .btn-damasco{background:var(--accent);color:var(--accent-tinta)}
+.cta-caixa .btn-damasco:hover{background:#FFE37A;box-shadow:4px 4px 0 var(--preto)}
+
+/* rodapé com assinatura */
+footer{background:var(--preto);color:rgba(247,242,233,.72);border-top:0;padding:3.2rem 0 2.4rem}
+footer .logo{color:#fff}
+footer a:hover{color:#fff}
+footer .assinatura{flex:1 1 100%;font:700 clamp(1.6rem,3.6vw,2.6rem)/1.1 var(--display);letter-spacing:-.02em;color:var(--creme);max-width:24ch;margin:0 0 1.8rem}
+footer .assinatura::before{content:"";display:block;width:2.4rem;height:6px;border-radius:3px;background:var(--accent);margin-bottom:1rem}
+
+/* navegação móvel */
+.nav-toggle{display:none;width:44px;height:44px;border:1px solid rgba(255,255,255,.22);border-radius:12px;background:transparent;cursor:pointer;padding:0;place-items:center;align-content:center;gap:4px}
+.nav-toggle span{display:block;width:18px;height:2px;border-radius:2px;background:#fff;transition:transform .2s ease,opacity .2s ease}
+.nav-toggle[aria-expanded="true"] span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle[aria-expanded="true"] span:nth-child(2){opacity:0}
+.nav-toggle[aria-expanded="true"] span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+@media (max-width:980px){
+  .nav-toggle{display:grid}
+  .nav{position:relative}
+  .nav-links{display:none;position:absolute;top:100%;left:0;right:0;flex-direction:column;gap:0;background:var(--preto);padding:.3rem 1.5rem 1rem;border-bottom:1px solid rgba(255,255,255,.1)}
+  .nav-links.aberto{display:flex}
+  .nav-links a{display:block;padding:.9rem 0;font-size:1.1rem;border-bottom:1px solid rgba(255,255,255,.08)}
+  .idiomas{margin-left:auto}
+  .carimbo{width:88px;height:88px;left:0}
+  .carimbo b{font-size:1.8rem}
+  .quem-grid{grid-template-columns:1fr}
+  .quem-marca{max-width:380px}
+}
+@media (min-width:600px) and (max-width:980px){
+  .servicos-grid,.galeria{grid-template-columns:1fr 1fr}
+  .planos{max-width:620px;margin-inline:auto}
+}
+@media (max-width:520px){
+  .palco .telemovel{display:none}
+  .browser{right:0}
+  .plano .valor small{display:block;margin:.4rem 0 0}
+  .extras table{min-width:0}
+  .extras th,.extras td{padding:.9rem 1rem}
+  .carimbo{width:72px;height:72px;left:0;top:-4px}
+  .carimbo b{font-size:1.5rem}
+  .carimbo span{font-size:.5rem;max-width:56px}
+  .selo-pagespeed{padding:.6rem .8rem;gap:.55rem;right:0}
+  .selo-pagespeed .anel{width:42px;height:42px}
+  .selo-pagespeed .anel span{width:32px;height:32px;font-size:.8rem}
+  .selo-pagespeed strong{font-size:.82rem}
+  .selo-pagespeed small{font-size:.7rem}
+  .cadeia{gap:.6rem .4rem}
+  .cadeia li{font-size:.9rem}
+  .logo{font-size:1.25rem;gap:.5rem}
+  .idiomas a{padding:.25rem .45rem;font-size:.72rem}
+  .nav{gap:.6rem}
+  .cta-caixa{border-radius:28px}
+  .cta-caixa::after{width:220px;height:220px;right:-50px;bottom:-60px}
+  .plano.top{box-shadow:5px 5px 0 var(--lilas)}
+}
+@media (max-width:400px){
+  .wrap{padding:0 1rem}
+  .nav{gap:.35rem}
+  .logo{font-size:1.1rem;gap:.4rem}
+  .logo-svg{width:26px;height:26px}
+  .idiomas{padding:.15rem}
+  .idiomas a{padding:.25rem .32rem;font-size:.68rem}
+  .nav-toggle{width:40px;height:40px}
+}
+@media (max-width:340px){.nav .logo{font-size:0;gap:0}.nav .logo-svg{width:30px;height:30px}}
+@media (prefers-reduced-motion:reduce){.carimbo{animation:none}.palco .telemovel,.palco .selo-pagespeed,.carimbo{translate:none}}
 
 /* Exemplos, Quem somos, formulário */
 .ver-ex{display:inline-block;margin:.8rem .4rem 0;font-weight:600;color:var(--damasco);text-decoration:none}
 .ver-ex:hover{text-decoration:underline}
-.quem-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:center}
+.quem-grid{display:grid;gap:4rem;align-items:center}
 .quem h2{font-size:clamp(2rem,4vw,3rem);font-weight:700;margin-bottom:1.2rem}
 .quem p{font-size:1.1rem;max-width:50ch}
-.quem-lista{list-style:none;padding:0;margin:1.6rem 0 0;display:grid;gap:.8rem}
-.quem-lista li{padding-left:1.4rem;position:relative}
-.quem-lista li::before{content:"";position:absolute;left:0;top:.7em;width:8px;height:8px;border-radius:50%;background:var(--degrade)}
-.quem-lista b{color:var(--tinta)}
-.quem-foto{margin:0;border-radius:var(--r-lg);overflow:hidden;aspect-ratio:9/10;background:var(--fundo-escuro);position:relative}
-.quem-foto img{width:100%;height:100%;object-fit:cover;display:block}
-.quem-foto .ph{display:grid;place-items:center;position:absolute;inset:0;font:700 6rem var(--display);color:rgba(255,255,255,.85)}
 .contactos{margin-top:1.4rem;font-size:1.15rem;line-height:1.8}
 .contactos a{text-decoration:none;font-weight:600}
 .contactos a:hover{text-decoration:underline}
 dialog#form-dlg{border:0;border-radius:var(--r-lg);padding:0;width:min(520px,calc(100% - 2rem));max-height:calc(100% - 2rem);background:var(--branco);color:var(--texto);box-shadow:0 40px 90px -20px rgba(0,0,0,.6)}
-dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
+dialog#form-dlg::backdrop{background:rgba(20,16,31,.7);backdrop-filter:blur(4px)}
 #form-contacto{padding:2rem;display:grid;gap:1rem;position:relative}
 #form-contacto h2{font-size:1.8rem}
 #form-contacto .sub{margin-top:-.6rem}
 #form-contacto label{display:grid;gap:.35rem;font-weight:600;font-size:.95rem;color:var(--tinta)}
 #form-contacto input,#form-contacto select,#form-contacto textarea{font:inherit;font-weight:400;padding:.75rem .9rem;border:1.5px solid var(--salvia-2);border-radius:12px;background:var(--gelo);color:var(--tinta);width:100%}
-#form-contacto input:focus,#form-contacto select:focus,#form-contacto textarea:focus{outline:3px solid rgba(37,99,235,.35);border-color:var(--damasco)}
+#form-contacto input:focus,#form-contacto select:focus,#form-contacto textarea:focus{outline:3px solid rgba(107,70,229,.35);border-color:var(--damasco)}
 #form-contacto .invalido{border-color:#C62828}
 #form-contacto .mel{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
 #form-contacto .aviso{font-size:.85rem}
@@ -452,7 +586,6 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
 #form-contacto .estado.ok{color:#1E7A47}
 #form-contacto .estado.erro{color:#C62828}
 .fechar-dlg{position:absolute;top:1rem;right:1rem;width:40px;height:40px;border:0;border-radius:50%;background:var(--gelo);font-size:1.6rem;line-height:1;cursor:pointer;color:var(--tinta)}
-@media (max-width:980px){.quem-grid{grid-template-columns:1fr;gap:2.4rem}.quem-foto{max-width:420px}}
 
 /* Seletor de idioma */
 .idiomas{display:flex;gap:.2rem;padding:.2rem;border:1px solid rgba(255,255,255,.18);border-radius:999px}
@@ -462,7 +595,7 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
 
 /* Assistente */
 .bot{position:fixed;right:1.2rem;bottom:1.2rem;z-index:10000;font-family:var(--corpo)}
-.bot-btn{width:60px;height:60px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:var(--degrade);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 34px -8px rgba(37,99,235,.65);transition:transform .15s ease}
+.bot-btn{width:60px;height:60px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:var(--degrade);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 14px 34px -8px rgba(107,70,229,.65);transition:transform .15s ease}
 .bot-btn:hover{transform:scale(1.06)}
 .bot-btn:focus-visible,.bot-x:focus-visible,.bot-opcoes button:focus-visible{outline:3px solid var(--azul-claro);outline-offset:2px}
 .bot-painel{position:absolute;right:0;bottom:76px;width:min(380px,calc(100vw - 2.4rem));max-height:min(560px,calc(100vh - 7rem));display:flex;flex-direction:column;background:var(--branco);border-radius:22px;box-shadow:0 30px 70px -15px rgba(0,0,0,.55);overflow:hidden;border:1px solid var(--salvia)}
@@ -492,10 +625,10 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
 <header>
   <nav class="wrap nav" aria-label="Navegación principal">
     <a class="logo" href="./" aria-label="Bagatela, página de inicio">
-      <svg class="logo-svg" width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="8" fill="#2563EB"/><rect x="8" y="5" width="4.2" height="19" rx="2.1" fill="#fff"/><circle cx="16.5" cy="18" r="5.3" fill="none" stroke="#8AB4FF" stroke-width="4.2"/></svg>
+      <svg class="logo-svg" width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><path fill-rule="evenodd" d="M6 0h13.5L32 12.5V26a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6V6a6 6 0 0 1 6-6zM24.5 5.1a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8z" fill="#6B46E5"/><rect x="8.5" y="7" width="4.2" height="18.5" rx="2.1" fill="#F7F2E9"/><circle cx="17" cy="19.5" r="5.1" fill="none" stroke="#FFD84D" stroke-width="4.2"/></svg>
       Bagatela
     </a>
-    <ul class="nav-links">
+    <ul class="nav-links" id="nav-links">
       <li><a href="#servicos">Servicios</a></li>
       <li><a href="#exemplos">Ejemplos</a></li>
       <li><a href="#precos">Precios</a></li>
@@ -508,7 +641,8 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
       <a href="../fr/" hreflang="fr" lang="fr">FR</a>
       <a href="./" hreflang="es" lang="es" aria-current="true">ES</a>
     </div>
-    <a class="btn btn-damasco js-form" href="#contacto">Habla con nosotros</a>
+    <a class="btn btn-damasco seta js-form" href="#contacto">Hablemos</a>
+    <button type="button" class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Abrir menú"><span></span><span></span><span></span></button>
   </nav>
 </header>
 
@@ -516,12 +650,12 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
   <section class="hero" aria-labelledby="h1">
     <div class="wrap hero-grid">
       <div class="hero-texto">
-        <p class="pill"><b>Desde 179€</b> Sitios web en línea en pocos días</p>
-        <h1 id="h1">Sitios web profesionales <span class="tipo">a precio de ganga.</span></h1>
-        <p class="lead">Creamos el sitio web de tu negocio a medida: rápido, atractivo en el móvil y preparado para que te encuentren en Google. Sin jerga técnica y sin sorpresas en la factura.</p>
+        <p class="pill"><b class="tag">Desde 179€</b> Sitios web en línea en pocos días</p>
+        <h1 id="h1">Sitios web profesionales. <span class="tipo">A precio de ganga.</span></h1>
+        <p class="lead">Sitios web a medida para pequeños negocios: rápidos, atractivos en el móvil y listos para Google. Sin jerga técnica, sin agencias caras y sin sorpresas en la factura.</p>
         <div class="acoes">
-          <a class="btn btn-damasco js-form" href="#contacto">Empezar mi sitio web</a>
-          <a class="btn btn-linha" href="#precos">Ver planes y precios</a>
+          <a class="btn btn-damasco seta js-form" href="#contacto">Quiero mi sitio web</a>
+          <a class="btn btn-linha seta" href="#precos">¿Cuánto cuesta esta bagatela?</a>
         </div>
         <ul class="garantias">
           <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sin cuotas mensuales obligatorias</li>
@@ -530,6 +664,7 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
       </div>
 
       <div class="palco" aria-hidden="true">
+        <div class="carimbo"><div><b>€</b><span>Precio cerrado</span></div></div>
         <div class="selo-pagespeed">
           <div class="anel"><span id="score">98</span></div>
           <div><strong>Velocidad</strong><small>Google PageSpeed</small></div>
@@ -573,7 +708,7 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
   <section class="sec" id="servicos" aria-labelledby="h-servicos">
     <div class="wrap">
       <div class="sec-cab rv">
-        <h2 id="h-servicos">Todo lo que necesita un buen sitio web.</h2>
+        <h2 id="h-servicos"><span class="tag lilas" aria-hidden="true">#01</span>Todo lo que necesita un buen sitio web.</h2>
         <p>Nos encargamos de la parte técnica de principio a fin. Tendrás un sitio web que trabaja por ti, incluso con la puerta cerrada.</p>
       </div>
       <div class="servicos-grid">
@@ -614,21 +749,33 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
   <section class="sec exemplos" id="exemplos" aria-labelledby="h-exemplos">
     <div class="wrap">
       <div class="sec-cab rv">
-        <h2 id="h-exemplos">Un estilo para cada negocio.</h2>
-        <p>Nada de plantillas iguales para todos. Abre los ejemplos y mira cómo cada sitio se diseña en torno al negocio.</p>
+        <h2 id="h-exemplos"><span class="tag lilas" aria-hidden="true">#02</span>Un estilo para cada negocio.</h2>
+        <p>Nada de plantillas iguales para todos. Abre los ejemplos y mira cómo se diseña cada sitio en torno al negocio. Son proyectos conceptuales que hemos creado para mostrar lo que hacemos.</p>
       </div>
       <div class="galeria">
         <article class="ex rv">
           <div class="mini m1" aria-hidden="true"><span class="t">Restaurante O Farol</span><span class="l"></span><span class="l c"></span><span class="b"></span><div class="blocos"><span></span><span></span><span></span></div></div>
-          <h3>Restauración</h3><p>Carta, reservas y horario a la vista.</p><a class="ver-ex" href="../exemplos/restaurante.html">Ver ejemplo (en portugués) →</a>
+          <p class="ex-id"><span>BAGATELA #001</span><i>Concepto</i></p>
+          <h3>Restaurante O Farol</h3>
+          <p class="ex-meta"><span>Restauración</span> · Website / Design</p>
+          <p>Carta, reservas y horario a la vista.</p>
+          <a class="ver-ex" href="../exemplos/restaurante.html">Ver ejemplo (en portugués)</a>
         </article>
         <article class="ex rv">
           <div class="mini m2" aria-hidden="true"><span class="t">Estúdio Rosa Beauty</span><span class="l"></span><span class="l c"></span><span class="b"></span><div class="blocos"><span></span><span></span><span></span></div></div>
-          <h3>Belleza y estética</h3><p>Servicios, precios y reservas online.</p><a class="ver-ex" href="../exemplos/beleza.html">Ver ejemplo (en portugués) →</a>
+          <p class="ex-id"><span>BAGATELA #002</span><i>Concepto</i></p>
+          <h3>Estúdio Rosa Beauty</h3>
+          <p class="ex-meta"><span>Belleza y estética</span> · Website / Design</p>
+          <p>Servicios, precios y reservas online.</p>
+          <a class="ver-ex" href="../exemplos/beleza.html">Ver ejemplo (en portugués)</a>
         </article>
         <article class="ex rv">
           <div class="mini m3" aria-hidden="true"><span class="t">Canalizações Silva</span><span class="l"></span><span class="l c"></span><span class="b"></span><div class="blocos"><span></span><span></span><span></span></div></div>
-          <h3>Servicios técnicos</h3><p>Zonas de servicio y contacto rápido.</p><a class="ver-ex" href="../exemplos/servicos.html">Ver ejemplo (en portugués) →</a>
+          <p class="ex-id"><span>BAGATELA #003</span><i>Concepto</i></p>
+          <h3>Canalizações Silva</h3>
+          <p class="ex-meta"><span>Servicios técnicos</span> · Website / Design</p>
+          <p>Zonas de servicio y contacto rápido.</p>
+          <a class="ver-ex" href="../exemplos/servicos.html">Ver ejemplo (en portugués)</a>
         </article>
       </div>
     </div>
@@ -637,7 +784,7 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
   <section class="sec" aria-labelledby="h-processo">
     <div class="wrap">
       <div class="sec-cab rv">
-        <h2 id="h-processo">Sencillo, de principio a fin.</h2>
+        <h2 id="h-processo"><span class="tag lilas" aria-hidden="true">#03</span>Sencillo, de principio a fin.</h2>
         <p>Tres pasos y tu negocio está en línea. Nos ocupamos de todo personalmente.</p>
       </div>
       <ol class="passos rv">
@@ -651,12 +798,13 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
   <section class="sec precos" id="precos" aria-labelledby="h-precos">
     <div class="wrap">
       <div class="sec-cab rv">
-        <h2 id="h-precos">Precios claros, sin letra pequeña.</h2>
+        <h2 id="h-precos"><span class="tag lilas" aria-hidden="true">#04</span>Precios claros, sin letra pequeña.</h2>
         <p>Pago único por el sitio web. Toca un plan para ver todo lo que incluye.</p>
       </div>
       <div class="planos">
         <details class="rv plano">
           <summary>
+            <span class="tag creme">Para empezar</span>
             <h3>Esencial</h3>
             <p class="desc">Para tener presencia en internet.</p>
             <p class="valor">179€<small>pago único</small></p>
@@ -666,13 +814,13 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
           <div class="conteudo">
             <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Sitio de 1 página con hasta 5 secciones</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Diseño adaptado a móvil y tableta</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Botones de llamada, WhatsApp y correo</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Mapa de Google Maps integrado</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Enlaces a redes sociales</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>SEO básico: títulos, descripciones y velocidad</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Registro en Google Search Console</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Certificado de seguridad SSL</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Dominio .pt y alojamiento el primer año</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 ronda de cambios</li></ul>
             <p class="prazo">Entrega: <b>hasta 5 días laborables</b></p>
-            <a class="btn btn-contorno js-form" href="#contacto" data-servico="Essencial">Elegir Esencial</a>
+            <a class="btn btn-contorno seta js-form" href="#contacto" data-servico="Essencial">Quiero el Esencial</a>
           </div>
         </details>
         <details class="rv plano top">
           <summary>
-            <span class="etq">El más elegido</span><h3>Negocio</h3>
-            <p class="desc">El sitio completo para crecer.</p>
+            <span class="etq tag">Recomendado</span><h3>Negocio</h3>
+            <p class="desc">La mejor relación calidad-precio.</p>
             <p class="valor">299€<small>pago único</small></p>
             <p class="resumo">Hasta 5 páginas, con SEO local completo.</p>
             <span class="ver"><span><span class="abrir">Ver qué incluye</span><span class="fechar">Ocultar detalles</span></span><span class="mais" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></span>
@@ -680,11 +828,12 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
           <div class="conteudo">
             <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Todo lo del plan Esencial</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Hasta 5 páginas (p. ej.: Inicio, Servicios, Galería, Sobre nosotros, Contacto)</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Galería de fotografías</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Página de servicios con precios</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Formulario de contacto</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>SEO local completo para tu zona</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Creación del Perfil de Empresa en Google</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Estadísticas de visitas (Google Analytics)</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Política de privacidad y aviso de cookies (RGPD)</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>2 rondas de cambios</li></ul>
             <p class="prazo">Entrega: <b>hasta 10 días laborables</b></p>
-            <a class="btn btn-damasco js-form" href="#contacto" data-servico="Negócio">Elegir Negocio</a>
+            <a class="btn btn-damasco seta js-form" href="#contacto" data-servico="Negócio">Quiero el Negocio</a>
           </div>
         </details>
         <details class="rv plano">
           <summary>
+            <span class="tag creme">E-commerce</span>
             <h3>Tienda online</h3>
             <p class="desc">Para vender las 24 horas del día.</p>
             <p class="valor">599€<small>pago único</small></p>
@@ -694,7 +843,7 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
           <div class="conteudo">
             <ul><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Todo lo del plan Negocio</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Tienda online con hasta 50 productos</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Carrito de compra y pago</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Pagos con MB WAY, Multibanco y tarjeta</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Gestión de stock y gastos de envío</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Correos automáticos de confirmación de pedido</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Página de términos y condiciones y devoluciones</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>1 hora de formación para gestionar la tienda</li><li><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>3 rondas de cambios</li></ul>
             <p class="prazo">Entrega: <b>hasta 15 días laborables</b></p>
-            <a class="btn btn-contorno js-form" href="#contacto" data-servico="Loja Online">Elegir Tienda online</a>
+            <a class="btn btn-contorno seta js-form" href="#contacto" data-servico="Loja Online">Quiero la Tienda online</a>
           </div>
         </details>
       </div>
@@ -734,14 +883,18 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
 
   <section class="sec quem" id="quem-somos" aria-labelledby="h-quem">
     <div class="wrap quem-grid">
-      <div class="quem-foto rv" aria-hidden="true"><span class="ph">B</span></div>
+      <div class="quem-marca rv" aria-hidden="true">
+        <svg viewBox="0 0 32 32"><path fill-rule="evenodd" d="M6 0h13.5L32 12.5V26a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6V6a6 6 0 0 1 6-6zM24.5 5.1a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8z" fill="#14101F"/><rect x="8.5" y="7" width="4.2" height="18.5" rx="2.1" fill="#F7F2E9"/><circle cx="17" cy="19.5" r="5.1" fill="none" stroke="#FFD84D" stroke-width="4.2"/></svg>
+        <div class="carimbo"><div><b>€</b><span>Precio cerrado</span></div></div>
+      </div>
       <div class="rv">
-        <h2 id="h-quem">Un equipo pequeño, con atención personal a cada proyecto.</h2>
-        <p>Bagatela nació para demostrar que tener un sitio web profesional no tiene por qué costar una fortuna. Hablamos contigo directamente, sin intermediarios ni jerga técnica.</p>
-        <ul class="quem-lista">
-          <li><b>Precios claros.</b> Sabes lo que pagas antes de empezar.</li>
-          <li><b>Contacto directo.</b> La persona que hace tu sitio web es la que te responde.</li>
-          <li><b>A medida.</b> Cada negocio tiene su estilo.</li>
+        <h2 id="h-quem"><span class="tag lilas" aria-hidden="true">#05</span>¿Quién está detrás de Bagatela?</h2>
+        <p>Somos un equipo pequeño, lo que significa que cada proyecto recibe atención personal. Hablas directamente con quien hace tu sitio, sin intermediarios ni jerga.</p>
+        <ul class="cadeia">
+          <li><span>Equipo pequeño</span></li>
+          <li><span>Contacto directo</span></li>
+          <li><span>Menos burocracia</span></li>
+          <li><span>Precios más accesibles</span></li>
         </ul>
       </div>
     </div>
@@ -750,7 +903,7 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
   <section class="sec" id="faq" aria-labelledby="h-faq">
     <div class="wrap faq-grid rv">
       <div class="lado">
-        <h2 id="h-faq">Preguntas frecuentes</h2>
+        <h2 id="h-faq"><span class="tag lilas">Preguntas frecuentes</span>Antes de preguntar…</h2>
         <p>¿No encuentras la respuesta? <a class="js-form" href="#contacto">Habla con nosotros</a>, respondemos enseguida.</p>
       </div>
       <div>
@@ -767,7 +920,7 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
     <div class="wrap">
       <div class="cta-caixa rv">
         <div>
-          <h2 id="h-contacto">¿Ponemos tu negocio en línea?</h2>
+          <h2 id="h-contacto">Vamos a poner tu negocio en línea.</h2>
           <p>Cuéntanos lo que necesitas y nos pondremos en contacto contigo. Sin compromiso.</p>
           <p class="contactos">
             <a href="tel:+351917385546">917 385 546</a> · <a href="tel:+351932904463">932 904 463</a><br>
@@ -775,7 +928,7 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
           </p>
         </div>
         <div class="acoes">
-          <a class="btn btn-damasco js-form" href="mailto:geral@bagatela.pt">Rellenar el formulario</a>
+          <a class="btn btn-damasco seta js-form" href="mailto:geral@bagatela.pt">Hagamos negocio</a>
           <a class="btn btn-linha" href="https://wa.me/351917385546" rel="noopener">Hablar por WhatsApp</a>
           <a class="btn btn-linha" href="tel:+351917385546">Llamar ahora</a>
         </div>
@@ -844,8 +997,9 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
 
 <footer>
   <div class="wrap">
+    <p class="assinatura">Porque tener un buen sitio web no debería ser un lujo.</p>
     <a class="logo" href="./" aria-label="Bagatela, página de inicio">
-      <svg class="logo-svg" width="24" height="24" viewBox="0 0 30 30" aria-hidden="true"><rect width="30" height="30" rx="8" fill="#2563EB"/><rect x="8" y="5" width="4.2" height="19" rx="2.1" fill="#fff"/><circle cx="16.5" cy="18" r="5.3" fill="none" stroke="#8AB4FF" stroke-width="4.2"/></svg>
+      <svg class="logo-svg" width="28" height="28" viewBox="0 0 32 32" aria-hidden="true"><path fill-rule="evenodd" d="M6 0h13.5L32 12.5V26a6 6 0 0 1-6 6H6a6 6 0 0 1-6-6V6a6 6 0 0 1 6-6zM24.5 5.1a2.4 2.4 0 1 0 0 4.8 2.4 2.4 0 0 0 0-4.8z" fill="#6B46E5"/><rect x="8.5" y="7" width="4.2" height="18.5" rx="2.1" fill="#F7F2E9"/><circle cx="17" cy="19.5" r="5.1" fill="none" stroke="#FFD84D" stroke-width="4.2"/></svg>
       Bagatela
     </a>
     <nav aria-label="Pie de página">
@@ -979,6 +1133,27 @@ dialog#form-dlg::backdrop{background:rgba(7,9,15,.7);backdrop-filter:blur(4px)}
   btn.addEventListener('click',function(){ painel.hidden?abre():fecha(); });
   raiz.querySelector('.bot-x').addEventListener('click',function(){fecha();btn.focus();});
   document.addEventListener('keydown',function(e){ if(e.key==='Escape'&&!painel.hidden){fecha();btn.focus();} });
+})();
+</script>
+<script>
+(function(){
+  var t=document.querySelector('.nav-toggle'), l=document.getElementById('nav-links');
+  if(t&&l){
+    var fecha=function(){l.classList.remove('aberto');t.setAttribute('aria-expanded','false');};
+    t.addEventListener('click',function(){var a=l.classList.toggle('aberto');t.setAttribute('aria-expanded',a?'true':'false');});
+    l.addEventListener('click',function(e){if(e.target.closest('a'))fecha();});
+    document.addEventListener('keydown',function(e){if(e.key==='Escape')fecha();});
+  }
+  var reduz=window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var palco=document.querySelector('.palco'); if(!palco||reduz) return;
+  var tick=false;
+  window.addEventListener('scroll',function(){
+    if(tick) return; tick=true;
+    requestAnimationFrame(function(){
+      var y=window.scrollY; if(y<900) palco.style.setProperty('--py',(y*0.07).toFixed(1)+'px');
+      tick=false;
+    });
+  },{passive:true});
 })();
 </script>
 </body>

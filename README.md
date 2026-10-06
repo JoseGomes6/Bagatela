@@ -20,6 +20,13 @@ Site da Bagatela: criação de websites profissionais low cost para pequenos neg
 - `privacidade.html` (e `en/`, `fr/`, `es/`): política de privacidade.
 - `favicon.svg`, `og-image.png`, `robots.txt`, `sitemap.xml` (com `hreflang`).
 
+## Identidade visual
+
+- As cores da marca estão no início do CSS do `index.html` (`:root`, secção "Marca Bagatela"): `--lilas-forte` (ação), `--lilas`, `--creme`, `--preto` e `--accent` (amarelo, usar pontualmente). Para mudar a cor principal basta alterar essas variáveis.
+- Elemento gráfico próprio: **a Etiqueta** (classe `.tag`, logótipo com furo de etiqueta, carimbo "Preço fechado"). Aparece no logótipo, nos números das secções, nos planos, nos projetos (BAGATELA #00X), no carimbo do hero e no rodapé.
+- Tipografia: Familjen Grotesk (títulos) e Geist (texto).
+- `404.html`: página de erro com a voz da marca.
+
 ## Formulário de contacto
 
 Envia para `geral@bagatela.pt` através do [FormSubmit](https://formsubmit.co). No primeiro envio chega um e-mail de ativação a esse endereço: é preciso confirmá-lo uma vez.

@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="pt-PT">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>404 | Esta página saiu de bagatela | Bagatela</title>
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#14101F">
+<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--lilas-forte:#6B46E5;--lilas-claro:#C9B8FF;--creme:#F7F2E9;--preto:#14101F;--accent:#FFD84D;--accent-tinta:#2B2200}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;display:grid;place-items:center;padding:2rem 1.5rem;background:var(--preto);color:var(--creme);font-family:"Geist",system-ui,sans-serif;font-size:1.1rem;line-height:1.6;text-align:center;overflow-x:hidden}
+.tag{display:inline-flex;margin-bottom:1.4rem;padding:.4rem .9rem .4rem 1.65rem;font:700 .75rem/1 "Familjen Grotesk",system-ui,sans-serif;letter-spacing:.09em;text-transform:uppercase;color:var(--accent-tinta);background:radial-gradient(circle at .85rem 50%,transparent 0 .17rem,var(--accent) calc(.17rem + .5px));clip-path:polygon(.7rem 0,100% 0,100% 100%,.7rem 100%,0 50%)}
+h1{margin:0;font:700 clamp(5rem,22vw,11rem)/.9 "Familjen Grotesk",system-ui,sans-serif;letter-spacing:-.05em;color:var(--lilas-claro)}
+h1 span{display:inline-block;rotate:-8deg;animation:bamba 2.6s ease-in-out infinite}
+@keyframes bamba{50%{rotate:6deg}}
+h2{margin:1.2rem 0 .6rem;font:700 clamp(1.6rem,4.5vw,2.4rem)/1.1 "Familjen Grotesk",system-ui,sans-serif;letter-spacing:-.02em}
+p{margin:0 auto 2rem;max-width:36ch;color:rgba(247,242,233,.75)}
+.btn{display:inline-flex;align-items:center;gap:.6rem;min-height:52px;padding:0 1.6rem;border-radius:999px;background:var(--accent);color:var(--accent-tinta);font-weight:600;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}
+.btn::after{content:"→";transition:transform .2s ease}
+.btn:hover{transform:translate(-2px,-2px);box-shadow:4px 4px 0 var(--lilas-forte)}
+.btn:hover::after{transform:translateX(5px)}
+.btn:focus-visible{outline:3px solid var(--creme);outline-offset:3px}
+@media (prefers-reduced-motion:reduce){h1 span{animation:none}.btn{transition:none}}
+</style>
+</head>
+<body>
+<main>
+  <span class="tag">Erro 404</span>
+  <h1>4<span>0</span>4</h1>
+  <h2>Esta página saiu de bagatela.</h2>
+  <p>Nem por um preço simbólico a encontrámos. Talvez o endereço esteja errado, ou a página já mudou de sítio.</p>
+  <a class="btn" id="home" href="/">Voltar ao início</a>
+</main>
+<script>var b=location.pathname.indexOf("/LowCost-Website/")===0?"/LowCost-Website/":"/";document.getElementById("home").href=b;document.querySelector("link[rel=icon]").href=b+"favicon.svg";</script>
+</body>
+</html>
