@@ -9,7 +9,7 @@ export const PRIVACY: Record<"pt" | "en" | "fr" | "es", PrivacyContent> = {
     themeLabel: "Alterar entre modo claro e escuro",
     sections: [
       ["Quem somos", "A Bagatela cria websites para pequenos negócios em Portugal. Para qualquer questão sobre dados pessoais, contacta-nos em <a href=\"mailto:bagatela.geral@gmail.com\">bagatela.geral@gmail.com</a>."],
-      ["Que dados recolhemos", "Apenas os dados que nos envias através do formulário de contacto: nome, empresa, e-mail ou telefone, tipo de serviço pretendido e a mensagem. Se nos contactares por e-mail, ficamos também com os dados dessa conversa."],
+      ["Que dados recolhemos", "Apenas os dados que nos envias através do formulário de contacto: nome, empresa, e-mail ou telefone, tipo de serviço pretendido e a mensagem. Se nos contactares por e-mail, ficamos também com os dados dessa conversa. O site usa ainda estatísticas de visitas anónimas (Vercel Analytics), sem cookies e sem identificar pessoas."],
       ["Para que usamos os dados", "Exclusivamente para responder ao teu pedido e, se avançarmos juntos, preparar e acompanhar o teu projeto. Não enviamos publicidade nem partilhamos os teus dados para fins de marketing."],
       ["Fundamento legal", "O tratamento baseia-se no teu pedido de contacto e na execução de diligências pré-contratuais, nos termos do Regulamento Geral sobre a Proteção de Dados (RGPD)."],
       ["Com quem partilhamos", "O formulário é processado pelo serviço FormSubmit, que apenas encaminha a mensagem para o nosso e-mail. Não vendemos nem cedemos os teus dados a terceiros."],
@@ -28,7 +28,7 @@ export const PRIVACY: Record<"pt" | "en" | "fr" | "es", PrivacyContent> = {
     themeLabel: "Switch between light and dark mode",
     sections: [
       ["Who we are", "Bagatela builds websites for small businesses in Portugal. For any question about personal data, contact us at <a href=\"mailto:bagatela.geral@gmail.com\">bagatela.geral@gmail.com</a>."],
-      ["What data we collect", "Only the data you send us through the contact form: name, company, email or phone, the type of service you want and your message. If you contact us by email, we also keep the details of that conversation."],
+      ["What data we collect", "Only the data you send us through the contact form: name, company, email or phone, the type of service you want and your message. If you contact us by email, we also keep the details of that conversation. The site also uses anonymous visit statistics (Vercel Analytics), with no cookies and without identifying anyone."],
       ["What we use it for", "Solely to reply to your request and, if we go ahead together, to prepare and follow your project. We don't send advertising or share your data for marketing purposes."],
       ["Legal basis", "Processing is based on your request to be contacted and on pre-contractual steps, under the General Data Protection Regulation (GDPR)."],
       ["Who we share it with", "The form is processed by the FormSubmit service, which only forwards the message to our email. We don't sell or hand your data to third parties."],
@@ -47,7 +47,7 @@ export const PRIVACY: Record<"pt" | "en" | "fr" | "es", PrivacyContent> = {
     themeLabel: "Basculer entre mode clair et sombre",
     sections: [
       ["Qui sommes-nous", "Bagatela crée des sites web pour les petites entreprises au Portugal. Pour toute question sur les données personnelles, contactez-nous à <a href=\"mailto:bagatela.geral@gmail.com\">bagatela.geral@gmail.com</a>."],
-      ["Quelles données collectons-nous", "Uniquement les données que vous nous envoyez via le formulaire de contact : nom, entreprise, e-mail ou téléphone, type de service souhaité et message. Si vous nous contactez par e-mail, nous conservons aussi les données de cet échange."],
+      ["Quelles données collectons-nous", "Uniquement les données que vous nous envoyez via le formulaire de contact : nom, entreprise, e-mail ou téléphone, type de service souhaité et message. Si vous nous contactez par e-mail, nous conservons aussi les données de cet échange. Le site utilise également des statistiques de visites anonymes (Vercel Analytics), sans cookies et sans identifier personne."],
       ["Pourquoi les utilisons-nous", "Exclusivement pour répondre à votre demande et, si nous travaillons ensemble, préparer et suivre votre projet. Nous n'envoyons pas de publicité et ne partageons pas vos données à des fins de marketing."],
       ["Base juridique", "Le traitement repose sur votre demande de contact et sur des mesures précontractuelles, conformément au Règlement général sur la protection des données (RGPD)."],
       ["Avec qui les partageons-nous", "Le formulaire est traité par le service FormSubmit, qui se contente de transmettre le message à notre e-mail. Nous ne vendons ni ne cédons vos données à des tiers."],
@@ -66,7 +66,7 @@ export const PRIVACY: Record<"pt" | "en" | "fr" | "es", PrivacyContent> = {
     themeLabel: "Cambiar entre modo claro y oscuro",
     sections: [
       ["Quiénes somos", "Bagatela crea sitios web para pequeños negocios en Portugal. Para cualquier duda sobre datos personales, escríbenos a <a href=\"mailto:bagatela.geral@gmail.com\">bagatela.geral@gmail.com</a>."],
-      ["Qué datos recogemos", "Solo los datos que nos envías a través del formulario de contacto: nombre, empresa, correo o teléfono, tipo de servicio y mensaje. Si nos contactas por correo, también conservamos los datos de esa conversación."],
+      ["Qué datos recogemos", "Solo los datos que nos envías a través del formulario de contacto: nombre, empresa, correo o teléfono, tipo de servicio y mensaje. Si nos contactas por correo, también conservamos los datos de esa conversación. El sitio también usa estadísticas de visitas anónimas (Vercel Analytics), sin cookies y sin identificar a nadie."],
       ["Para qué usamos los datos", "Exclusivamente para responder a tu solicitud y, si seguimos adelante, preparar y acompañar tu proyecto. No enviamos publicidad ni compartimos tus datos con fines de marketing."],
       ["Base jurídica", "El tratamiento se basa en tu solicitud de contacto y en medidas precontractuales, conforme al Reglamento General de Protección de Datos (RGPD)."],
       ["Con quién los compartimos", "El formulario lo procesa el servicio FormSubmit, que solo reenvía el mensaje a nuestro correo. No vendemos ni cedemos tus datos a terceros."],

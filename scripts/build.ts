@@ -16,6 +16,8 @@ const publish = process.argv.includes("--publish");
 
 /** Aplica o tema guardado (ou o do sistema) antes de desenhar a página, para não piscar. */
 const THEME_INIT = `<script>try{var t=localStorage.getItem("bagatela-theme");if(t!=="dark"&&t!=="light")t=matchMedia("(prefers-color-scheme:dark)").matches?"dark":"light";document.documentElement.dataset.theme=t}catch(e){}</script>`;
+/** Estatísticas de visitas do Vercel (anónimas, sem cookies). O ficheiro é servido pelo próprio Vercel; fora dele dá 404 sem consequências. */
+const ANALYTICS = `<script>window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments)}</script><script defer src="/_vercel/insights/script.js"></script>`;
 const FONTS = `<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">`;
@@ -59,6 +61,7 @@ ${THEME_INIT}
 ${homeHead(lang, prefix)}
 ${FONTS}
 ${css}
+${ANALYTICS}
 </head>
 <body>
 <div id="root" data-lang="${lang}">${server.renderHome(lang)}</div>
@@ -77,7 +80,7 @@ ${css}
 <html lang="${HTML_LANG[lang]}"><head><meta charset="utf-8">${THEME_INIT}<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 ${privacyHead(lang, prefix)}
 <style>
-${privacyCss}</style></head><body>
+${privacyCss}</style>${ANALYTICS}</head><body>
 ${server.renderPrivacy(lang)}
 <script>document.getElementById("tema").onclick=function(){var r=document.documentElement,n=r.dataset.theme==="dark"?"light":"dark";r.dataset.theme=n;try{localStorage.setItem("bagatela-theme",n)}catch(e){}}</script>
 </body></html>
