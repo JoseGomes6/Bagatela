@@ -5,3 +5,8 @@ node_modules/
 .vercel/
 dist/
 dist-ssr/
+
+# Skills do Claude Code (só no ambiente local)
+.agents/
+.claude/skills/
+skills-lock.json
